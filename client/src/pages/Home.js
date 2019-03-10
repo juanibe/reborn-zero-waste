@@ -16,14 +16,13 @@ class Home extends Component {
           <h1>REBORN</h1>
           <h3>Be a part of the Zero-Waste movement</h3>
         </div>
-
         <div className="SignupText">
-          <div class="col">
+          <div className="col">
             <img src="/images/manufacturer.png" alt="manufacturer" />
           </div>
 
           <h1>Manufacturers</h1>
-          <p class="home">
+          <p className="home">
             List you excess fabric on the site, and work with talented designers
             to make new clothes. Earn more money from unused fabric, and be more
             eco-friendly and sustainable.
@@ -33,12 +32,12 @@ class Home extends Component {
             Register as a manufacturer
           </a>
 
-          <div class="col">
+          <div className="col">
             <img src="/images/designer.png" alt="designer" />
           </div>
 
           <h1>Designers</h1>
-          <p class="home">
+          <p className="home">
             Post your fabric requirements on the site, and receive updates
             whenever the fabric you need is listed on the site.
           </p>
