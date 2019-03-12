@@ -24,16 +24,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavbarHeader isLogged={this.getTheUser} />
+        <Home />
+        <Footer />
+
         <Switch>
           <Route
-            exact
             path="/signup"
             render={() => <Manufacturer getUser={this.getTheUser} />}
           />
+          <Route path="/reborn" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/concept" component={Concept} />
+          <Route path="/designer" component={Designer} />
         </Switch>
-        <NavbarHeader />
-        <Home />
-        <Footer />
       </div>
     );
   }
