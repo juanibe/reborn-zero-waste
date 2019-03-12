@@ -22,6 +22,16 @@ import {
 //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
 
 class NavbarHeader extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { loggedInUser: null }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+  }
+
+
   render() {
     return (
       <>
