@@ -11,38 +11,38 @@ const Footer = () => {
             <p>Blalala - SEO concept of Reborn in a line</p>
           </MDBCol>
           <MDBCol md="4">
-            <h5 className="title">Links</h5>
+            <h5 className="title">Support</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Link 1</a>
+                <a href="#!">Contact us</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
+                <a href="#!">Legal</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
+                <a href="#!">Privacy Policy</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="#!">Terms of use</a>
               </li>
             </ul>
           </MDBCol>
           <MDBCol md="4">
-            <h5 className="title">Links</h5>
+            <h5 className="title">Company</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Link 1</a>
+                <a href="#!">About Us</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
+                <a href="#!">Careers</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="#!">Press</a>
               </li>
             </ul>
+            <div className="footer-copyright text-center py-3">
+              © 2019 Reborn - Made in Berlin
+            </div>
           </MDBCol>
         </MDBRow>
       </MDBContainer>

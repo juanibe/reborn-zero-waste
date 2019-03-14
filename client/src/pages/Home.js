@@ -26,15 +26,13 @@ class Home extends Component {
                   </div>
 
                   <h1>Manufacturers</h1>
-                  <p class="home">
+                  <p class="/signup">
                     List you excess fabric on the site, and work with talented
                     designers to make new clothes. Earn more money from unused
                     fabric, and be more eco-friendly and sustainable.
                   </p>
 
-                  <a href="https://en.wiktionary.org/wiki/manufacturer">
-                    Register as a manufacturer
-                  </a>
+                  <a href="/signup">Register as a manufacturer</a>
                 </p>
               </MDBCol>
 
@@ -50,9 +48,7 @@ class Home extends Component {
                     updates whenever the fabric you need is listed on the site.
                   </p>
 
-                  <a href="https://en.wikipedia.org/wiki/Designer">
-                    Register as a designer
-                  </a>
+                  <a href="/signup">Register as a designer</a>
                 </p>
               </MDBCol>
             </div>

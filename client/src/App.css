@@ -32,41 +32,45 @@
   }
 }
 
-.container{
+.container {
   margin: 80px 0 0 0;
 }
 
-.signup-manufacturer-title{
+.signup-manufacturer-title {
   margin: 0 0 30px 0;
 }
 
-.located-in-manufacturer-public{
+.located-in-manufacturer-public {
   margin: 20px;
   font-size: 0.8em;
 }
 
-.send-message-title-manufacturer-public{
+.send-message-title-manufacturer-public {
   font-size: 0.9em;
   text-align: center;
 }
 
-.send-message-box-manufaturer-public{
+.send-message-box-manufaturer-public {
   margin: 10px;
 }
 
-.fabric-listed-manufacturer-public{
+.fabric-listed-manufacturer-public {
   text-align: justify;
 }
 
-.text-muted{
+.text-muted {
   font-size: 0.5em;
-  color:red;
+  color: red;
 }
 
-.login-container{
+.login-container {
   margin: 200px 0 0 0;
 }
 
-.signup-container{
+.signup-container {
   margin: 120px 0 0 0;
+}
+
+.bg-white {
+  margin: -60px;
 }

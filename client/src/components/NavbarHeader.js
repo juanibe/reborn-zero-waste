@@ -23,21 +23,20 @@ import {
 
 class NavbarHeader extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { loggedInUser: null }
+    super(props);
+    this.state = { loggedInUser: null };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
-
 
   render() {
     return (
       <>
         <Navbar className="bg-white" expand="lg">
           <Container>
-            <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
+            <NavbarBrand href="/" onClick={e => e.preventDefault()}>
               HOME
             </NavbarBrand>
             <button className="navbar-toggler" id="navbarColor05" type="button">
@@ -72,7 +71,7 @@ class NavbarHeader extends React.Component {
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/signup">
+                  <NavLink href="/signup" onClick={e => e.preventDefault()}>
                     Signup
                   </NavLink>
                 </NavItem>
