@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+//import "./public/Style.css";
 import Manufacturer from "./pages/Manufacturer";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
@@ -12,6 +13,8 @@ import Footer from "./components/Footer";
 import NavbarHeader from "./components/NavbarHeader";
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
+import Concept from './pages/Concept'
+import Designer from './pages/Designer'
 
 class App extends Component {
   constructor(props) {
