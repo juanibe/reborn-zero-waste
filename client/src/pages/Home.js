@@ -5,7 +5,7 @@
 // 4. Footer component
 
 import React, { Component } from "react";
-import { MDBRow, MDBCol } from "mdbreact";
+import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 
 class Home extends Component {
   render() {
