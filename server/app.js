@@ -13,7 +13,7 @@ const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const session = require('express-session');
 const cors = require('cors');
-
+const MongoStore = require('connect-mongo')(session);
 
 mongoose
   .connect('mongodb://localhost/server', { useNewUrlParser: true })
@@ -39,7 +39,8 @@ app.use(cookieParser());
 app.use(session({
   secret: "some secret goes here",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 app.use(passport.initialize());
