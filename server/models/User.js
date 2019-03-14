@@ -7,6 +7,13 @@ const projectSchema = new Schema({
 
 });
 
+projectSchema.options.toJSON = {
+    transform: function (doc, ret, options) {
+        delete ret.password;
+        return ret;
+    }
+};
+
 const User = mongoose.model('User', projectSchema);
 
 module.exports = User;
