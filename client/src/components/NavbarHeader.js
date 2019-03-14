@@ -72,7 +72,7 @@ class NavbarHeader extends React.Component {
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink href="/signup">
                     Signup
                   </NavLink>
                 </NavItem>
