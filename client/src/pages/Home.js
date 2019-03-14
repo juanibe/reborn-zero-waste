@@ -24,15 +24,13 @@ class Home extends Component {
                   <div class="col">
                     <img src="/images/manufacturer.png" alt="manufacturer" />
                   </div>
-
                   <h1>Manufacturers</h1>
                   <p class="home">
                     List you excess fabric on the site, and work with talented
                     designers to make new clothes. Earn more money from unused
                     fabric, and be more eco-friendly and sustainable.
                   </p>
-
-                  <a href="https://en.wiktionary.org/wiki/manufacturer">
+                  <a href="/signup">
                     Register as a manufacturer
                   </a>
                 </p>

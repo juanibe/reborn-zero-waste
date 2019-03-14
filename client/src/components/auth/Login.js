@@ -22,7 +22,7 @@ class Login extends Component {
             .then(response => {
                 this.setState({ username: "", password: "" });
                 this.props.getUser(response)
-                this.props.history.push('/')
+                this.props.history.push('/manufacturer')
                 console.log(this.props.history)
             })
             .catch(error => {
@@ -42,7 +42,6 @@ class Login extends Component {
                 <div className='row'>
                     <div className='col-4'></div>
                     <div className='col-4'>
-                        {this.state.error ? <h1>ERROR!</h1> : ""}
                         <Form onSubmit={this.handleFormSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control size="sm" type="email" placeholder="Enter email" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
@@ -51,13 +50,20 @@ class Login extends Component {
                                 <Form.Control size="sm" type="password" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
                             </Form.Group>
                             <input className="btn btn-primary" type="submit" value="Login"></input>
+                            <hr></hr>
+                            <div className='wrong-password'>
+                                {this.state.error ? <p>Your credentials are not correct.</p> : ""}
+                            </div>
                         </Form>
                     </div>
                     <div className='col-4'></div>
                 </div>
                 <br />
-                <p className='signup-message'>Don't have account? <Link to={"/signup"}> Signup</Link>
-                </p>
+                <div className='login-options'>
+                    <p className='signup-message'>Don't have account? <Link to={"/signup"}> Sign up</Link></p>
+                    <p>Forgot your password?...Then create a new account man</p>
+                </div>
+
             </div>
         )
     }

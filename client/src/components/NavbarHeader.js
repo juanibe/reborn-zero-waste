@@ -1,5 +1,8 @@
 import React from "react";
 
+
+import { Link } from 'react-router-dom';
+
 // reactstrap components
 import {
   Collapse,
@@ -30,14 +33,12 @@ class NavbarHeader extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
   }
-
-
   render() {
     return (
       <>
         <Navbar className="bg-white" expand="lg">
           <Container>
-            <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
+            <NavbarBrand href="/" >
               HOME
             </NavbarBrand>
             <button className="navbar-toggler" id="navbarColor05" type="button">
@@ -66,13 +67,13 @@ class NavbarHeader extends React.Component {
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink tag={Link} to="/login" >
                     Login
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="/signup">
+                  <NavLink tag={Link} to="/signup">
                     Signup
                   </NavLink>
                 </NavItem>

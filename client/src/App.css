@@ -63,10 +63,11 @@
   color:red;
 }
 
-.login-container{
-  margin: 200px 0 0 0;
+.login-options{
+  font-size: 0.6em;
 }
 
-.signup-container{
-  margin: 120px 0 0 0;
+.wrong-password{
+  color: red;
+  font-size: 0.8em;
 }

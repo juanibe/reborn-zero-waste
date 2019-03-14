@@ -53,24 +53,13 @@ class App extends Component {
     return (
       <div className="App">
         <NavbarHeader isLogged={this.getTheUser} />
-
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/login"
-            render={() => <Login getUser={this.getTheUser} />}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={() => <Signup getUser={this.getTheUser} />}
-          />
+          <Route exact path="/login" render={() => <Login getUser={this.getTheUser} />} />
+          <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser} />} />
           {/* <Route path="/concept" component={Concept} />
           <Route path="/designer" component={Designer} /> */}
         </Switch>
-
-        <Footer />
       </div>
     );
   }

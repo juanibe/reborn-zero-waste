@@ -40,7 +40,6 @@ class Signup extends Component {
                     <div className='col-4'></div>
                     <div className='col-4'>
                         <h4 className='signup-manufacturer-title'>Register as a <br /> manufacturer</h4>
-
                         <Form onSubmit={this.handleFormSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
@@ -50,12 +49,11 @@ class Signup extends Component {
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control size="sm" type="password" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-                                {this.state.password.length < 8 ?
-                                    <Form.Text style={{ color: 'red', fontSize: '0.5em' }}>Your password has to be 8 character long at least</Form.Text>
+                                {this.state.password.length < 1 ?
+                                    <Form.Text style={{ color: 'red', fontSize: '0.5em' }}>Your password has to be 1 character long at least</Form.Text>
                                     :
                                     <Form.Text style={{ color: 'green', fontSize: '0.5em' }}>Password is valid</Form.Text>
                                 }
-
                             </Form.Group>
                             <input className="btn btn-primary" type="submit" value="Signup"></input>
                         </Form>
