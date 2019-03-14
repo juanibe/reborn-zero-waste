@@ -10,15 +10,10 @@ import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import NavbarHeader from "./components/NavbarHeader";
-<<<<<<< HEAD
-import Login from "./components/auth/Login";
-import Signup from "./components/auth/Signup";
-=======
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
 import Concept from './pages/Concept'
 import Designer from './pages/Designer'
->>>>>>> 145543a1f915ea3bd3c220345973a51379a9860b
 
 class App extends Component {
   constructor(props) {
