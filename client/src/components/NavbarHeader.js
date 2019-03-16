@@ -26,19 +26,30 @@ import {
 
 class NavbarHeader extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { loggedInUser: null }
+    super(props);
+    this.state = { loggedInUser: null };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
+
+  logoutUser = () => {
+    this.service.logout()
+      .then(() => {
+        this.setState({ loggedInUser: null });
+        this.props.getUser(null);
+      })
+  }
+
   render() {
+    console.log(this.state.loggedInUser)
     return (
-      <>
+
+      <div>
         <Navbar className="bg-white" expand="lg">
           <Container>
-            <NavbarBrand href="/" >
+            <NavbarBrand tag={Link} to='/' >
               HOME
             </NavbarBrand>
             <button className="navbar-toggler" id="navbarColor05" type="button">
@@ -65,12 +76,20 @@ class NavbarHeader extends React.Component {
                     Concept
                   </NavLink>
                 </NavItem>
+                {this.state.loggedInUser ?
+                  <NavItem>
+                    <NavLink tag={Link} to="/login" >
+                      Logout
+                 </NavLink>
+                  </NavItem>
+                  :
+                  <NavItem>
+                    <NavLink tag={Link} to="/login" >
+                      Login
+               </NavLink>
+                  </NavItem>
+                }
 
-                <NavItem>
-                  <NavLink tag={Link} to="/login" >
-                    Login
-                  </NavLink>
-                </NavItem>
 
                 <NavItem>
                   <NavLink tag={Link} to="/signup">
@@ -87,7 +106,7 @@ class NavbarHeader extends React.Component {
             </UncontrolledCollapse>
           </Container>
         </Navbar>
-      </>
+      </div>
     );
   }
 }

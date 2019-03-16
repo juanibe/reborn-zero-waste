@@ -1,0 +1,20 @@
+{
+    "designer": {
+        "title": "Designer",
+        "text": "Post your fabric requirements on the site, and receive updates whenever the fabric you need is listed on the site.",
+        "image": "/images/designer.png"
+    },
+    "manufacturer": {
+        "title": "Manufacturer",
+        "text": "List your excess fabric on the site, and work with talented designers to make new clothes. Earn more money from unused fabric, and be more eco-friendly and sustainable.",
+        "image": "/images/manufacturer.png"
+    },
+    "individuals": {
+        "title": "Individuals",
+        "text": "Put up your old clothes for auction and get offers from upcycling designers and pre-worn fabric processors. Your old clothes get processed into new ones, and you earn money from clothes that would’ve otherwise ended up in landfills. You will also get notified about sustainable designers in your city",
+        "image": "/images/manufacturer.png"
+    },
+    "errorMessage": {
+        "errorMessage": "Wrong user name or password. Verify your credentials"
+    }
+}

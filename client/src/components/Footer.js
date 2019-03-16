@@ -3,46 +3,48 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const Footer = () => {
   return (
-    <MDBFooter color="blue" className="font-small pt-4 mt-4">
+    <MDBFooter color="blue" className="font-small pt-4 mt-4 background-footer">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="4">
-            <h5 className="title">REBORN</h5>
-            <p>Blalala - SEO concept of Reborn in a line</p>
+          <MDBCol md="3">
+
           </MDBCol>
-          <MDBCol md="4">
-            <h5 className="title">Links</h5>
+          <MDBCol md="3">
+            <h5 className="title">Support</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Link 1</a>
+                <a href="#!">Contact us</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
+                <a href="#!">Legal</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
+                <a href="#!">Privacy Policy</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="#!">Terms of use</a>
               </li>
             </ul>
           </MDBCol>
-          <MDBCol md="4">
-            <h5 className="title">Links</h5>
+          <MDBCol md="3">
+            <h5 className="title">Company</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Link 1</a>
+                <a href="#!">About Us</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
+                <a href="#!">Careers</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="#!">Press</a>
               </li>
             </ul>
+            <div className="footer-copyright">
+              © 2019 Reborn - Made in Berlin
+            </div>
+          </MDBCol>
+          <MDBCol md="3">
+
           </MDBCol>
         </MDBRow>
       </MDBContainer>

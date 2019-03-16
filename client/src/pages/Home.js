@@ -6,59 +6,31 @@
 
 import React, { Component } from "react";
 import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
+import Cards from '../components/Cards'
+import Header from '../components/Header'
+import content from '../text.json'
 
 class Home extends Component {
+
   render() {
     return (
-      <MDBContainer>
-        <MDBRow>
-          <div className="Home">
-            <div className="HeaderText">
-              <h1>REBORN</h1>
-              <h3>Be a part of the Zero-Waste movement</h3>
+      <div>
+        <Header />
+        <div className='container'>
+          <div className='row'>
+            <div className='col-4'>
+              <Cards title={content.manufacturer.title} text={content.manufacturer.text} image={content.manufacturer.image} />
             </div>
-
-            <div className="SignupText">
-              <MDBCol lg="6">
-                <p class="imagealigned">
-                  <div class="col">
-                    <img src="/images/manufacturer.png" alt="manufacturer" />
-                  </div>
-                  <h1>Manufacturers</h1>
-                  <p class="home">
-                    List you excess fabric on the site, and work with talented
-                    designers to make new clothes. Earn more money from unused
-                    fabric, and be more eco-friendly and sustainable.
-                  </p>
-                  <a href="/signup">
-                    Register as a manufacturer
-                  </a>
-                </p>
-              </MDBCol>
-
-              <MDBCol lg="6">
-                <p class="imagealigned">
-                  <div class="col">
-                    <img src="/images/designer.png" alt="designer" />
-                  </div>
-
-                  <h1>Designers</h1>
-                  <p class="home">
-                    Post your fabric requirements on the site, and receive
-                    updates whenever the fabric you need is listed on the site.
-                  </p>
-
-                  <a href="https://en.wikipedia.org/wiki/Designer">
-                    Register as a designer
-                  </a>
-                </p>
-              </MDBCol>
+            <div className='col-4'>
+              <Cards title={content.designer.title} text={content.designer.text} image={content.designer.image} />
+            </div>
+            <div className='col-4'>
+              <Cards title={content.individuals.title} text={content.individuals.text} image={content.individuals.image} />
             </div>
           </div>
-        </MDBRow>
-      </MDBContainer>
+        </div>
+      </div>
     );
   }
 }
-
 export default Home;

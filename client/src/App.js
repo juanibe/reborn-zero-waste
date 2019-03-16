@@ -6,14 +6,14 @@ import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
-
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
 import NavbarHeader from "./components/NavbarHeader";
-import Login from './components/auth/Login'
-import Signup from './components/auth/Signup'
-import Concept from './pages/Concept'
-import Designer from './pages/Designer'
+import Login from "./components/auth/Login";
+import Footer from "./components/Footer";
+import Signup from "./components/auth/Signup";
+import Modal from "./pages/Modal";
+import Concept from "./pages/Concept";
+import Designer from "./pages/Designer";
 
 class App extends Component {
   constructor(props) {
@@ -48,18 +48,24 @@ class App extends Component {
   render() {
     this.fetchUser();
     if (this.state.loggedInUser) {
-      //here goes
+
     }
     return (
       <div className="App">
-        <NavbarHeader isLogged={this.getTheUser} />
+        <NavbarHeader getUser={this.getTheUser} userInSession={this.state.loggedInUser} />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" render={() => <Login getUser={this.getTheUser} />} />
-          <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser} />} />
-          {/* <Route path="/concept" component={Concept} />
-          <Route path="/designer" component={Designer} /> */}
+          <Route
+            exact
+            path="/login"
+            render={() => <Login getUser={this.getTheUser} />} />
+          <Route
+            exact
+            path="/signup"
+            render={() => <Signup getUser={this.getTheUser} />} />
+          <Route exact path="/manufacturer" component={ManufacturerPublic} />
         </Switch>
+        <Footer />
       </div>
     );
   }

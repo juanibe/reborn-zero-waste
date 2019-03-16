@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
     username: String,
     password: String,
-
 });
 
 projectSchema.options.toJSON = {
