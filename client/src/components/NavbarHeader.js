@@ -47,32 +47,32 @@ class NavbarHeader extends React.Component {
             <UncontrolledCollapse navbar toggler="#navbarColor05">
               <Nav className="mr-auto" navbar>
                 <NavItem className="active">
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink
+                    href="/designers-public"
+                    onClick={e => e.preventDefault()}
+                  >
                     Designers <span className="sr-only">(current)</span>
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink
+                    href="/manufacturers-public"
+                    onClick={e => e.preventDefault()}
+                  >
                     Manufacturers
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink href="/concept" onClick={e => e.preventDefault()}>
                     Concept
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                  <NavLink href="/login" onClick={e => e.preventDefault()}>
                     Login
-                  </NavLink>
-                </NavItem>
-
-                <NavItem>
-                  <NavLink href="/signup" onClick={e => e.preventDefault()}>
-                    Signup
                   </NavLink>
                 </NavItem>
               </Nav>
