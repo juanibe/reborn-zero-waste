@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Mukta");
+
+.body {
+  font-family: "Mukta", sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -73,4 +79,8 @@
 
 .bg-white {
   margin: -60px;
+}
+
+.price {
+  color: #910526;
 }

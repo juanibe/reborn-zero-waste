@@ -4,6 +4,8 @@ import "./App.css";
 import Manufacturer from "./pages/Manufacturer";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
+import DesignerPublic from "./pages/Designer-profile-public";
+import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 
@@ -12,9 +14,10 @@ import Footer from "./components/Footer";
 import NavbarHeader from "./components/NavbarHeader";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
-import Modal from "./pages/Modal";
+import Modal from "./components/ModalLogin";
 import Concept from "./pages/Concept";
-import Designer from "./pages/Designer";
+import ModalManufacturer from "./components/Modalmanufacturer";
+import ModalDesigner from "./components/Modaldesigner";
 
 class App extends Component {
   constructor(props) {
@@ -62,19 +65,34 @@ class App extends Component {
             path="/login"
             render={() => <Login getUser={this.getTheUser} />}
           />
+
+          {/* Two signup : one for designers, one for manufacturers */}
           <Route
             exact
             path="/signup"
             render={() => <Signup getUser={this.getTheUser} />}
           />
 
-          <Route exact path="/manufacturer" component={ManufacturerPublic} />
+          <Route exact path="/manufacturers" component={ManufacturerPublic} />
 
-          {/* <Route path="/concept" component={Concept} />
-          <Route path="/designer" component={Designer} /> */}
+          <Route
+            exact
+            path="/manufacturers-private"
+            component={ManufacturerPrivate}
+          />
+
+          <Route exact path="/designers" component={DesignerPublic} />
+          <Route exact path="/designers-private" component={DesignerPrivate} />
+
+          <Route exact path="/concept" component={Concept} />
         </Switch>
 
         <Modal />
+
+        <ModalManufacturer />
+
+        <ModalDesigner />
+
         <Footer />
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
-// Add menu + footer in this page
+import { MDBRow, MDBContainer } from "mdbreact";
+import Image from "react-bootstrap/Image";
 
 class Concept extends Component {
   render() {
@@ -8,7 +8,14 @@ class Concept extends Component {
       <MDBContainer>
         <MDBRow>
           <div class="col">
-            <img src="/images/cotton.jpeg" alt="fabric" />
+            <Image
+              src="/images/cotton.jpeg"
+              alt="fabric"
+              width="1000"
+              height="800"
+              rounded
+            />
+            <p>Blablablalbalblalba</p>
           </div>
         </MDBRow>
       </MDBContainer>

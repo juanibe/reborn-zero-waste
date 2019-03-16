@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import { Link, withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import AuthService from "../components/auth/auth-service";
+import AuthService from "./auth/auth-service";
 
-class Modal extends Component {
+class ModalDesigner extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "", error: false };
@@ -36,17 +36,21 @@ class Modal extends Component {
   render() {
     return (
       <Popup
-        trigger={<button className="button"> Open Modal </button>}
+        trigger={<button className="button"> Designer </button>}
         modal
         closeOnDocumentClick
       >
-        <div className="container login-container">
+        <div className="container signup-container">
           <div className="row">
             <div className="col-4" />
             <div className="col-4">
-              {this.state.error ? <h1>ERROR!</h1> : ""}
+              <h4 className="signup-manufacturer-title">
+                Register as a designer
+              </h4>
+
               <Form onSubmit={this.handleFormSubmit}>
                 <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
                   <Form.Control
                     size="sm"
                     type="email"
@@ -55,8 +59,12 @@ class Modal extends Component {
                     value={this.state.username}
                     onChange={e => this.handleChange(e)}
                   />
+                  <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
                   <Form.Control
                     size="sm"
                     type="password"
@@ -65,24 +73,29 @@ class Modal extends Component {
                     value={this.state.password}
                     onChange={e => this.handleChange(e)}
                   />
+                  {this.state.password.length < 8 ? (
+                    <Form.Text style={{ color: "red", fontSize: "0.5em" }}>
+                      Your password has to be 8 character long at least
+                    </Form.Text>
+                  ) : (
+                    <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                      Password is valid
+                    </Form.Text>
+                  )}
                 </Form.Group>
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="Login"
+                  value="Signup"
                 />
               </Form>
             </div>
             <div className="col-4" />
           </div>
-          <br />
-          <p className="signup-message">
-            Don't have account? <Link to={"/signup"}> Signup</Link>
-          </p>
         </div>
       </Popup>
     );
   }
 }
 
-export default Modal;
+export default ModalDesigner;
