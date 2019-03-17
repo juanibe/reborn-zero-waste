@@ -22,12 +22,15 @@ import {
   Container
 } from "reactstrap";
 
+import AuthService from './auth/auth-service';
+
 //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
 
 class NavbarHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null, loggedInButton: 'Login' };
+    this.service = new AuthService();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -82,19 +85,15 @@ class NavbarHeader extends React.Component {
                     Concept
                   </NavLink>
                 </NavItem>
-                {this.state.loggedInUser ?
-                  <NavItem>
-                    <NavLink tag={Link} to="/logout" >
-                      Logout
-                    </NavLink>
-                  </NavItem>
+                {this.state.loggedInUser
+                  ?
+                  <NavLink onClick={() => this.logoutUser()} tag={Link} to="/logout">Logout</NavLink>
                   :
-                  <NavItem>
-                    <NavLink tag={Link} to="/login" >
-                      Login
-                    </NavLink>
-                  </NavItem>
+                  <NavLink tag={Link} to="/login" >Login</NavLink>
                 }
+                <NavItem>
+
+                </NavItem>
               </Nav>
 
               <Form className="form-inline ml-auto">
