@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom'
 
 const Cards = (props) => {
     return (
@@ -11,7 +10,7 @@ const Cards = (props) => {
                     <p className="card-text">{props.text}</p>
                 </div>
                 <div className="card-body">
-                    <Link to="/signup">Sign Up</Link>
+                    {props.signUpLink}
                 </div>
             </div>
         </div >

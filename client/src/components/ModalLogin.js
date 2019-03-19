@@ -22,10 +22,8 @@ class Modal extends Component {
 
   documentClick = (e) => {
     if (!this.node || this.node.contains(e.target)) {
-      console.log("works not.")
       return
     }
-    console.log("works.")
     this.setState({ modalOpen: false });
   }
 
@@ -59,7 +57,6 @@ class Modal extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <span>
         <Popup

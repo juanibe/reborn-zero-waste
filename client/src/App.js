@@ -13,10 +13,7 @@ import NavbarHeader from "./components/NavbarHeader";
 import Login from "./components/auth/Login";
 import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
-import Modal from "./components/ModalLogin";
 import Concept from "./pages/Concept";
-import ModalManufacturer from "./components/Modalmanufacturer";
-import ModalDesigner from "./components/Modaldesigner";
 
 class App extends Component {
   constructor(props) {
@@ -84,13 +81,6 @@ class App extends Component {
 
           <Route exact path="/concept" component={Concept} />
         </Switch>
-
-        <Modal getUser={this.getTheUser} />
-
-        <ModalManufacturer />
-
-        <ModalDesigner />
-
         <Footer />
       </div>
     );
