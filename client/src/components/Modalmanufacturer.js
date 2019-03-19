@@ -43,8 +43,8 @@ class ModalManufacturer extends Component {
       >
         <div className="container signup-container">
           <div className="row">
-            <div className="col-4" />
-            <div className="col-4">
+            <div className="col-2" />
+            <div className="col-8">
               <h4 className="signup-manufacturer-title">
                 Register as a manufacturer
               </h4>
@@ -92,10 +92,10 @@ class ModalManufacturer extends Component {
                       Your password has to be 8 character long at least
                     </Form.Text>
                   ) : (
-                    <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
-                      Password is valid
+                      <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                        Password is valid
                     </Form.Text>
-                  )}
+                    )}
                 </Form.Group>
                 <input
                   className="btn btn-primary"
@@ -104,7 +104,7 @@ class ModalManufacturer extends Component {
                 />
               </Form>
             </div>
-            <div className="col-4" />
+            <div className="col-2" />
           </div>
         </div>
       </Popup>
