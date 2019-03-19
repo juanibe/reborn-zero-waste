@@ -25,12 +25,10 @@ class Signup extends Component {
             })
             .catch(error => console.log(error));
     };
-
     handleChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
-
     render() {
         return (
             <div className="container signup-container">

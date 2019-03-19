@@ -9,6 +9,8 @@ import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 import Cards from '../components/Cards'
 import Header from '../components/Header'
 import content from '../text.json'
+import Modalmanufacturer from '../components/Modalmanufacturer'
+
 
 class Home extends Component {
 
@@ -19,13 +21,13 @@ class Home extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col-4'>
-              <Cards title={content.manufacturer.title} text={content.manufacturer.text} image={content.manufacturer.image} />
+              <Cards title={content.manufacturer.title} text={content.manufacturer.text} image={content.manufacturer.image} signUpLink={<Modalmanufacturer />} />
             </div>
             <div className='col-4'>
-              <Cards title={content.designer.title} text={content.designer.text} image={content.designer.image} />
+              <Cards title={content.designer.title} text={content.designer.text} image={content.designer.image} signUpLink={<Modalmanufacturer />} />
             </div>
             <div className='col-4'>
-              <Cards title={content.individuals.title} text={content.individuals.text} image={content.individuals.image} />
+              <Cards title={content.individuals.title} text={content.individuals.text} image={content.individuals.image} signUpLink={<Modalmanufacturer />} />
             </div>
           </div>
         </div>
