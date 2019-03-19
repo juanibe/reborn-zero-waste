@@ -5,7 +5,7 @@ import Manufacturer from "./pages/Manufacturer";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import DesignerPublic from "./pages/Designer-profile-public";
-import DesignerPrivate from "./pages/Designer-profile-private";
+//import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
@@ -80,12 +80,12 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
-          <Route exact path="/designers-private" component={DesignerPrivate} />
+          {/* <Route exact path="/designers-private" component={DesignerPrivate} /> */}
 
           <Route exact path="/concept" component={Concept} />
         </Switch>
 
-        <Modal />
+        <Modal getUser={this.getTheUser} />
 
         <ModalManufacturer />
 

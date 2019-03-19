@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AuthService from "./auth-service";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 class Signup extends Component {
