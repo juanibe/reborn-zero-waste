@@ -5,7 +5,7 @@ import Manufacturer from "./pages/Manufacturer";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import DesignerPublic from "./pages/Designer-profile-public";
-import DesignerPrivate from "./pages/Designer-profile-private";
+//import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
@@ -13,10 +13,7 @@ import NavbarHeader from "./components/NavbarHeader";
 import Login from "./components/auth/Login";
 import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
-import Modal from "./components/ModalLogin";
 import Concept from "./pages/Concept";
-import ModalManufacturer from "./components/Modalmanufacturer";
-import ModalDesigner from "./components/Modaldesigner";
 
 class App extends Component {
   constructor(props) {
@@ -80,17 +77,10 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
-          <Route exact path="/designers-private" component={DesignerPrivate} />
+          {/* <Route exact path="/designers-private" component={DesignerPrivate} /> */}
 
           <Route exact path="/concept" component={Concept} />
         </Switch>
-
-        <Modal />
-
-        <ModalManufacturer />
-
-        <ModalDesigner />
-
         <Footer />
       </div>
     );

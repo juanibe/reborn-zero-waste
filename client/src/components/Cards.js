@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Cards = (props) => {
     return (
@@ -10,7 +10,7 @@ const Cards = (props) => {
                     <p className="card-text">{props.text}</p>
                 </div>
                 <div className="card-body">
-                    <a href="#" className="card-link margin-top-link">Sign up</a>
+                    {props.signUpLink}
                 </div>
             </div>
         </div >

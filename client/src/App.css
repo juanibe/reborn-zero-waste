@@ -38,8 +38,8 @@
   }
 }
 
-.container {
-  margin: 80px 0 0 0;
+.login-container {
+  margin: 80px 0 80px 0;
 }
 
 .signup-manufacturer-title {
@@ -80,7 +80,8 @@
 
 
 .signup-container {
-  margin: 120px 0 0 0;
+  margin: 100px 0 100px 0;
+ 
 }
 
 .bg-white {
@@ -116,7 +117,7 @@
   background-color: #FCFEFF ;
   height: 250px;
   position: relative;
-  top:70px;
+  top:0;
   font-family: 'Quicksand', sans-serif;
   margin: 0 0 150px 0;
   
@@ -149,4 +150,8 @@
 }
 .price {
   color: #910526;
+}
+
+.link-navbar{
+  margin: 20px;
 }

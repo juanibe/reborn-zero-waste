@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AuthService from "./auth-service";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 class Signup extends Component {
@@ -26,12 +25,10 @@ class Signup extends Component {
             })
             .catch(error => console.log(error));
     };
-
     handleChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
-
     render() {
         return (
             <div className="container signup-container">

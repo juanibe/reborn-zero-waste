@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-const Header = (props) => {
+const Header = () => {
     return (
         < div >
             <div className="HeaderText">
