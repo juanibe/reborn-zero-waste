@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
 
-class ModalDesigner extends Component {
+class ModalIndividual extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "", error: false };
@@ -44,22 +44,11 @@ class ModalDesigner extends Component {
           <div className="row">
             <div className="col-3" />
             <div className="col-6">
-              <h4 className="signup-manufacturer-title">
-                Register as a designer
+              <h4 className="signup-individual-title">
+                Register as an individual
               </h4>
 
               <Form onSubmit={this.handleFormSubmit}>
-                <Form.Group controlId="nameBrand">
-                  <Form.Label>Name of your brand</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="brand"
-                    placeholder="Name of your brand"
-                    name="brand"
-                    value={this.state.username}
-                    onChange={e => this.handleChange(e)}
-                  />
-                </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
@@ -109,4 +98,4 @@ class ModalDesigner extends Component {
   }
 }
 
-export default ModalDesigner;
+export default ModalIndividual;

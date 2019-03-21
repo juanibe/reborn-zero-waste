@@ -15,19 +15,19 @@ class ModalLogin extends Component {
   }
 
   componentWillMount() {
-    document.addEventListener("mousedown", this.documentClick, false)
+    document.addEventListener("mousedown", this.documentClick, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.documentClick, false)
+    document.removeEventListener("mousedown", this.documentClick, false);
   }
 
-  documentClick = (e) => {
+  documentClick = e => {
     if (!this.node || this.node.contains(e.target)) {
-      return
+      return;
     }
     this.setState({ modalOpen: false });
-  }
+  };
 
   handleFormSubmit = event => {
 
@@ -46,7 +46,7 @@ class ModalLogin extends Component {
       })
       .catch(error => {
         this.setState({ error: true });
-        console.log("NO")
+        console.log("NO");
         console.log(error);
       });
   };
@@ -58,7 +58,7 @@ class ModalLogin extends Component {
 
   handleButtonClick = () => {
     this.setState({ modalOpen: true });
-  }
+  };
 
   render() {
     return (
@@ -90,18 +90,29 @@ class ModalLogin extends Component {
                       value={this.state.password}
                       onChange={e => this.handleChange(e)} />
                   </Form.Group>
-                  <input className="btn btn-primary" type="submit" value="Login" />
+                  <input
+                    className="btn btn-primary"
+                    type="submit"
+                    value="Login"
+                  />
                 </Form>
                 <hr />
-                {this.state.error ? <p className='error-message'>{content.errorMessage.errorMessage}!</p> : ""}
+                {this.state.error ? (
+                  <p className="error-message">
+                    {content.errorMessage.errorMessage}!
+                  </p>
+                ) : (
+                    ""
+                  )}
               </div>
               <div className="col-3" />
-
             </div>
             <p className="login-message">
-              Don't have account? <Link to={"/signup"}> Signup</Link><br />
-              Forgot your password? ... Sorry about that man
-                </p>
+              Don't have account? Please{" "}
+              <Link to={"/"}> signup on the homepage</Link>
+              <br />
+              Forgot your password? ... Sorry about that !
+            </p>
           </div>
         </Popup>
         <NavItem className="">
