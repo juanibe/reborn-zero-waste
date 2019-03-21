@@ -1,6 +1,5 @@
 // import React from "react";
 
-
 // import { Link } from 'react-router-dom';
 
 // // reactstrap components
@@ -22,8 +21,9 @@
 //   Container
 // } from "reactstrap";
 
-import AuthService from './auth/auth-service';
-import Modalmanufacturer from './Modalmanufacturer'
+import AuthService from "./auth/auth-service";
+import Modalmanufacturer from "./Modalmanufacturer";
+import Image from "react-bootstrap/Image";
 
 // //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
 
@@ -111,7 +111,7 @@ import Modalmanufacturer from './Modalmanufacturer'
 // }
 
 // export default NavbarHeader;
-import React from 'react';
+import React from "react";
 import {
   Collapse,
   Navbar,
@@ -124,14 +124,14 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from 'reactstrap';
-import { Link } from "react-router-dom"
-import ModalLogin from './ModalLogin';
+} from "reactstrap";
+import { Link } from "react-router-dom";
+import ModalLogin from "./ModalLogin";
 
 export default class NavbarHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null, loggedInButton: 'Login' };
+    this.state = { loggedInUser: null, loggedInButton: "Login" };
     this.service = new AuthService();
 
     this.toggle = this.toggle.bind(this);
@@ -145,12 +145,11 @@ export default class NavbarHeader extends React.Component {
   }
 
   logoutUser = () => {
-    this.service.logout()
-      .then(() => {
-        this.setState({ loggedInUser: null });
-        this.props.getUser(null);
-      })
-  }
+    this.service.logout().then(() => {
+      this.setState({ loggedInUser: null });
+      this.props.getUser(null);
+    });
+  };
 
   toggle() {
     this.setState({
@@ -161,23 +160,31 @@ export default class NavbarHeader extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <Link to="/">reactstrap</Link>
+          <Link to="/">
+            {" "}
+            <Image src="/images/needle.png" />{" "}
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="active link-navbar">
-                <Link to="/designers-public" >Designers</Link>
+                <Link to="/designers">Designers</Link>
               </NavItem>
               <NavItem className="active link-navbar">
-                <Link to="/designers-public" >Manufacturers</Link>
+                <Link to="/manufacturers">Manufacturers</Link>
               </NavItem>
               <NavItem className="active link-navbar">
-                {this.state.loggedInUser
-                  ?
-                  <Link onClick={() => this.logoutUser()} tag={Link} to="/logout" >Logout</Link>
-                  :
+                {this.state.loggedInUser ? (
+                  <Link
+                    onClick={() => this.logoutUser()}
+                    tag={Link}
+                    to="/logout"
+                  >
+                    Logout
+                  </Link>
+                ) : (
                   <ModalLogin />
-                }
+                )}
               </NavItem>
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -199,7 +206,7 @@ export default class NavbarHeader extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-      </div >
+      </div>
     );
   }
 }
