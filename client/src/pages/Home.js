@@ -6,28 +6,43 @@
 
 import React, { Component } from "react";
 import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
-import Cards from '../components/Cards'
-import Header from '../components/Header'
-import content from '../text.json'
-import Modalmanufacturer from '../components/Modalmanufacturer'
-
+import Cards from "../components/Cards";
+import Header from "../components/Header";
+import content from "../text.json";
+import Modalmanufacturer from "../components/Modalmanufacturer";
+import Modaldesigner from "../components/Modaldesigner";
+import ModalIndividual from "../components/ModalIndividual";
 
 class Home extends Component {
-
   render() {
     return (
       <div>
         <Header />
-        <div className='container'>
-          <div className='row'>
-            <div className='col-4'>
-              <Cards title={content.manufacturer.title} text={content.manufacturer.text} image={content.manufacturer.image} signUpLink={<Modalmanufacturer />} />
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <Cards
+                title={content.manufacturer.title}
+                text={content.manufacturer.text}
+                image={content.manufacturer.image}
+                signUpLink={<Modalmanufacturer />}
+              />
             </div>
-            <div className='col-4'>
-              <Cards title={content.designer.title} text={content.designer.text} image={content.designer.image} signUpLink={<Modalmanufacturer />} />
+            <div className="col-4">
+              <Cards
+                title={content.designer.title}
+                text={content.designer.text}
+                image={content.designer.image}
+                signUpLink={<Modaldesigner />}
+              />
             </div>
-            <div className='col-4'>
-              <Cards title={content.individuals.title} text={content.individuals.text} image={content.individuals.image} signUpLink={<Modalmanufacturer />} />
+            <div className="col-4">
+              <Cards
+                title={content.individuals.title}
+                text={content.individuals.text}
+                image={content.individuals.image}
+                signUpLink={<ModalIndividual />}
+              />
             </div>
           </div>
         </div>

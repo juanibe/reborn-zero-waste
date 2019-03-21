@@ -159,7 +159,8 @@ export default class NavbarHeader extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        {/* color="secondary" */}
+        <Navbar className="navbar-style" light expand="md">
           <Link to="/">
             {" "}
             <Image src="/images/needle.png" />{" "}
@@ -172,6 +173,9 @@ export default class NavbarHeader extends React.Component {
               </NavItem>
               <NavItem className="active link-navbar">
                 <Link to="/manufacturers">Manufacturers</Link>
+              </NavItem>
+              <NavItem className="active link-navbar">
+                <Link to="/concept">Concept</Link>
               </NavItem>
               <NavItem className="active link-navbar">
                 {this.state.loggedInUser ? (
