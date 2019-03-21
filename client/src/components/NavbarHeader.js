@@ -158,6 +158,7 @@ export default class NavbarHeader extends React.Component {
     });
   }
   render() {
+    console.log(this.state.loggedInUser)
     return (
       <div>
         <Navbar color="light" light expand="md">
@@ -184,7 +185,8 @@ export default class NavbarHeader extends React.Component {
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
+                  <Dropd
+                  ownItem>
                     Option 1
                   </DropdownItem>
                   <DropdownItem>
