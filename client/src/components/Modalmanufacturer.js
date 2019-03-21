@@ -62,7 +62,7 @@ class ModalManufacturer extends Component {
               <div className="col-8">
                 <h4 className="signup-manufacturer-title">
                   Register as a manufacturer
-              </h4>
+                  </h4>
 
                 <Form onSubmit={this.handleFormSubmit}>
                   <Form.Group controlId="formBasicEmail">

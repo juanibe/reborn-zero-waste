@@ -7,7 +7,7 @@ import content from '../text.json'
 import { NavItem } from 'reactstrap'
 
 
-class Modal extends Component {
+class ModalLogin extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "", error: false, modalOpen: false };
@@ -30,9 +30,11 @@ class Modal extends Component {
   }
 
   handleFormSubmit = event => {
+
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+
     this.service
       .login(username, password)
       .then(response => {
@@ -88,7 +90,7 @@ class Modal extends Component {
                       value={this.state.password}
                       onChange={e => this.handleChange(e)} />
                   </Form.Group>
-                  <input className="btn btn-primary" type="submit" value="ModalLogin" />
+                  <input className="btn btn-primary" type="submit" value="Login" />
                 </Form>
                 <hr />
                 {this.state.error ? <p className='error-message'>{content.errorMessage.errorMessage}!</p> : ""}
@@ -103,11 +105,11 @@ class Modal extends Component {
           </div>
         </Popup>
         <NavItem className="">
-          <Link to="/designers-public" onClick={this.handleButtonClick}>Login</Link>
+          <Link to="/" onClick={this.handleButtonClick}>Login</Link>
         </NavItem>
       </span>
     );
   }
 }
 
-export default withRouter(Modal);
+export default withRouter(ModalLogin);
