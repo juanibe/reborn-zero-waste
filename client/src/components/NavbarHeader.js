@@ -70,29 +70,12 @@ export default class NavbarHeader extends React.Component {
                 <Link to="/manufacturers">Manufacturers</Link>
               </NavItem>
               <NavItem className="active link-navbar">
-<<<<<<< HEAD
                 {this.state.loggedInUser
                   ?
                   <Link onClick={() => this.logoutUser()} tag={Link} to="/logout"> Logout </Link>
                   :
                   <ModalLogin getUser={this.props.getUser} />
                 }
-=======
-                <Link to="/concept">Concept</Link>
-              </NavItem>
-              <NavItem className="active link-navbar">
-                {this.state.loggedInUser ? (
-                  <Link
-                    onClick={() => this.logoutUser()}
-                    tag={Link}
-                    to="/logout"
-                  >
-                    Logout
-                  </Link>
-                ) : (
-                  <ModalLogin />
-                )}
->>>>>>> 82ed0d06983626115d31146dd61bfc651b29242c
               </NavItem>
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

@@ -124,16 +124,13 @@
   background-color: #c2d1f0;
   height: 250px;
   position: relative;
-<<<<<<< HEAD
   top:0;
   font-family: 'Quicksand', sans-serif;
   margin: 0 0 0 0;
   
-=======
   top: 0;
   font-family: "Quicksand", sans-serif;
   margin: 0 0 150px 0;
->>>>>>> 82ed0d06983626115d31146dd61bfc651b29242c
 }
 .title-header {
   position: relative;
