@@ -93,6 +93,12 @@
 .card {
   border: none !important;
   font-family: "Quicksand", sans-serif;
+  margin-left: 75px;
+  margin-top: -50px;
+}
+
+.card-img-top {
+  width: 50%;
 }
 
 .card-text {
@@ -100,13 +106,13 @@
 }
 
 .title {
-  margin-top: 80px;
+  margin-top: 18px;
 }
 
 .background-footer {
   background-color: #99b3e6;
   color: white;
-  font-size: 0.7em;
+  font-size: 17px;
 }
 
 .navbar-style {
@@ -124,10 +130,10 @@
   background-color: #c2d1f0;
   height: 250px;
   position: relative;
-  top:0;
-  font-family: 'Quicksand', sans-serif;
+  top: 0;
+  font-family: "Quicksand", sans-serif;
   margin: 0 0 0 0;
-  
+
   top: 0;
   font-family: "Quicksand", sans-serif;
   margin: 0 0 150px 0;
@@ -160,8 +166,35 @@
 }
 .price {
   color: #910526;
+  font-family: "Quicksand", sans-serif;
 }
 
 .link-navbar {
   margin: 20px;
+}
+
+.manufacturer-private {
+  margin-top: 30px;
+}
+
+.description-fabrics {
+  margin-left: -110px;
+}
+
+.list-fabrics {
+  margin-right: -100px;
+}
+
+.dropdownfabrics {
+  margin-bottom: 20px;
+}
+
+.amount {
+  font-style: italic;
+  font-size: 13px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.manufacturer-public {
+  margin-top: 30px;
 }

@@ -4,13 +4,7 @@ import Image from "react-bootstrap/Image";
 // //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
 
 import React from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 
@@ -68,12 +62,14 @@ export default class NavbarHeader extends React.Component {
               </NavItem>
 
               <NavItem className="active link-navbar">
-                {this.state.loggedInUser
-                  ?
-                  <Link onClick={() => this.logoutUser()} to="/logout"> Logout </Link>
-                  :
+                {this.state.loggedInUser ? (
+                  <Link onClick={() => this.logoutUser()} to="/logout">
+                    {" "}
+                    Logout{" "}
+                  </Link>
+                ) : (
                   <ModalLogin getUser={this.props.getUser} />
-                }
+                )}
               </NavItem>
             </Nav>
           </Collapse>
