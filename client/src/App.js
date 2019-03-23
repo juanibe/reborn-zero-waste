@@ -10,6 +10,7 @@ import NavbarHeader from "./components/NavbarHeader";
 import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
+import MyProfile from "./pages/MyProfile";
 import ModalLogin from "./components/ModalLogin";
 
 class App extends Component {
@@ -77,6 +78,8 @@ class App extends Component {
           {/* <Route exact path="/designers-private" component={DesignerPrivate} /> */}
 
           <Route exact path="/concept" component={Concept} />
+          <Route exact path="/profile" component={MyProfile} />
+
         </Switch>
         <Footer />
       </div>

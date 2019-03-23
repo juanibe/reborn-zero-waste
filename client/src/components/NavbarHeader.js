@@ -68,6 +68,7 @@ export default class NavbarHeader extends React.Component {
               </NavItem>
 
               <NavItem className="active link-navbar">
+                {this.state.loggedInUser && <Link to="/profile"> Profile </Link>}
                 {this.state.loggedInUser
                   ?
                   <Link onClick={() => this.logoutUser()} to="/logout"> Logout </Link>

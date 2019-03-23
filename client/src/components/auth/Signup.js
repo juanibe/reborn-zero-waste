@@ -60,8 +60,7 @@ class Signup extends Component {
                 <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
                     <div
                         ref={node => (this.node = node)}
-                        className="container signup-container"
-                    >
+                        className="container signup-container">
                         <div className="row">
                             <div className="col-2" />
                             <div className="col-8">

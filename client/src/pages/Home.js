@@ -11,6 +11,7 @@ import content from "../text.json";
 import Modalmanufacturer from "../components/Modalmanufacturer";
 import Modaldesigner from "../components/Modaldesigner";
 import ModalIndividual from "../components/ModalIndividual";
+import MyProfile from "./MyProfile";
 
 class Home extends Component {
   render() {
@@ -40,8 +41,7 @@ class Home extends Component {
                 title={content.individuals.title}
                 text={content.individuals.text}
                 image={content.manufacturer.image}
-                signUpLink={<ModalIndividual getUser={this.props.getUser} />}
-              />
+                signUpLink={<ModalIndividual getUser={this.props.getUser} />} />
             </div>
           </div>
         </div>
