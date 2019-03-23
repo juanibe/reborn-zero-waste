@@ -4,13 +4,7 @@ import Image from "react-bootstrap/Image";
 // //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
 
 import React from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 

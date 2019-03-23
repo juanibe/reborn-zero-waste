@@ -20,7 +20,7 @@ class Home extends Component {
         <Header />
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-6">
               <Cards
                 title={content.manufacturer.title}
                 text={content.manufacturer.text}
@@ -28,7 +28,7 @@ class Home extends Component {
                 signUpLink={<Modalmanufacturer getUser={this.props.getUser} />}
               />
             </div>
-            <div className="col-4">
+            <div className="col-6">
               <Cards
                 title={content.designer.title}
                 text={content.designer.text}
@@ -36,13 +36,19 @@ class Home extends Component {
                 signUpLink={<Modaldesigner getUser={this.props.getUser} />}
               />
             </div>
-            <div className="col-4">
+            {/* <div className="col-4">
               <Cards
                 title={content.individuals.title}
                 text={content.individuals.text}
                 image={content.manufacturer.image}
+<<<<<<< HEAD
                 signUpLink={<ModalIndividual getUser={this.props.getUser} />} />
             </div>
+=======
+                signUpLink={<ModalIndividual getUser={this.props.getUser} />}
+              />
+            </div> */}
+>>>>>>> 6e4c4f19017b89db5641d2251dec04001ea58333
           </div>
         </div>
       </div>
