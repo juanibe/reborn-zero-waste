@@ -21,7 +21,7 @@ class ModalDesigner extends Component {
     const username = this.state.username;
     const password = this.state.password;
     this.service
-      .login(username, password)
+      .signup({ username, password, role: "designer" })
       .then(response => {
         this.setState({ username: "", password: "" });
         this.props.getUser(response);

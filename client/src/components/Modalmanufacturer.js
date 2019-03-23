@@ -6,7 +6,7 @@ import AuthService from "./auth/auth-service";
 class ModalManufacturer extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", username: "", password: "", error: false };
+    this.state = { name: "", username: "", password: "", error: false, company: "" };
     this.service = new AuthService();
   }
   componentWillMount() {
@@ -31,7 +31,7 @@ class ModalManufacturer extends Component {
     const company = this.state.company;
 
     this.service
-      .signup(username, password)
+      .manufacturerSignup({ username, password, role: "manufacturer", companyName: company })
       .then(response => {
         this.setState({
           username: "",
@@ -40,6 +40,7 @@ class ModalManufacturer extends Component {
           modalOpen: false
         });
         this.props.getUser(response);
+
       })
       .catch(error => console.log(error));
   };
@@ -75,7 +76,7 @@ class ModalManufacturer extends Component {
                       size="sm"
                       type="name"
                       placeholder="Name of your company"
-                      name="name"
+                      name="company"
                       value={this.state.company}
                       onChange={e => this.handleChange(e)}
                     />
@@ -111,10 +112,10 @@ class ModalManufacturer extends Component {
                         Your password has to be 8 character long at least
                       </Form.Text>
                     ) : (
-                      <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
-                        Password is valid
+                        <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                          Password is valid
                       </Form.Text>
-                    )}
+                      )}
                   </Form.Group>
                   <input
                     className="btn btn-primary"

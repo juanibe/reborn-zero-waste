@@ -9,9 +9,15 @@ class AuthService {
         this.service = service;
     }
 
-    signup = (username, password) => {
-        console.log(username, password)
-        return this.service.post('/signup', { username, password })
+    manufacturerSignup = (params) => {
+        console.log(params)
+        return this.service.post('/signup/manufacturer', params)
+            .then(response => response.data)
+    }
+
+    designerSignup = (params) => {
+        console.log(params)
+        return this.service.post('/signup/designer', params)
             .then(response => response.data)
     }
 

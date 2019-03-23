@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-//import "./public/Style.css";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import DesignerPublic from "./pages/Designer-profile-public";
-//import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";

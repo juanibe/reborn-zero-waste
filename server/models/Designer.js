@@ -4,7 +4,6 @@ const ProductGallery = require('./product-gallery');
 const User = require('./User');
 
 const designerSchema = new Schema({
-	user_id: { type: Schema.Types.ObjectId, ref: 'User' },
 	brand_name: String,
 	full_name: String,
 	address: String,

@@ -14,7 +14,7 @@ authRoutes.get('/signup', (req, res, next) => {
     res.status(200).json({ message: 'Everything is ok...so far' });
 })
 
-authRoutes.post('/signup', (req, res, next) => {
+authRoutes.post('/signup/manufacturer', (req, res, next) => {
 
     // User.create({
     //     username: req.body.username,
@@ -24,6 +24,8 @@ authRoutes.post('/signup', (req, res, next) => {
     //     .catch(err => { err.json(err) })
     const username = req.body.username;
     const password = req.body.password;
+    const role = req.body.role;
+    const companyName = req.body.companyName
 
     if (!username || !password) {
         res.status(400).json({ message: 'Provide username and password' });
@@ -51,7 +53,9 @@ authRoutes.post('/signup', (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
         const aNewUser = new User({
             username: username,
-            password: hashPass
+            password: hashPass,
+            role: role,
+            manufacturerInformation: { name_of_business: companyName }
         });
 
         aNewUser.save(err => {
