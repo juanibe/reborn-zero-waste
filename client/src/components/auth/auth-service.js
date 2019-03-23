@@ -18,12 +18,17 @@ class AuthService {
     loggedin = () => {
         return this.service.get('/loggedin')
             .then(response => response.data)
+
     }
 
     login = (username, password) => {
-        return this.service.post('/login', { username, password })
-            .then(response => response.data)
+        console.log(username, password, "login")
 
+        return this.service.post('/login', { username, password })
+            .then(response => {
+                console.log("login")
+                return response.data
+            })
     }
 
     logout = () => {

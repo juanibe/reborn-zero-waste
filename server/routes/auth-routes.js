@@ -15,6 +15,13 @@ authRoutes.get('/signup', (req, res, next) => {
 })
 
 authRoutes.post('/signup', (req, res, next) => {
+
+    // User.create({
+    //     username: req.body.username,
+    //     password: req.body.password
+    // })
+    //     .then(response => { res.json(response) })
+    //     .catch(err => { err.json(err) })
     const username = req.body.username;
     const password = req.body.password;
 
@@ -23,10 +30,10 @@ authRoutes.post('/signup', (req, res, next) => {
         return;
     }
 
-    if (password.length < 7) {
-        res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
-        return;
-    }
+    // if (password.length < 7) {
+    //     res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
+    //     return;
+    // }
 
     User.findOne({ username }, (err, foundUser) => {
 
@@ -42,7 +49,6 @@ authRoutes.post('/signup', (req, res, next) => {
 
         const salt = bcrypt.genSaltSync(10);
         const hashPass = bcrypt.hashSync(password, salt);
-
         const aNewUser = new User({
             username: username,
             password: hashPass
@@ -75,12 +81,14 @@ authRoutes.post('/signup', (req, res, next) => {
 // ---------- LOGIN ---------- //
 
 authRoutes.post('/login', (req, res, next) => {
+    console.log("AT LOGIN")
+
     passport.authenticate('local', (err, theUser, failureDetails) => {
         if (err) {
             res.status(500).json({ message: 'Something went wrong authenticating user' });
             return;
         }
-
+        console.log("USER", theUser)
         if (!theUser) {
             // "failureDetails" contains the error messages
             // from our logic in "LocalStrategy" { message: '...' }.
@@ -114,9 +122,7 @@ authRoutes.get('/loggedin', (req, res, next) => {
         res.status(200).json(req.user);
         return;
     }
-    res.status(403).json({ message: 'Unauthorized' });
+    // res.status(403).json({ message: 'Unauthorized' });
 });
-
-module.exports = authRoutes;
 
 module.exports = authRoutes;

@@ -3,6 +3,7 @@ require('./configs/passport');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+
 const express = require('express');
 const favicon = require('serve-favicon');
 const hbs = require('hbs');
@@ -11,12 +12,16 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
+const userRoutes = require('./routes/user-routes');
+const designerRoutes = require('./routes/designer');
+const fabricRoutes = require('./routes/fabric-routes');
+const manufacturerRoutes = require('./routes/manufacturer-routes');
 const session = require('express-session');
 const cors = require('cors');
 const MongoStore = require('connect-mongo')(session);
 
 mongoose
-  .connect('mongodb://localhost/server', { useNewUrlParser: true })
+  .connect('mongodb://localhost/IronHack', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -46,6 +51,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//DATABASE
+// const models = require("./models");
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -68,11 +76,11 @@ app.use(cors({
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
-
 const index = require('./routes/index');
 app.use('/', index);
 app.use('/api', authRoutes);
-
+app.use('/api', userRoutes);
+app.use('/api', designerRoutes);
+app.use('/api', fabricRoutes);
+app.use('/api', manufacturerRoutes);
 module.exports = app;
