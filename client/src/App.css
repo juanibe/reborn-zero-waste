@@ -31,3 +31,46 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin: 80px 0 0 0;
+}
+
+.signup-manufacturer-title {
+  margin: 0 0 30px 0;
+}
+
+.located-in-manufacturer-public {
+  margin: 20px;
+  font-size: 0.8em;
+}
+
+.send-message-title-manufacturer-public {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.send-message-box-manufaturer-public {
+  margin: 10px;
+}
+
+.fabric-listed-manufacturer-public {
+  text-align: justify;
+}
+
+.text-muted {
+  font-size: 0.5em;
+  color: red;
+}
+
+.login-container {
+  margin: 200px 0 0 0;
+}
+
+.signup-container {
+  margin: 120px 0 0 0;
+}
+
+.bg-white {
+  margin: -60px;
+}
