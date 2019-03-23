@@ -10,24 +10,25 @@ class ModalManufacturer extends Component {
     this.service = new AuthService();
   }
   componentWillMount() {
-    document.addEventListener("mousedown", this.documentClick, false)
+    document.addEventListener("mousedown", this.documentClick, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.documentClick, false)
+    document.removeEventListener("mousedown", this.documentClick, false);
   }
 
-  documentClick = (e) => {
+  documentClick = e => {
     if (!this.node || this.node.contains(e.target)) {
-      return
+      return;
     }
     this.setState({ modalOpen: false });
-  }
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    const company = this.state.company;
 
     this.service
       .signup(username, password)
@@ -35,6 +36,7 @@ class ModalManufacturer extends Component {
         this.setState({
           username: "",
           password: "",
+          company: "",
           modalOpen: false
         });
         this.props.getUser(response);
@@ -49,29 +51,32 @@ class ModalManufacturer extends Component {
 
   handleButtonClick = () => {
     this.setState({ modalOpen: true });
-  }
+  };
 
   render() {
     return (
       <span>
         <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
-          <div ref={node => this.node = node} className="container signup-container">
+          <div
+            ref={node => (this.node = node)}
+            className="container signup-container"
+          >
             <div className="row">
               <div className="col-2" />
               <div className="col-8">
                 <h4 className="signup-manufacturer-title">
                   Register as a manufacturer
-                  </h4>
+                </h4>
 
                 <Form onSubmit={this.handleFormSubmit}>
-                  <Form.Group controlId="formBasicEmail">
+                  <Form.Group controlId="nameCompany">
                     <Form.Label>Name of your company</Form.Label>
                     <Form.Control
                       size="sm"
                       type="name"
                       placeholder="Name of your company"
                       name="name"
-                      value={this.state.username}
+                      value={this.state.company}
                       onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
@@ -88,7 +93,7 @@ class ModalManufacturer extends Component {
                     />
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
-                  </Form.Text>
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
@@ -104,12 +109,12 @@ class ModalManufacturer extends Component {
                     {this.state.password.length < 8 ? (
                       <Form.Text style={{ color: "red", fontSize: "0.5em" }}>
                         Your password has to be 8 character long at least
-                    </Form.Text>
+                      </Form.Text>
                     ) : (
-                        <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
-                          Password is valid
-                    </Form.Text>
-                      )}
+                      <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                        Password is valid
+                      </Form.Text>
+                    )}
                   </Form.Group>
                   <input
                     className="btn btn-primary"
@@ -122,7 +127,10 @@ class ModalManufacturer extends Component {
             </div>
           </div>
         </Popup>
-        <button className="button" onClick={this.handleButtonClick}> Sign up </button>
+        <button className="button" onClick={this.handleButtonClick}>
+          {" "}
+          Sign up{" "}
+        </button>
       </span>
     );
   }

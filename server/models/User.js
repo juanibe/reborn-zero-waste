@@ -5,8 +5,6 @@ const UserSchema = new Schema({
     fullname: String,
     username: String,
     password: String,
-    type: String
-
 });
 
 UserSchema.options.toJSON = {

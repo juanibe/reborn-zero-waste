@@ -6,7 +6,13 @@ import AuthService from "./auth/auth-service";
 class ModalDesigner extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", error: false };
+    this.state = {
+      username: "",
+      password: "",
+      city: "",
+      brand: "",
+      error: false
+    };
     this.service = new AuthService();
   }
 
@@ -48,6 +54,18 @@ class ModalDesigner extends Component {
               </h4>
 
               <Form onSubmit={this.handleFormSubmit}>
+                <Form.Group controlId="city">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="brand"
+                    placeholder="Where do you live ?"
+                    name="city"
+                    value={this.state.city}
+                    onChange={e => this.handleChange(e)}
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="nameBrand">
                   <Form.Label>Name of your brand</Form.Label>
                   <Form.Control
@@ -55,7 +73,7 @@ class ModalDesigner extends Component {
                     type="brand"
                     placeholder="Name of your brand"
                     name="brand"
-                    value={this.state.username}
+                    value={this.state.brand}
                     onChange={e => this.handleChange(e)}
                   />
                 </Form.Group>
@@ -73,6 +91,7 @@ class ModalDesigner extends Component {
                     We'll never share your email with anyone else.
                   </Form.Text>
                 </Form.Group>
+
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
@@ -93,6 +112,7 @@ class ModalDesigner extends Component {
                     </Form.Text>
                     )}
                 </Form.Group>
+
                 <input
                   className="btn btn-primary"
                   type="submit"
