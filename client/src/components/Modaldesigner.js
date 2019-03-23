@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
-import { Link, withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
 
@@ -108,10 +107,10 @@ class ModalDesigner extends Component {
                       Your password has to be 8 character long at least
                     </Form.Text>
                   ) : (
-                    <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
-                      Password is valid
+                      <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                        Password is valid
                     </Form.Text>
-                  )}
+                    )}
                 </Form.Group>
 
                 <input

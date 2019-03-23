@@ -14,9 +14,13 @@ router.get('/list_fabrics', (req, res, next) => {
 });
 
 router.post('/createFabric', (req, res, next) => {
-    Fabric.create({
-        type: req.body.type,
-        quantity: req.body.quantity,
-        unit_cost: req.body.unit_cost,
-        description: req.body.description
+	Fabric.create({
+		type: req.body.type,
+		quantity: req.body.quantity,
+		unit_cost: req.body.unit_cost,
+		description: req.body.description
+
+	})
 });
+
+module.exports = router;

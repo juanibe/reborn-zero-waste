@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 //import "./public/Style.css";
-import Manufacturer from "./pages/Manufacturer";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import DesignerPublic from "./pages/Designer-profile-public";
@@ -10,7 +9,6 @@ import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
 import NavbarHeader from "./components/NavbarHeader";
-import Login from "./components/auth/Login";
 import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";

@@ -5,7 +5,6 @@
 // 4. Footer component
 
 import React, { Component } from "react";
-import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
 import Cards from "../components/Cards";
 import Header from "../components/Header";
 import content from "../text.json";

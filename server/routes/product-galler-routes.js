@@ -14,9 +14,12 @@ router.get('/product-gallery', (req, res, next) => {
 });
 
 router.post('/createProGallery', (req, res, next) => {
-    Designer.create({
-      file_name: req.body.file_name,
-			contentType: req.body.contentType,
-			upload_date: req.body.upload_date,
-			meta_data: req.body.meta_data
-});
+	Designer.create({
+		file_name: req.body.file_name,
+		contentType: req.body.contentType,
+		upload_date: req.body.upload_date,
+		meta_data: req.body.meta_data
+	});
+})
+
+module.exports = router;

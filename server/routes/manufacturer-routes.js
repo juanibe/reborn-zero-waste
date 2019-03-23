@@ -4,13 +4,13 @@ const router = express.Router();
 const Manufacturer = require('../models/Manufacturer');
 
 router.get('/list_manufacturer', (req, res, next) => {
-	User.find().populate('manufacturers')
-		.then(allManufacturers => {
-			res.json(allManufacturers);
-		})
-		.catch(err => {
-			res.json(err);
-		})
+    User.find().populate('manufacturers')
+        .then(allManufacturers => {
+            res.json(allManufacturers);
+        })
+        .catch(err => {
+            res.json(err);
+        })
 });
 
 router.post('/createManufacturer', (req, res, next) => {
@@ -24,4 +24,8 @@ router.post('/createManufacturer', (req, res, next) => {
         zipcode: req.body.zipcode,
         business_logo: require.body.business_logo,
         services_offered: require.body.services_offered
- });
+
+    })
+});
+
+module.exports = router;

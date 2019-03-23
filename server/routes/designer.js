@@ -4,13 +4,13 @@ const router = express.Router();
 const Designer = require('../models/Designer');
 
 router.get('/list_designers', (req, res, next) => {
-	Designer.find().populate('designers')
-		.then(allDesigners => {
-			res.json(allDesigners);
-		})
-		.catch(err => {
-			res.json(err);
-		})
+    Designer.find().populate('designers')
+        .then(allDesigners => {
+            res.json(allDesigners);
+        })
+        .catch(err => {
+            res.json(err);
+        })
 });
 
 router.post('/createDesigner', (req, res, next) => {
@@ -27,4 +27,7 @@ router.post('/createDesigner', (req, res, next) => {
         designerInspiration: req.body.designerInspiration,
         product_types: req.body.product_types,
         category_type: req.body.category_type
-});
+    })
+})
+
+module.exports = router;

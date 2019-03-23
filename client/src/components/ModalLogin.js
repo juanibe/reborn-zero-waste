@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
 import content from '../text.json'
-import { NavItem } from 'reactstrap'
 
 
 class ModalLogin extends Component {
@@ -115,9 +114,9 @@ class ModalLogin extends Component {
             </p>
           </div>
         </Popup>
-        <NavItem className="">
-          <Link to="/" onClick={this.handleButtonClick}>Login</Link>
-        </NavItem>
+        {/* <NavItem className=""> */}
+        <Link to="/" onClick={this.handleButtonClick}>Login</Link>
+        {/* </NavItem> */}
       </span>
     );
   }

@@ -1,5 +1,4 @@
 import AuthService from "./auth/auth-service";
-import Modalmanufacturer from "./Modalmanufacturer";
 import Image from "react-bootstrap/Image";
 
 // //https://demos.creative-tim.com/blk-design-system-react/#/documentation/navbar
@@ -9,14 +8,8 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
@@ -75,37 +68,13 @@ export default class NavbarHeader extends React.Component {
               </NavItem>
 
               <NavItem className="active link-navbar">
-                {this.state.loggedInUser ? (
-                  <Link
-                    onClick={() => this.logoutUser()}
-                    tag={Link}
-                    to="/logout"
-                  >
-                    {" "}
-                    Logout{" "}
-                  </Link>
-                ) : (
+                {this.state.loggedInUser
+                  ?
+                  <Link onClick={() => this.logoutUser()} to="/logout"> Logout </Link>
+                  :
                   <ModalLogin getUser={this.props.getUser} />
-                )}
+                }
               </NavItem>
-              {/* <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <Dropd
-                  ownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
             </Nav>
           </Collapse>
         </Navbar>
