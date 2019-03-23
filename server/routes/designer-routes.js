@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = express.Router();
+const designerRouter = express.Router();
 const Designer = require('../models/Designer');
 
-router.get('/list_designers', (req, res, next) => {
+designerRouter.get('/list-designers', (req, res, next) => {
 	Designer.find().populate('designers')
 		.then(allDesigners => {
 			res.json(allDesigners);
@@ -13,9 +13,8 @@ router.get('/list_designers', (req, res, next) => {
 		})
 });
 
-router.post('/createDesigner', (req, res, next) => {
+designerRouter.post('/create-designer', (req, res, next) => {
     Designer.create({
-        type: req.body.type,
         brand_name: req.body.brand_name,
         full_name: req.body.full_name,
         address: req.body.address,
@@ -24,7 +23,10 @@ router.post('/createDesigner', (req, res, next) => {
         state: req.body.state,
         country: req.body.country,
         email: req.body.email,
-        designerInspiration: req.body.designerInspiration,
+        designer_inspiration: req.body.designerInspiration,
         product_types: req.body.product_types,
         category_type: req.body.category_type
+    }).then(response => {res.json(response)}).catch(err => {err.json(err)});
 });
+
+module.exports = designerRouter;

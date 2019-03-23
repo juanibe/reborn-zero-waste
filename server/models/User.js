@@ -1,13 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const validate          = require('mongoose-validator');
 
 const UserSchema = new Schema({
-		fullname: String,
     username: String,
     password: String,
+    email: {type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
+    	validate:[validate({
+    		validator: 'isEmail',
+    		message: 'Not a valid email'
+    	})]
+    },
     type: String
 
-});
+}, {timestamps: true});
 
 UserSchema.options.toJSON = {
     transform: function (doc, ret, options) {
