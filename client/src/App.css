@@ -124,6 +124,10 @@
   background-color: #c2d1f0;
   height: 250px;
   position: relative;
+  top:0;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0 0 0 0;
+  
   top: 0;
   font-family: "Quicksand", sans-serif;
   margin: 0 0 150px 0;

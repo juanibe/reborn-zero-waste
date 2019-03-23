@@ -3,9 +3,11 @@ import Popup from "reactjs-popup";
 import { Link, withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
-import content from "../text.json";
+import content from '../text.json'
+import { NavItem } from 'reactstrap'
 
-class Modal extends Component {
+
+class ModalLogin extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "", error: false, modalOpen: false };
@@ -28,16 +30,18 @@ class Modal extends Component {
   };
 
   handleFormSubmit = event => {
+
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+
     this.service
       .login(username, password)
       .then(response => {
         this.setState({ username: "", password: "", modalOpen: false });
         this.props.getUser(response);
-        //this.props.history.push("/");
-        console.log("YES");
+        this.props.history.push("/");
+        console.log("YES")
         console.log(this.props.history);
       })
       .catch(error => {
@@ -59,11 +63,11 @@ class Modal extends Component {
   render() {
     return (
       <span>
-        <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
-          <div
-            ref={node => (this.node = node)}
-            className="container login-container"
-          >
+        <Popup
+          modal
+          open={this.state.modalOpen}
+          closeOnDocumentClick={false}>
+          <div ref={node => this.node = node} className="container login-container">
             <div className="row">
               <div className="col-3" />
               <div className="col-6">
@@ -75,8 +79,7 @@ class Modal extends Component {
                       placeholder="Enter email"
                       name="username"
                       value={this.state.username}
-                      onChange={e => this.handleChange(e)}
-                    />
+                      onChange={e => this.handleChange(e)} />
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
                     <Form.Control
@@ -85,8 +88,7 @@ class Modal extends Component {
                       placeholder="Password"
                       name="password"
                       value={this.state.password}
-                      onChange={e => this.handleChange(e)}
-                    />
+                      onChange={e => this.handleChange(e)} />
                   </Form.Group>
                   <input
                     className="btn btn-primary"
@@ -100,8 +102,8 @@ class Modal extends Component {
                     {content.errorMessage.errorMessage}!
                   </p>
                 ) : (
-                  ""
-                )}
+                    ""
+                  )}
               </div>
               <div className="col-3" />
             </div>
@@ -113,13 +115,12 @@ class Modal extends Component {
             </p>
           </div>
         </Popup>
-        <button className="button" onClick={this.handleButtonClick}>
-          {" "}
-          Sign up{" "}
-        </button>
+        <NavItem className="">
+          <Link to="/" onClick={this.handleButtonClick}>Login</Link>
+        </NavItem>
       </span>
     );
   }
 }
 
-export default withRouter(Modal);
+export default withRouter(ModalLogin);

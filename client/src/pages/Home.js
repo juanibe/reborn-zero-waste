@@ -25,7 +25,7 @@ class Home extends Component {
                 title={content.manufacturer.title}
                 text={content.manufacturer.text}
                 image={content.manufacturer.image}
-                signUpLink={<Modalmanufacturer />}
+                signUpLink={<Modalmanufacturer getUser={this.props.getUser} />}
               />
             </div>
             <div className="col-4">
@@ -33,7 +33,7 @@ class Home extends Component {
                 title={content.designer.title}
                 text={content.designer.text}
                 image={content.designer.image}
-                signUpLink={<Modaldesigner />}
+                signUpLink={<Modaldesigner getUser={this.props.getUser} />}
               />
             </div>
             <div className="col-4">
@@ -41,7 +41,7 @@ class Home extends Component {
                 title={content.individuals.title}
                 text={content.individuals.text}
                 image={content.individuals.image}
-                signUpLink={<ModalIndividual />}
+                signUpLink={<ModalIndividual getUser={this.props.getUser} />}
               />
             </div>
           </div>

@@ -14,6 +14,7 @@ import Login from "./components/auth/Login";
 import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
+import ModalLogin from "./components/ModalLogin";
 
 class App extends Component {
   constructor(props) {
@@ -54,11 +55,11 @@ class App extends Component {
       <div className="App">
         <NavbarHeader getUser={this.getTheUser} userInSession={this.state.loggedInUser} />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
           <Route
             exact
             path="/login"
-            render={() => <Login getUser={this.getTheUser} />}
+            render={() => <ModalLogin getUser={this.getTheUser} />}
           />
 
           {/* Two signup : one for designers, one for manufacturers */}
