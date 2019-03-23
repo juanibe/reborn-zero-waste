@@ -13,6 +13,9 @@ const path = require('path');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const userRoutes = require('./routes/user-routes');
+const designerRoutes = require('./routes/designer');
+const fabricRoutes = require('/routes/fabric-routes');
+const manufacturerRoutes = require('/routes/manufacturer-routes');
 const session = require('express-session');
 const cors = require('cors');
 const MongoStore = require('connect-mongo')(session);
@@ -77,5 +80,7 @@ const index = require('./routes/index');
 app.use('/', index);
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
-
+app.use('/api', designerRoutes);
+app.use('/api', fabricRoutes);
+app.use('/api', manufacturerRoutes);
 module.exports = app;

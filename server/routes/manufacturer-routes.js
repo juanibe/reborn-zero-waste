@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-const Fabric = require('../models/Manufacturer');
+const Manufacturer = require('../models/Manufacturer');
 
 router.get('/list_manufacturer', (req, res, next) => {
 	User.find().populate('manufacturers')
@@ -14,7 +14,7 @@ router.get('/list_manufacturer', (req, res, next) => {
 });
 
 router.post('/createManufacturer', (req, res, next) => {
-    Fabric.create({
+    Manufacturer.create({
         type: req.body.type,
         name_of_business: req.body.name_of_business,
         address: req.body.address,

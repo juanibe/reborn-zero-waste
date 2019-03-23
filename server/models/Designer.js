@@ -1,9 +1,10 @@
 const mongoose = required('mongoose');
 const Schema = mongoose.Schema;
 const ProductGallery = required('./product-gallery');
+const User = required('./User');
 
 const designerSchema = new Schema({
-	user_id: 
+	user_id: {type: Schema.Types.ObjectId, ref: 'User'}
 	brand_name: String,
 	full_name: String,
 	address: String,

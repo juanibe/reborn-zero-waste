@@ -4,7 +4,7 @@ const router = express.Router();
 const Fabric = require('../models/Fabric');
 
 router.get('/list_fabrics', (req, res, next) => {
-	User.find().populate('fabrics')
+	Fabric.find().populate('fabrics')
 		.then(allFabrics => {
 			res.json(allFabrics);
 		})
