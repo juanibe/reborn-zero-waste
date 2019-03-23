@@ -1,4 +1,3 @@
-
 import AuthService from "./auth/auth-service";
 import Modalmanufacturer from "./Modalmanufacturer";
 import Image from "react-bootstrap/Image";
@@ -51,7 +50,7 @@ export default class NavbarHeader extends React.Component {
     });
   }
   render() {
-    console.log(this.state.loggedInUser)
+    console.log(this.state.loggedInUser);
     return (
       <div>
         {/* color="secondary" */}
@@ -66,16 +65,28 @@ export default class NavbarHeader extends React.Component {
               <NavItem className="active link-navbar">
                 <Link to="/designers">Designers</Link>
               </NavItem>
+
               <NavItem className="active link-navbar">
                 <Link to="/manufacturers">Manufacturers</Link>
               </NavItem>
+
               <NavItem className="active link-navbar">
-                {this.state.loggedInUser
-                  ?
-                  <Link onClick={() => this.logoutUser()} tag={Link} to="/logout"> Logout </Link>
-                  :
+                <Link to="/concept">Concept</Link>
+              </NavItem>
+
+              <NavItem className="active link-navbar">
+                {this.state.loggedInUser ? (
+                  <Link
+                    onClick={() => this.logoutUser()}
+                    tag={Link}
+                    to="/logout"
+                  >
+                    {" "}
+                    Logout{" "}
+                  </Link>
+                ) : (
                   <ModalLogin getUser={this.props.getUser} />
-                }
+                )}
               </NavItem>
               {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

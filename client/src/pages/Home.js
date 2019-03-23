@@ -40,7 +40,7 @@ class Home extends Component {
               <Cards
                 title={content.individuals.title}
                 text={content.individuals.text}
-                image={content.individuals.image}
+                image={content.manufacturer.image}
                 signUpLink={<ModalIndividual getUser={this.props.getUser} />}
               />
             </div>

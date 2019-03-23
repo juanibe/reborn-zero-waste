@@ -29,6 +29,7 @@ class ModalManufacturer extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    const company = this.state.company;
 
     this.service
       .signup(username, password)
@@ -36,6 +37,7 @@ class ModalManufacturer extends Component {
         this.setState({
           username: "",
           password: "",
+          company: "",
           modalOpen: false
         });
         this.props.getUser(response);
@@ -75,7 +77,7 @@ class ModalManufacturer extends Component {
                       type="name"
                       placeholder="Name of your company"
                       name="name"
-                      value={this.state.username}
+                      value={this.state.company}
                       onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>

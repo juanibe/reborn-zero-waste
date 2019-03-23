@@ -7,7 +7,13 @@ import AuthService from "./auth/auth-service";
 class ModalDesigner extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", error: false };
+    this.state = {
+      username: "",
+      password: "",
+      city: "",
+      brand: "",
+      error: false
+    };
     this.service = new AuthService();
   }
 
@@ -68,7 +74,7 @@ class ModalDesigner extends Component {
                     type="brand"
                     placeholder="Name of your brand"
                     name="brand"
-                    value={this.state.username}
+                    value={this.state.brand}
                     onChange={e => this.handleChange(e)}
                   />
                 </Form.Group>
