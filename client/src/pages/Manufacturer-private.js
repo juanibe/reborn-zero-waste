@@ -100,7 +100,7 @@ class ManufacturerPrivate extends Component {
                       placeholder="How many meters do you have ? "
                       name="amountfabrics"
                       value={this.state.amountfabrics}
-                      onChange={e => this.handleChange(e)}
+                      //   onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 

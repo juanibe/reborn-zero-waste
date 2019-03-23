@@ -41,14 +41,9 @@ class Home extends Component {
                 title={content.individuals.title}
                 text={content.individuals.text}
                 image={content.manufacturer.image}
-<<<<<<< HEAD
-                signUpLink={<ModalIndividual getUser={this.props.getUser} />} />
-            </div>
-=======
                 signUpLink={<ModalIndividual getUser={this.props.getUser} />}
               />
             </div> */}
->>>>>>> 6e4c4f19017b89db5641d2251dec04001ea58333
           </div>
         </div>
       </div>
