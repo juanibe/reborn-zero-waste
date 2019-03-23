@@ -6,7 +6,7 @@ const productGallery = new Schema({
 	contentType: String,
 	upload_date: { type: Date, default: Date.now },
 	meta_data: String
-});
+}, {timestamps: true});
 
 const ProductGallery =  mongoose.model('ProductGallery', productGallery);
 

@@ -12,12 +12,17 @@ const designerSchema = new Schema({
 	zipcode: Number,
 	state: String,
 	country: String,
-	email: String,
+	email: {type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
+  	validate:[validate({
+  		validator: 'isEmail',
+  		message: 'Not a valid email'
+  	})]
+  },
 	designInspiration: String,
 	product_types: String,
 	product_gallery: {type: Schema.Types.ObjectId, ref: 'ProductGallery'},
 	category_type: String
-});
+}, {timestamps: true});
 
 const Designer = mongoose.model('Designer', designerSchema);
 
