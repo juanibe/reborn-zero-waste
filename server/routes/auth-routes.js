@@ -1,6 +1,5 @@
 const express = require('express');
 const authRoutes = express.Router();
-
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
@@ -18,9 +17,7 @@ authRoutes.post('/signup', (req, res, next) => {
     User.create({
         username: req.body.username,
         password: req.body.password
-    })
-        .then(response => {res.json(response)})
-        .catch(err => {err.json(err)})
+    }).then(response => {res.json(response)}).catch(err => {err.json(err)});
     // const username = req.body.username;
     // const password = req.body.password;
 

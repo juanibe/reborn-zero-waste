@@ -1,27 +1,31 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const router = express.Router();
+const manufacturerRouter = express.Router();
 const Manufacturer = require('../models/Manufacturer');
 
-router.get('/list_manufacturer', (req, res, next) => {
-	User.find().populate('manufacturers')
-		.then(allManufacturers => {
-			res.json(allManufacturers);
+manufacturerRouter.get('/list-manufacturer', (req, res, next) => {
+	Manufacturer.find().populate('manufacturers')
+		.then(allManufactures => {
+			res.json(allManufactures);
 		})
 		.catch(err => {
 			res.json(err);
 		})
 });
 
-router.post('/createManufacturer', (req, res, next) => {
+manufacturerRouter.post('/create-manufacturer', (req, res, next) => {
     Manufacturer.create({
-        type: req.body.type,
         name_of_business: req.body.name_of_business,
         address: req.body.address,
         city: req.body.city,
         state: req.body.state,
         country: req.body.country,
         zipcode: req.body.zipcode,
-        business_logo: require.body.business_logo,
-        services_offered: require.body.services_offered
- });
+        business_logo: req.body.business_logo,
+        services_offered: req.body.services_offered
+ 		})
+ 		.then(response => {res.json(response)})
+ 		.catch(err => {err.json(err)});
+});
+
+module.exports = manufacturerRouter;

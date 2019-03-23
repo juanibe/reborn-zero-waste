@@ -1,10 +1,10 @@
-const mongoose = required('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ProductGallery = required('./product-gallery');
-const User = required('./User');
+const ProductGallery = require('./product-gallery');
+const User = require('./User');
 
 const designerSchema = new Schema({
-	user_id: {type: Schema.Types.ObjectId, ref: 'User'}
+	user_id: {type: Schema.Types.ObjectId, ref: 'User'},
 	brand_name: String,
 	full_name: String,
 	address: String,
@@ -15,7 +15,7 @@ const designerSchema = new Schema({
 	email: String,
 	designInspiration: String,
 	product_types: String,
-	product_gallery: {type: Schema.Types.ObjectId, ref: 'ProductGallery'}
+	product_gallery: {type: Schema.Types.ObjectId, ref: 'ProductGallery'},
 	category_type: String
 });
 
