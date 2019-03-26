@@ -1,5 +1,3 @@
-// Register as a manufacturer
-
 import React, { Component } from "react";
 import "../App.css";
 
