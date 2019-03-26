@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ProductGallery = require('./product-gallery');
 const User = require('./User');
+const validate = require('mongoose-validator');
 
 const designerSchema = new Schema({
 	user_id: {type: Schema.Types.ObjectId, ref: 'User'},
@@ -12,8 +13,8 @@ const designerSchema = new Schema({
 	zipcode: Number,
 	state: String,
 	country: String,
-	email: {type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
-  	validate:[validate({
+	email: {type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true, 
+		validate:[validate({
   		validator: 'isEmail',
   		message: 'Not a valid email'
   	})]
