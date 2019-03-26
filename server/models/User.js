@@ -7,15 +7,16 @@ const validate = require('mongoose-validator');
 const UserSchema = new Schema({
     username: String,
     password: String,
-    email: {type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
-    	validate:[validate({
-    		validator: 'isEmail',
-    		message: 'Not a valid email'
-    	})]
+    email: {
+        type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
+        validate: [validate({
+            validator: 'isEmail',
+            message: 'Not a valid email'
+        })]
     },
     type: String
 
-}, {timestamps: true});
+}, { timestamps: true });
 
 UserSchema.options.toJSON = {
     transform: function (doc, ret, options) {

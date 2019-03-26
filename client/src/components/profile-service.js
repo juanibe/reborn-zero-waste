@@ -10,7 +10,6 @@ class ProfileService {
     }
 
     manufacturerInformation = () => {
-
         return this.service.get('/profile')
             .then(response => response.data)
     }

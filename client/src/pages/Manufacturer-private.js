@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 // import AuthService from "./auth/auth-service";
+import ProfileService from "../components/profile-service";
+
 import "../App.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -8,7 +10,16 @@ import Dropdown from "react-bootstrap/Dropdown";
 class ManufacturerPrivate extends Component {
   constructor(props) {
     super(props);
-    this.state = { descriptionfabrics: "", amountfabrics: "", error: false };
+    this.service = new ProfileService();
+    this.state = { descriptionfabrics: "", amountfabrics: "", companyName: "", error: false };
+  }
+
+
+  componentDidMount = () => {
+    this.service.manufacturerInformation().then(res => {
+      console.log('res', res.user)
+      this.setState({ companyName: res.name_of_business })
+    })
   }
 
   render() {
@@ -19,7 +30,7 @@ class ManufacturerPrivate extends Component {
             <div className="col-7">
               <div className="description-fabrics">
                 <div>
-                  <h3>Rayban Factory LTD</h3>
+                  <h3>{this.state.companyName}</h3>
                   <div className="description">
                     About the company ! Blablablablablablablablablablabla.
                   </div>
@@ -88,7 +99,7 @@ class ManufacturerPrivate extends Component {
                       placeholder="Description"
                       name="descriptionfabrics"
                       value={this.state.descriptionfabrics}
-                      // onChange={e => this.handleChange(e)}
+                    // onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
@@ -100,7 +111,7 @@ class ManufacturerPrivate extends Component {
                       placeholder="How many meters do you have ? "
                       name="amountfabrics"
                       value={this.state.amountfabrics}
-                      //   onChange={e => this.handleChange(e)}
+                    //   onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
+import Axios from "axios";
 
 class ModalManufacturer extends Component {
   constructor(props) {
@@ -31,16 +32,19 @@ class ModalManufacturer extends Component {
     const company = this.state.company;
 
     this.service
-      .manufacturerSignup({ username, password, role: "manufacturer", companyName: company })
+      .signup({ username, password, type: "manufacturer" })
       .then(response => {
         this.setState({
           username: "",
-          password: "",
-          company: "",
-          modalOpen: false
+          password: ""
         });
         this.props.getUser(response);
-
+        Axios.post("http://localhost:3001/api/create-manufacturer",
+          { name_of_business: this.state.company }, {
+            withCredentials: true
+          }).then(() => {
+            this.setState({ modalOpen: false })
+          })
       })
       .catch(error => console.log(error));
   };

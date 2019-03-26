@@ -9,15 +9,9 @@ class AuthService {
         this.service = service;
     }
 
-    manufacturerSignup = (params) => {
+    signup = (params) => {
         console.log(params)
-        return this.service.post('/signup/manufacturer', params)
-            .then(response => response.data)
-    }
-
-    designerSignup = (params) => {
-        console.log(params)
-        return this.service.post('/signup/designer', params)
+        return this.service.post('/signup', params)
             .then(response => response.data)
     }
 
