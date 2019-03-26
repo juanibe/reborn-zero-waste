@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Mukta");
+
+.body {
+  font-family: "Mukta", sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -32,8 +38,8 @@
   }
 }
 
-.container {
-  margin: 80px 0 0 0;
+.login-container {
+  margin: 80px 0 80px 0;
 }
 
 .signup-manufacturer-title {
@@ -63,14 +69,132 @@
   color: red;
 }
 
-.login-container {
-  margin: 200px 0 0 0;
+.login-options {
+  font-size: 0.6em;
+}
+
+.wrong-password {
+  color: red;
+  font-size: 0.8em;
 }
 
 .signup-container {
-  margin: 120px 0 0 0;
+  margin: 100px 0 100px 0;
 }
 
 .bg-white {
   margin: -60px;
+}
+
+.card-margin {
+  margin: 50px;
+}
+
+.card {
+  border: none !important;
+  font-family: "Quicksand", sans-serif;
+  margin-left: 75px;
+  margin-top: -50px;
+}
+
+.card-img-top {
+  width: 50%;
+}
+
+.card-text {
+  font-family: "Quicksand", sans-serif;
+}
+
+.title {
+  margin-top: 18px;
+}
+
+.background-footer {
+  background-color: #99b3e6;
+  color: white;
+  font-size: 17px;
+}
+
+.navbar-style {
+  background: #ebf0fa;
+}
+
+.footer-copyright {
+  margin: 30px 0 10px 0;
+  position: relative;
+  left: 300px;
+  font-size: 0.8em;
+}
+
+.HeaderText {
+  background-color: #c2d1f0;
+  height: 250px;
+  position: relative;
+  top: 0;
+  font-family: "Quicksand", sans-serif;
+  margin: 0 0 0 0;
+
+  top: 0;
+  font-family: "Quicksand", sans-serif;
+  margin: 0 0 150px 0;
+}
+.title-header {
+  position: relative;
+  top: 60px;
+}
+
+.text-header {
+  position: relative;
+  top: 70px;
+}
+
+.card-text {
+  font-family: "Source Serif Pro", serif;
+  text-align: center;
+}
+
+.login-message {
+  font-size: 0.6em;
+  font-family: "Source Serif Pro", serif;
+  font-style: italic;
+}
+
+.error-message {
+  font-size: 0.6em;
+  color: red;
+  font-style: italic;
+}
+.price {
+  color: #910526;
+  font-family: "Quicksand", sans-serif;
+}
+
+.link-navbar {
+  margin: 20px;
+}
+
+.manufacturer-private {
+  margin-top: 30px;
+}
+
+.description-fabrics {
+  margin-left: -110px;
+}
+
+.list-fabrics {
+  margin-right: -100px;
+}
+
+.dropdownfabrics {
+  margin-bottom: 20px;
+}
+
+.amount {
+  font-style: italic;
+  font-size: 13px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.manufacturer-public {
+  margin-top: 30px;
 }

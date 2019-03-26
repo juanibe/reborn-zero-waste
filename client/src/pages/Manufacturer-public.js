@@ -1,58 +1,105 @@
 // Register as a manufacturer
 
-
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import '../App.css';
-
+import React, { Component } from "react";
+import "../App.css";
 
 //import AuthService from './auth-service';
 
 class ManufacturerPublic extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            someData: '',
-            someData2: ''
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      someData: "",
+      someData2: ""
+    };
+  }
 
-    // ---------- Here goes react-bootstrap --------- //
+  // ---------- Here goes react-bootstrap --------- //
 
-    render() {
-        return (
-            <div>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-8'>
-                            <div>
-                                <h3>Rayban Factory LTD</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada tempus turpis. Proin et tortor turpis. Sed vulputate tortor ut nisl egestas bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus laoreet elit tincidunt tortor mattis euismod. Suspendisse potenti. Donec et erat convallis, ullamcorper ligula sit amet, dictum dolor. Sed a commodo felis, at ornare dolor. Mauris et massa sit amet est elementum tincidunt. In lobortis accumsan mi ac finibus. Morbi eu blandit magna. Sed ornare eu ex eget pretium. Aliquam facilisis lectus arcu, sed imperdiet nunc pretium eget. Phasellus id ullamcorper nisi. Proin varius dolor quis imperdiet finibus. Etiam aliquet diam ut condimentum bibendum.
-                                </p>
-                                <div>
-                                    <h3>Fabric available</h3>
-                                    <p className='fabric-listed-manufacturer-public'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eleifend ultrices orci, ac bibendum erat tincidunt ut. Ut pellentesque ut nulla id posuere. Integer non tempor mi, vitae gravida dolor.</p>
-                                    <p className='fabric-listed-manufacturer-public'> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eleifend ultrices orci, ac bibendum erat tincidunt ut. Ut pellentesque ut nulla id posuere. Integer non tempor mi, vitae gravida dolor.</p>
-                                    <p className='fabric-listed-manufacturer-public'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eleifend ultrices orci, ac bibendum erat tincidunt ut. Ut pellentesque ut nulla id posuere. Integer non tempor mi, vitae gravida dolor.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-4'>
-                            <h4 className='located-in-manufacturer-public'>Located in: <strong>Berlin</strong></h4>
-                            <h4 className='send-message-title-manufacturer-public'>Send a message to the user</h4>
-                            <form>
-                                <textarea className="form-control send-message-box-manufaturer-public" aria-label="With textarea"></textarea>
-                                <input className="btn btn-primary" type="submit" value="Submit"></input>
-                            </form>
-                        </div>
+  render() {
+    return (
+      <div>
+        <div className="manufacturer-public">
+          <div className="container">
+            <div className="row">
+              <div className="col-8">
+                <div>
+                  <h3>Rayban Factory LTD</h3>
+                  <div className="description">
+                    About the company ! Blablablablablablablablablablabla.
+                  </div>
+                  <div>
+                    <h3>Fabric available</h3>
+                    <div className="fabric-listed-manufacturer-public">
+                      <h5>Denim</h5>
+                      <div className="price">50€ /meter</div>
+                      <div className="amount">1 meter</div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
+                      ut. Ut pellentesque ut nulla id posuere. Integer non
+                      tempor mi, vitae gravida dolor.
                     </div>
+                    <div className="fabric-listed-manufacturer-public">
+                      <h5>Cotton</h5>
+                      <div className="price">50€ /meter</div>
+                      <div className="amount">1 meter</div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
+                      ut. Ut pellentesque ut nulla id posuere. Integer non
+                      tempor mi, vitae gravida dolor.
+                    </div>
+                    <div className="fabric-listed-manufacturer-public">
+                      <h5>Wool</h5>
+                      <div className="price">50€ /meter</div>
+                      <div className="amount">1 meter</div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
+                      ut. Ut pellentesqus ut nulla id posuere. Integer non
+                      tempor mi, vitae gravida dolor.
+                    </div>
+                    <div className="fabric-listed-manufacturer-public">
+                      <h5>Velvet</h5>
+                      <div className="price">50€ /meter</div>
+                      <div className="amount">1 meter</div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
+                      ut. Ut pellentesque ut nulla id posuere. Integer non
+                      tempor mi, vitae gravida dolor.
+                    </div>
+                    <div className="fabric-listed-manufacturer-public">
+                      <h5>Leather</h5>
+                      <div className="price">50€ /meter</div>
+                      <div className="amount">1 meter</div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
+                      ut. Ut pellentesque ut nulla id posuere. Integer non
+                      tempor mi, vitae gravida dolor.
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="col-4">
+                <h4 className="send-message-title-manufacturer-public">
+                  Send a message to the user
+                </h4>
+                <form>
+                  <textarea
+                    className="form-control send-message-box-manufaturer-public"
+                    aria-label="With textarea"
+                  />
+                  <input
+                    className="btn btn-primary"
+                    type="submit"
+                    value="Submit"
+                  />
+                </form>
+              </div>
             </div>
-        )
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default ManufacturerPublic;  
+export default ManufacturerPublic;

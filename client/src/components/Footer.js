@@ -3,14 +3,13 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 const Footer = () => {
   return (
-    <MDBFooter color="blue" className="font-small pt-4 mt-4">
+    <MDBFooter color="blue" className="font-small pt-4 mt-4 background-footer">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="4">
-            <h5 className="title">REBORN</h5>
-            <p>Blalala - SEO concept of Reborn in a line</p>
+          <MDBCol md="3">
+
           </MDBCol>
-          <MDBCol md="4">
+          <MDBCol md="3">
             <h5 className="title">Support</h5>
             <ul>
               <li className="list-unstyled">
@@ -27,7 +26,7 @@ const Footer = () => {
               </li>
             </ul>
           </MDBCol>
-          <MDBCol md="4">
+          <MDBCol md="3">
             <h5 className="title">Company</h5>
             <ul>
               <li className="list-unstyled">
@@ -40,9 +39,12 @@ const Footer = () => {
                 <a href="#!">Press</a>
               </li>
             </ul>
-            <div className="footer-copyright text-center py-3">
+            <div className="footer-copyright">
               © 2019 Reborn - Made in Berlin
             </div>
+          </MDBCol>
+          <MDBCol md="3">
+
           </MDBCol>
         </MDBRow>
       </MDBContainer>

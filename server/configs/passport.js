@@ -19,6 +19,7 @@ passport.deserializeUser((userIdFromSession, cb) => {
 
 passport.use(new LocalStrategy((username, password, next) => {
     User.findOne({ username }, (err, foundUser) => {
+        console.log("PASSPORT STRATEGY", username, password, foundUser)
         if (err) {
             next(err);
             return;

@@ -8,6 +8,6 @@ const productGallery = new Schema({
 	meta_data: String
 }, {timestamps: true});
 
-const ProductGallery =  mongoose.model('ProductGallery', productGallery);
+const ProductGallery = mongoose.model('ProductGallery', productGallery);
 
 module.exports = ProductGallery;

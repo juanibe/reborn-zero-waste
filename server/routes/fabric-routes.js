@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const fabricRouter = express.Router();
+const router = express.Router();
 const Fabric = require('../models/Fabric');
 
-fabricRouter.get('/list-fabrics', (req, res, next) => {
+router.get('/list-fabrics', (req, res, next) => {
 	Fabric.find().populate('fabrics')
 		.then(allFabrics => {
 			res.json(allFabrics);
@@ -13,7 +13,7 @@ fabricRouter.get('/list-fabrics', (req, res, next) => {
 		})
 });
 
-fabricRouter.post('/createFabric', (req, res, next) => {
+router.post('/createFabric', (req, res, next) => {
     Fabric.create({
         type: req.body.type,
         quantity: req.body.quantity,
@@ -24,4 +24,4 @@ fabricRouter.post('/createFabric', (req, res, next) => {
     .catch(err => {err.json(err)});
 });
 
-module.exports = fabricRouter;
+module.exports = router;

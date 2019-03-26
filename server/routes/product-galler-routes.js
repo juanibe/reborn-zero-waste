@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const productGalleryrouter = express.Router();
+const router = express.Router();
 const ProductGallery = require('../models/product-gallery');
 
-productGalleryrouter.get('/product-gallery', (req, res, next) => {
+router.get('/product-gallery', (req, res, next) => {
 	ProductGallery.find().populate('ProductGalleries')
 		.then(ProductGalleries => {
 			res.json(ProductGalleries);
@@ -13,7 +13,7 @@ productGalleryrouter.get('/product-gallery', (req, res, next) => {
 		})
 });
 
-productGalleryrouter.post('/createProGallery', (req, res, next) => {
+router.post('/createProGallery', (req, res, next) => {
     Designer.create({
       file_name: req.body.file_name,
 			contentType: req.body.contentType,
@@ -22,4 +22,4 @@ productGalleryrouter.post('/createProGallery', (req, res, next) => {
 		}).then(response => {res.json(response)}).catch(err => {err.json(err)});
 })
 
-module.exports = productGalleryrouter;
+module.exports = router;

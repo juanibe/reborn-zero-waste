@@ -5,58 +5,49 @@
 // 4. Footer component
 
 import React, { Component } from "react";
-import { MDBRow, MDBCol, MDBContainer } from "mdbreact";
+import Cards from "../components/Cards";
+import Header from "../components/Header";
+import content from "../text.json";
+import Modalmanufacturer from "../components/Modalmanufacturer";
+import Modaldesigner from "../components/Modaldesigner";
+import ModalIndividual from "../components/ModalIndividual";
+import MyProfile from "./MyProfile";
 
 class Home extends Component {
   render() {
     return (
-      <MDBContainer>
-        <MDBRow>
-          <div className="Home">
-            <div className="HeaderText">
-              <h1>REBORN</h1>
-              <h3>Be a part of the Zero-Waste movement</h3>
+      <div>
+        <Header />
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <Cards
+                title={content.manufacturer.title}
+                text={content.manufacturer.text}
+                image={content.manufacturer.image}
+                signUpLink={<Modalmanufacturer getUser={this.props.getUser} />}
+              />
             </div>
-
-            <div className="SignupText">
-              <MDBCol lg="6">
-                <p class="imagealigned">
-                  <div class="col">
-                    <img src="/images/manufacturer.png" alt="manufacturer" />
-                  </div>
-
-                  <h1>Manufacturers</h1>
-                  <p class="/signup">
-                    List you excess fabric on the site, and work with talented
-                    designers to make new clothes. Earn more money from unused
-                    fabric, and be more eco-friendly and sustainable.
-                  </p>
-
-                  <a href="/signup">Register as a manufacturer</a>
-                </p>
-              </MDBCol>
-
-              <MDBCol lg="6">
-                <p class="imagealigned">
-                  <div class="col">
-                    <img src="/images/designer.png" alt="designer" />
-                  </div>
-
-                  <h1>Designers</h1>
-                  <p class="home">
-                    Post your fabric requirements on the site, and receive
-                    updates whenever the fabric you need is listed on the site.
-                  </p>
-
-                  <a href="/signup">Register as a designer</a>
-                </p>
-              </MDBCol>
+            <div className="col-6">
+              <Cards
+                title={content.designer.title}
+                text={content.designer.text}
+                image={content.designer.image}
+                signUpLink={<Modaldesigner getUser={this.props.getUser} />}
+              />
             </div>
+            {/* <div className="col-4">
+              <Cards
+                title={content.individuals.title}
+                text={content.individuals.text}
+                image={content.manufacturer.image}
+                signUpLink={<ModalIndividual getUser={this.props.getUser} />}
+              />
+            </div> */}
           </div>
-        </MDBRow>
-      </MDBContainer>
+        </div>
+      </div>
     );
   }
 }
-
 export default Home;

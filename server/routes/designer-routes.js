@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const designerRouter = express.Router();
+const router = express.Router();
 const Designer = require('../models/Designer');
 
-designerRouter.get('/list-designers', (req, res, next) => {
+router.get('/list-designers', (req, res, next) => {
 	Designer.find().populate('designers')
 		.then(allDesigners => {
 			res.json(allDesigners);
@@ -13,7 +13,7 @@ designerRouter.get('/list-designers', (req, res, next) => {
 		})
 });
 
-designerRouter.post('/create-designer', (req, res, next) => {
+router.post('/create-designer', (req, res, next) => {
     Designer.create({
         brand_name: req.body.brand_name,
         full_name: req.body.full_name,
@@ -29,4 +29,4 @@ designerRouter.post('/create-designer', (req, res, next) => {
     }).then(response => {res.json(response)}).catch(err => {err.json(err)});
 });
 
-module.exports = designerRouter;
+module.exports = router;
