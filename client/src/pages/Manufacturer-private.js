@@ -11,7 +11,7 @@ class ManufacturerPrivate extends Component {
   constructor(props) {
     super(props);
     this.service = new ProfileService();
-    this.state = { descriptionfabrics: "", amountfabrics: "", companyName: "", error: false };
+    this.state = { descriptionfabrics: "", amountfabrics: "", companyName: "", costfabrics: "", error: false };
   }
 
 
@@ -32,53 +32,41 @@ class ManufacturerPrivate extends Component {
                 <div>
                   <h3>{this.state.companyName}</h3>
                   <div className="description">
-                    About the company ! Blablablablablablablablablablabla.
+                    Description of the company (field to be fill when the
+                    manufacturer signs up) ! Blablablablablablablablablablabla.
                   </div>
                   <div>
                     <h3>Fabric available</h3>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Denim</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Cotton</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Wool</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesqus ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Velvet</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
+                    <div className="fabric-listed">
                       <div className="fabric-listed-manufacturer-public">
-                        <h5>Leather</h5>
+                        <h5>Denim</h5>
                         <div className="price">50€ /meter</div>
                         <div className="amount">1 meter</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                        ut. Ut pellentesque ut nulla id posuere. Integer non
-                        tempor mi, vitae gravida dolor.
+                        Description of the fabric.
+                      </div>
+                      <div className="fabric-listed-manufacturer-public">
+                        <h5>Cotton</h5>
+                        <div className="price">50€ /meter</div>
+                        <div className="amount">1 meter</div>
+                        Description of the fabric.
+                      </div>
+                      <div className="fabric-listed-manufacturer-public">
+                        <h5>Wool</h5>
+                        <div className="price">50€ /meter</div>
+                        <div className="amount">1 meter</div>
+                        Description of the fabric.
+                      </div>
+                      <div className="fabric-listed-manufacturer-public">
+                        <h5>Velvet</h5>
+                        <div className="price">50€ /meter</div>
+                        <div className="amount">1 meter</div>
+                        Description of the fabric.
+                        <div className="fabric-listed-manufacturer-public">
+                          <h5>Leather</h5>
+                          <div className="price">50€ /meter</div>
+                          <div className="amount">1 meter</div>
+                          Description of the fabric.
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -122,8 +110,8 @@ class ManufacturerPrivate extends Component {
                       type="costfabrics"
                       placeholder="Cost per meter in euros"
                       name="costfabrics"
-                      value={this.state.costfabrics}
-                      onChange={e => this.handleChange(e)}
+                    // value={this.state.costfabrics}
+                    // onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
@@ -138,6 +126,27 @@ class ManufacturerPrivate extends Component {
                       <Dropdown.Item href="#/fabric-4">Velvet</Dropdown.Item>
                       <Dropdown.Item href="#/fabric-5">Leather</Dropdown.Item>
                     </DropdownButton>
+                  </div>
+
+                  <div className="dropdownfabrics2">
+                    <Dropdown
+                      id="dropdown-basic-button"
+                      title="Choose the fabrics"
+                      list={[
+                        { value: 1, label: "January" },
+                        { value: 2, label: "February" },
+                        { value: 3, label: "March" },
+                        { value: 4, label: "April" },
+                        { value: 5, label: "May" },
+                        { value: 6, label: "June" },
+                        { value: 7, label: "July" },
+                        { value: 8, label: "August" },
+                        { value: 9, label: "September" },
+                        { value: 10, label: "October" },
+                        { value: 11, label: "November" },
+                        { value: 12, label: "December" }
+                      ]}
+                    />
                   </div>
 
                   <input

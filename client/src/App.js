@@ -3,6 +3,7 @@ import "./App.css";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
 import DesignerPublic from "./pages/Designer-profile-public";
+import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
@@ -46,13 +47,19 @@ class App extends Component {
   render() {
     this.fetchUser();
     if (this.state.loggedInUser) {
-
     }
     return (
       <div className="App">
-        <NavbarHeader getUser={this.getTheUser} userInSession={this.state.loggedInUser} />
+        <NavbarHeader
+          getUser={this.getTheUser}
+          userInSession={this.state.loggedInUser}
+        />
         <Switch>
-          <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
+          <Route
+            exact
+            path="/"
+            render={() => <Home getUser={this.getTheUser} />}
+          />
           <Route
             exact
             path="/login"
@@ -75,11 +82,10 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
-          {/* <Route exact path="/designers-private" component={DesignerPrivate} /> */}
+          <Route exact path="/designers-private" component={DesignerPrivate} />
 
           <Route exact path="/concept" component={Concept} />
           <Route exact path="/profile" component={MyProfile} />
-
         </Switch>
         <Footer />
       </div>
