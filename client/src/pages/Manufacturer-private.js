@@ -11,16 +11,20 @@ class ManufacturerPrivate extends Component {
   constructor(props) {
     super(props);
     this.service = new ProfileService();
-    this.state = { descriptionfabrics: "", amountfabrics: "", companyName: "", costfabrics: "", error: false };
+    this.state = {
+      descriptionfabrics: "",
+      amountfabrics: "",
+      companyName: "",
+      costfabrics: "",
+      error: false
+    };
   }
-
 
   componentDidMount = () => {
     this.service.manufacturerInformation().then(res => {
-      console.log('res', res.user)
-      this.setState({ companyName: res.name_of_business })
-    })
-  }
+      this.setState({ companyName: res.name_of_business });
+    });
+  };
 
   render() {
     return (
@@ -87,7 +91,7 @@ class ManufacturerPrivate extends Component {
                       placeholder="Description"
                       name="descriptionfabrics"
                       value={this.state.descriptionfabrics}
-                    // onChange={e => this.handleChange(e)}
+                      // onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
@@ -99,7 +103,7 @@ class ManufacturerPrivate extends Component {
                       placeholder="How many meters do you have ? "
                       name="amountfabrics"
                       value={this.state.amountfabrics}
-                    //   onChange={e => this.handleChange(e)}
+                      //   onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
@@ -110,8 +114,8 @@ class ManufacturerPrivate extends Component {
                       type="costfabrics"
                       placeholder="Cost per meter in euros"
                       name="costfabrics"
-                    // value={this.state.costfabrics}
-                    // onChange={e => this.handleChange(e)}
+                      // value={this.state.costfabrics}
+                      // onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
