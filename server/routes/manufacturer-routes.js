@@ -4,8 +4,11 @@ const router = express.Router();
 const Manufacturer = require('../models/Manufacturer');
 
 router.get('/list-manufacturer', (req, res, next) => {
-	Manufacturer.find().populate('manufacturers')
+	Manufacturer.find().populate('user')
 		.then(allManufactures => {
+			// TODO: call hendrik when you arrive here
+			// find the fabrics for each manufacturer
+			// allManufactures.map(m => Fabric.find({ owner: m.user._id })
 			res.json(allManufactures);
 		})
 		.catch(err => {
