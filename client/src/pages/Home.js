@@ -45,9 +45,22 @@ class Home extends Component {
               />
             </div> */}
           </div>
-        </div>
+        </div><br></br><br></br>
+        <section>
+          <div className='container'>
+          </div>
+        </section>
       </div>
     );
   }
 }
 export default Home;
+
+// {<script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>}
+//             <div id="landbot-1553762396749" style="width: 100%; height: 500px"></div>
+//             { <script>
+//   var myLandbotFrame = new LandbotFrameWidget({
+//     container: '#landbot-1553762396749',
+//     index: 'https://landbot.io/u/H-154558-EBCCDC5FNXBUAS5C/index.html',
+//   });
+// </script>}
