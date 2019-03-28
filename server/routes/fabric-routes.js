@@ -14,14 +14,15 @@ router.get('/list-fabrics', (req, res, next) => {
 });
 
 router.post('/createFabric', (req, res, next) => {
-    Fabric.create({
-        type: req.body.type,
-        quantity: req.body.quantity,
-        unit_cost: req.body.unit_cost,
-        description: req.body.description
-		})
-		.then(response => {res.json(response)})
-    .catch(err => {err.json(err)});
+	Fabric.create({
+		user: req.user._id,
+		type: req.body.type,
+		quantity: req.body.quantity,
+		unit_cost: req.body.unit_cost,
+		description: req.body.description
+	})
+		.then(response => { res.json(response) })
+		.catch(err => { err.json(err) });
 });
 
 module.exports = router;

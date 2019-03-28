@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
+import Axios from "axios";
+
 
 class ModalDesigner extends Component {
   constructor(props) {
@@ -20,18 +22,23 @@ class ModalDesigner extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+
     this.service
-      .signup({ username, password, role: "designer" })
+      .signup({ username, password, type: "designer" })
       .then(response => {
-        this.setState({ username: "", password: "" });
+        this.setState({
+          username: "",
+          password: ""
+        });
         this.props.getUser(response);
-        this.props.history.push("/");
-        console.log(this.props.history);
+        Axios.post("http://localhost:3001/api/create-designer",
+          { brand_name: this.state.city, city: this.state.brand }, {
+            withCredentials: true
+          }).then(() => {
+            this.setState({ modalOpen: false })
+          })
       })
-      .catch(error => {
-        this.setState({ error: true });
-        console.log(error);
-      });
+      .catch(error => console.log(error));
   };
 
   handleChange = event => {
