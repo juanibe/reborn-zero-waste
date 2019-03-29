@@ -13,9 +13,9 @@ router.get('/list-fabrics', (req, res, next) => {
 		})
 });
 
-router.post('/createFabric', (req, res, next) => {
+router.post('/create-fabric', (req, res, next) => {
     Fabric.create({
-        type: req.body.type,
+        fabricType: req.body.fabricType,
         quantity: req.body.quantity,
         unit_cost: req.body.unit_cost,
         description: req.body.description

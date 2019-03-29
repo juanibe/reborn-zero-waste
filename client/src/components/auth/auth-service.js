@@ -42,6 +42,30 @@ class AuthService {
             .then(response => response.data)
     }
 
+    createDesigner = (params) => {
+        return this.service.post('/create-designer', params)
+            .then(response => response.data);
+    }
+
+    createManufacturer = (params) => {
+        return this.service.post('/create-manufacturer', params)
+            .then(response => response.data);
+    }
+
+    userRegistration = (params) => {
+        return this.service.post('/register-user', params)
+            .then(response => response.data);
+    }
+
+    createFabric = (params) => {
+        return this.service.post('/create-fabric', params)
+            .then(response => response.data);
+    }
+
+    listFabric = () => {
+        return this.service.get('/list-fabrics')
+            .then(response => response.data);
+    }
 }
 
 export default AuthService;

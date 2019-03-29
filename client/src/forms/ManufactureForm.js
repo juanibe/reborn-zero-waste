@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from "react-bootstrap/Form";
 import { Button, Col } from 'react-bootstrap';
+import AuthService from "../components/auth/auth-service";
 
 class ManufactureForm extends Component {
 
@@ -20,6 +21,38 @@ class ManufactureForm extends Component {
 			logo: '',
 			service: '',
 		}
+		this.handleFormSubmit = this.handleFormSubmit.bind(this);
+		this.service = new AuthService();
+	}
+
+	handleChange(event) {
+		const { name, value } = event.target;
+		this.setState({ [name]: value});
+	}
+
+	handleFormSubmit(event) {
+		event.preventDefault();
+		const formData = {
+			business_name: this.state.business_name,
+			full_name: this.state.full_name,
+			address: this.state.address,
+			city: this.state.city,
+			zip_code: this.state.zip_code,
+			state: this.state.state,
+			country: this.state.country,
+			email: this.state.email,
+			repeat_email: this.state.repeat_email,
+			logo: this.state.logo,
+			service: this.state.service,
+		}
+		this.service
+			.createManufacturer(formData)
+			.then(response => {
+				console.log("yes")
+			})
+			.catch(error => {
+				console.log("error: " + error);
+			})
 	}
 
 	render() {
@@ -30,41 +63,41 @@ class ManufactureForm extends Component {
 					<Form.Row>
 						<Form.Group as={Col} md="6">
 							<Form.Label>Name of your business</Form.Label>
-							<Form.Control type="text" name="business_name" value={this.state.business_name} />
+							<Form.Control required type="text" name="business_name" value={this.state.business_name} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="6">
 							<Form.Label>Full Name</Form.Label>
-							<Form.Control type="text" name="full_name" value={this.state.full_name} />
+							<Form.Control required type="text" name="full_name" value={this.state.full_name} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 					</Form.Row>
 
 					<Form.Row>
 						<Form.Group as={Col} md="4">
 							<Form.Label>Address</Form.Label>
-							<Form.Control type="text" name="address" value={this.state.address} />
+							<Form.Control required type="text" name="address" value={this.state.address} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="4">
 							<Form.Label>City</Form.Label>
-							<Form.Control type="text" name="city" value={this.state.city} />
+							<Form.Control required type="text" name="city" value={this.state.city} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="4">
 							<Form.Label>Zip Code</Form.Label>
-							<Form.Control type="text" name="zip_code" value={this.state.zip_code} />
+							<Form.Control required type="text" name="zip_code" value={this.state.zip_code} onChange={e => this.handleChange(e)}/>
 					</Form.Group>
 					</Form.Row>
 
 					<Form.Row>
 						<Form.Group as={Col} md="6">
 							<Form.Label>State</Form.Label>
-							<Form.Control type="text" name="state" value={this.state.state} />
+							<Form.Control required type="text" name="state" value={this.state.state} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="6">
 							<Form.Label>Country</Form.Label>
-							<Form.Control as="select" name="country" value={this.state.country}>
+							<Form.Control required as="select" name="country" value={this.state.country} onChange={e => this.handleChange(e)}>
 								<option>Choose...</option>
 								<option>Germany</option>
 								<option>Russia</option>
@@ -77,24 +110,24 @@ class ManufactureForm extends Component {
 					<Form.Row>
 						<Form.Group as={Col} md="6">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" name="email" value={this.state.email} />
+							<Form.Control required type="email" name="email" value={this.state.email} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="6">
 							<Form.Label>Repeat Email</Form.Label>
-							<Form.Control type="email" name="repeat_email" value={this.state.repeat_email} />
+							<Form.Control required type="email" name="repeat_email" value={this.state.repeat_email} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 					</Form.Row>
 
 					<Form.Row>
 						<Form.Group as={Col} md="6">
 							<Form.Label>Upload the logo of your business</Form.Label>
-							<Form.Control type="text" name="logo" value={this.state.logo} />
+							<Form.Control required type="text" name="logo" value={this.state.logo} onChange={e => this.handleChange(e)}/>
 						</Form.Group>
 
 						<Form.Group as={Col} md="6">
 							<Form.Label>Tell designers about your services</Form.Label>
-							<Form.Control as="textarea" name="services" value={this.state.services} />
+							<Form.Control required as="textarea" name="services" value={this.state.services} onChange={e => this.handleChange(e)}/>
 					</Form.Group>
 					</Form.Row>
 					<Button variant="primary" type="submit">Create List </Button>

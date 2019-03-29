@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import "../App.css";
+import AuthService from "../components/auth/auth-service";
 
 //import AuthService from './auth-service';
 
@@ -9,14 +10,28 @@ class ManufacturerPublic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      someData: "",
-      someData2: ""
+      fabricLists: []
     };
+    this.service = new AuthService();
+  }
+
+  componentDidMount() {
+    return this.service
+        .listFabric()
+        .then(data => this.setState({ fabricLists: data}))
   }
 
   // ---------- Here goes react-bootstrap --------- //
 
   render() {
+    const fabricListsItems = this.state.fabricLists.map((item) =>
+        <div className="fabric-listed-manufacturer-public">
+          <h5>{item.fabricType}</h5>
+          <div className="price">{item.unit_cost}€ /meter</div>
+          <div className="amount">{item.quantity} meter</div>
+          <div>{item.description}</div>
+        </div>
+      );
     return (
       <div>
         <div className="manufacturer-public">
@@ -30,51 +45,7 @@ class ManufacturerPublic extends Component {
                   </div>
                   <div>
                     <h3>Fabric available</h3>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Denim</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Cotton</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Wool</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesqus ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Velvet</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Leather</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
+                    {fabricListsItems}
                   </div>
                 </div>
               </div>

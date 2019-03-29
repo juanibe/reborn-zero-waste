@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-// import AuthService from "./auth/auth-service";
+import AuthService from "../components/auth/auth-service";
 import "../App.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -8,16 +8,64 @@ import Dropdown from "react-bootstrap/Dropdown";
 class ManufacturerPrivate extends Component {
   constructor(props) {
     super(props);
-    this.state = { descriptionfabrics: "", amountfabrics: "", error: false };
+    this.state = { user_id: '', description: "", quantity: "", unit_cost:"",fabricType: "", error: false, fabricLists: [] };
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.service = new AuthService();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const formData = {
+      description: this.state.description,
+      quantity: this.state.quantity,
+      unit_cost: this.state.unit_cost,
+      fabricType: this.state.fabricType
+    }
+
+    this.service
+      .createFabric(formData)
+      .then(response => {
+        this.setState({
+          description: '',
+          quantity: '',
+          unit_cost: '',
+          fabricType: '',
+          user_id: ''
+        })
+      })
+      .catch(error => console.log(error));
+  }
+
+  handleChange = event => {
+    const { name, value } =  event.target;
+    this.setState({ [name]: value })
+  }
+  
+  componentDidMount() {
+    return this.service
+        .listFabric()
+        .then(data => this.setState({ fabricLists: data}))
   }
 
   render() {
+    console.log(this.state.loggedInUser);
+    const fabricListsItems = this.state.fabricLists.map((item) =>
+        <div className="fabric-listed-manufacturer-public">
+          <h5>{item.fabricType}</h5>
+          <div className="price">{item.unit_cost}€ /meter</div>
+          <div className="amount">{item.quantity} meter</div>
+          <div>{item.description}</div>
+        </div>
+      );
     return (
       <div className="manufacturer-private">
         <div className="container">
           <div className="row">
             <div className="col-7">
-              <div className="description-fabrics">
                 <div>
                   <h3>Rayban Factory LTD</h3>
                   <div className="description">
@@ -25,53 +73,8 @@ class ManufacturerPrivate extends Component {
                   </div>
                   <div>
                     <h3>Fabric available</h3>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Denim</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Cotton</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Wool</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesqus ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                    </div>
-                    <div className="fabric-listed-manufacturer-public">
-                      <h5>Velvet</h5>
-                      <div className="price">50€ /meter</div>
-                      <div className="amount">1 meter</div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                      ut. Ut pellentesque ut nulla id posuere. Integer non
-                      tempor mi, vitae gravida dolor.
-                      <div className="fabric-listed-manufacturer-public">
-                        <h5>Leather</h5>
-                        <div className="price">50€ /meter</div>
-                        <div className="amount">1 meter</div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc eleifend ultrices orci, ac bibendum erat tincidunt
-                        ut. Ut pellentesque ut nulla id posuere. Integer non
-                        tempor mi, vitae gravida dolor.
-                      </div>
-                    </div>
+                    {fabricListsItems}
                   </div>
-                </div>
               </div>
             </div>
 
@@ -80,55 +83,53 @@ class ManufacturerPrivate extends Component {
                 <h4 className="title-form">List of fabrics</h4>
 
                 <Form onSubmit={this.handleFormSubmit}>
-                  <Form.Group controlId="description">
+                  <Form.Group required controlId="description">
                     <Form.Label>Describe the fabric</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       size="sm"
-                      type="descriptionfabrics"
+                      type="textarea"
                       placeholder="Description"
-                      name="descriptionfabrics"
-                      value={this.state.descriptionfabrics}
-                      // onChange={e => this.handleChange(e)}
+                      name="description"
+                      value={this.state.description}
+                      onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
                   <Form.Group controlId="amount">
                     <Form.Label>Amount of fabric</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       size="sm"
-                      type="amountfabrics"
+                      type="text"
                       placeholder="How many meters do you have ? "
-                      name="amountfabrics"
-                      value={this.state.amountfabrics}
-                      //   onChange={e => this.handleChange(e)}
+                      name="quantity"
+                      value={this.state.quantity}
+                      onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
                   <Form.Group controlId="cost">
                     <Form.Label>Cost of fabric</Form.Label>
-                    <Form.Control
+                    <Form.Control required
                       size="sm"
-                      type="costfabrics"
+                      type="<text></text>"
                       placeholder="Cost per meter in euros"
-                      name="costfabrics"
-                      value={this.state.costfabrics}
+                      name="unit_cost"
+                      value={this.state.unit_cost}
                       onChange={e => this.handleChange(e)}
                     />
                   </Form.Group>
 
-                  <div className="dropdownfabrics">
-                    <DropdownButton
-                      id="dropdown-basic-button"
-                      title="Choose the fabrics"
-                    >
-                      <Dropdown.Item href="#/fabric-1">Denim</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-2">Cotton</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-3">Wool</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-4">Velvet</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-5">Leather</Dropdown.Item>
-                    </DropdownButton>
-                  </div>
-
+                  <Form.Group>
+                    <Form.Label>Choose Fabric</Form.Label>
+                    <Form.Control required as="select" name="fabricType" value={this.state.fabricType} onChange={e => this.handleChange(e)}>
+                      <option>Select</option>
+                      <option>Denim</option>
+                      <option>Cotton</option>
+                      <option>Wool</option>
+                      <option>Velvet</option>
+                      <option>Leather</option>
+                    </Form.Control>
+                  </Form.Group>
                   <input
                     className="btn btn-secondary"
                     type="submit"
