@@ -13,6 +13,8 @@ import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
 import MyProfile from "./pages/MyProfile";
 import ModalLogin from "./components/ModalLogin";
+import ManufactureForm from "./forms/ManufactureForm";
+import DesignerForm from "./forms/DesignerForm";
 
 class App extends Component {
   constructor(props) {
@@ -74,7 +76,8 @@ class App extends Component {
           />
 
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
-
+          <Route exact path="/manufacture-registration" component={ManufactureForm} />
+          <Route exact path="/designer-registration" component={DesignerForm} />
           <Route
             exact
             path="/manufacturers-private"

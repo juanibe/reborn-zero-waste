@@ -5,7 +5,7 @@ const validate = require('mongoose-validator');
 // const ProductGallery = require('./product-gallery');
 
 const UserSchema = new Schema({
-    username: String,
+    full_name: String,
     password: String,
     email: {
         type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
@@ -14,7 +14,7 @@ const UserSchema = new Schema({
             message: 'Not a valid email'
         })]
     },
-    type: String
+    role: String
 
 }, { timestamps: true });
 
