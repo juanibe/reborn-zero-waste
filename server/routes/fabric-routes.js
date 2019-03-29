@@ -15,6 +15,7 @@ router.get('/list-fabrics', (req, res, next) => {
 
 router.post('/create-fabric', (req, res, next) => {
     Fabric.create({
+    		user: req.user._id,
         fabricType: req.body.fabricType,
         quantity: req.body.quantity,
         unit_cost: req.body.unit_cost,

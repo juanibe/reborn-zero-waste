@@ -23,6 +23,15 @@ class App extends Component {
     this.service = new AuthService();
   }
 
+  componentDidMount () {
+    const script = document.createElement("script");
+
+    script.src = "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+}
+
   fetchUser() {
     if (this.state.loggedInUser === null) {
       this.service

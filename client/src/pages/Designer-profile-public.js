@@ -13,6 +13,8 @@ class DesignerPublic extends Component {
   //   };
   // }
 
+
+
   render() {
     return (
       <div className="container">
@@ -21,30 +23,21 @@ class DesignerPublic extends Component {
           <Container>
             <Row>
               <Col>
-                <Card style={{ width: "18rem" }}>
-                  <div className="card">
-                    <img className="card-img-top" alt="designer" />
-                    {/* <div className="card-body"> */}
-                    {/* <h5 className="card-name">{props.name}</h5> */}
-                    {/* <p className="card-text">{props.text}</p> */}
-                    {/* </div> */}
-                    {/* <div className="card-body">{props.signUpLink}</div> */}
-                  </div>
-                </Card>
+                {this.state.manufacturers.map(m => {
+                  return (<Card style={{ width: "18rem" }}>
+                    <div className="card">
+                      <img className="card-img-top" alt="designer" />
+                      {/* <div className="card-body"> */}
+                      {/* <h5 className="card-name">{props.name}</h5> */}
+                      {/* <p className="card-text">{props.text}</p> */}
+                      {/* </div> */}
+                      {/* <div className="card-body">{props.signUpLink}</div> */}
+                    </div>
+                  </Card>)
+                })}
+
               </Col>
 
-              <Col>
-                <Card style={{ width: "18rem" }}>
-                  <div className="card">
-                    <img className="card-img-top" alt="designer" />
-                    {/* <div className="card-body"> */}
-                    {/* <h5 className="card-name">{props.name}</h5> */}
-                    {/* <p className="card-text">{props.text}</p> */}
-                    {/* </div> */}
-                    {/* <div className="card-body">{props.signUpLink}</div> */}
-                  </div>
-                </Card>
-              </Col>
             </Row>
           </Container>
         </div>

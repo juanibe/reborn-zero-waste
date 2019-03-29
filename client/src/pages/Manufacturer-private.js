@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-<<<<<<< HEAD
-// import AuthService from "./auth/auth-service";
-import ProfileService from "../components/profile-service";
-
-=======
 import AuthService from "../components/auth/auth-service";
->>>>>>> forms
 import "../App.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -14,18 +8,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 class ManufacturerPrivate extends Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-    this.service = new ProfileService();
-    this.state = { descriptionfabrics: "", amountfabrics: "", companyName: "", costfabrics: "", error: false };
-  }
-
-
-  componentDidMount = () => {
-    this.service.manufacturerInformation().then(res => {
-      console.log('res', res.user)
-      this.setState({ companyName: res.name_of_business })
-    })
-=======
     this.state = { user_id: '', description: "", quantity: "", unit_cost:"",fabricType: "", error: false, fabricLists: [] };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.service = new AuthService();
@@ -67,7 +49,6 @@ class ManufacturerPrivate extends Component {
     return this.service
         .listFabric()
         .then(data => this.setState({ fabricLists: data}))
->>>>>>> forms
   }
 
   render() {
@@ -93,42 +74,7 @@ class ManufacturerPrivate extends Component {
                   </div>
                   <div>
                     <h3>Fabric available</h3>
-<<<<<<< HEAD
-                    <div className="fabric-listed">
-                      <div className="fabric-listed-manufacturer-public">
-                        <h5>Denim</h5>
-                        <div className="price">50€ /meter</div>
-                        <div className="amount">1 meter</div>
-                        Description of the fabric.
-                      </div>
-                      <div className="fabric-listed-manufacturer-public">
-                        <h5>Cotton</h5>
-                        <div className="price">50€ /meter</div>
-                        <div className="amount">1 meter</div>
-                        Description of the fabric.
-                      </div>
-                      <div className="fabric-listed-manufacturer-public">
-                        <h5>Wool</h5>
-                        <div className="price">50€ /meter</div>
-                        <div className="amount">1 meter</div>
-                        Description of the fabric.
-                      </div>
-                      <div className="fabric-listed-manufacturer-public">
-                        <h5>Velvet</h5>
-                        <div className="price">50€ /meter</div>
-                        <div className="amount">1 meter</div>
-                        Description of the fabric.
-                        <div className="fabric-listed-manufacturer-public">
-                          <h5>Leather</h5>
-                          <div className="price">50€ /meter</div>
-                          <div className="amount">1 meter</div>
-                          Description of the fabric.
-                        </div>
-                      </div>
-                    </div>
-=======
                     {fabricListsItems}
->>>>>>> forms
                   </div>
               </div>
             </div>
@@ -144,15 +90,9 @@ class ManufacturerPrivate extends Component {
                       size="sm"
                       type="textarea"
                       placeholder="Description"
-<<<<<<< HEAD
-                      name="descriptionfabrics"
-                      value={this.state.descriptionfabrics}
-                    // onChange={e => this.handleChange(e)}
-=======
                       name="description"
                       value={this.state.description}
                       onChange={e => this.handleChange(e)}
->>>>>>> forms
                     />
                   </Form.Group>
 
@@ -162,15 +102,9 @@ class ManufacturerPrivate extends Component {
                       size="sm"
                       type="text"
                       placeholder="How many meters do you have ? "
-<<<<<<< HEAD
-                      name="amountfabrics"
-                      value={this.state.amountfabrics}
-                    //   onChange={e => this.handleChange(e)}
-=======
                       name="quantity"
                       value={this.state.quantity}
                       onChange={e => this.handleChange(e)}
->>>>>>> forms
                     />
                   </Form.Group>
 
@@ -180,48 +114,6 @@ class ManufacturerPrivate extends Component {
                       size="sm"
                       type="<text></text>"
                       placeholder="Cost per meter in euros"
-<<<<<<< HEAD
-                      name="costfabrics"
-                    // value={this.state.costfabrics}
-                    // onChange={e => this.handleChange(e)}
-                    />
-                  </Form.Group>
-
-                  <div className="dropdownfabrics">
-                    <DropdownButton
-                      id="dropdown-basic-button"
-                      title="Choose the fabrics"
-                    >
-                      <Dropdown.Item href="#/fabric-1">Denim</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-2">Cotton</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-3">Wool</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-4">Velvet</Dropdown.Item>
-                      <Dropdown.Item href="#/fabric-5">Leather</Dropdown.Item>
-                    </DropdownButton>
-                  </div>
-
-                  <div className="dropdownfabrics2">
-                    <Dropdown
-                      id="dropdown-basic-button"
-                      title="Choose the fabrics"
-                      list={[
-                        { value: 1, label: "January" },
-                        { value: 2, label: "February" },
-                        { value: 3, label: "March" },
-                        { value: 4, label: "April" },
-                        { value: 5, label: "May" },
-                        { value: 6, label: "June" },
-                        { value: 7, label: "July" },
-                        { value: 8, label: "August" },
-                        { value: 9, label: "September" },
-                        { value: 10, label: "October" },
-                        { value: 11, label: "November" },
-                        { value: 12, label: "December" }
-                      ]}
-                    />
-                  </div>
-
-=======
                       name="unit_cost"
                       value={this.state.unit_cost}
                       onChange={e => this.handleChange(e)}
@@ -239,7 +131,6 @@ class ManufacturerPrivate extends Component {
                       <option>Leather</option>
                     </Form.Control>
                   </Form.Group>
->>>>>>> forms
                   <input
                     className="btn btn-secondary"
                     type="submit"

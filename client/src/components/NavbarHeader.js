@@ -49,22 +49,25 @@ export default class NavbarHeader extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem className="active link-navbar">
-                <Link to="/designers">Designers</Link>
-              </NavItem>
-
-              <NavItem className="active link-navbar">
-                <Link to="/manufacturers">Manufacturers</Link>
-              </NavItem>
-
-              <NavItem className="active link-navbar">
-                {this.state.loggedInUser && (
-                  <Link to="/designers-private"> Designers </Link>
-                )}
-                {this.state.loggedInUser && (
-                  <Link to="/manufacturers-private"> Manufacturers </Link>
-                )}
-              </NavItem>
+              {this.state.loggedInUser ? (
+                <React.Fragment>
+                  <NavItem className="active link-navbar">
+                    <Link to="/designers-private"> Designers </Link>
+                  </NavItem>
+                  <NavItem className="active link-navbar">
+                    <Link to="/manufacturers-private"> Manufacturers </Link>
+                  </NavItem>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <NavItem className="active link-navbar">
+                    <Link to="/designers">Designers</Link>
+                  </NavItem>
+                  <NavItem className="active link-navbar">
+                    <Link to="/manufacturers">Manufacturers</Link>
+                  </NavItem>
+                </React.Fragment>
+              )}
 
               <NavItem className="active link-navbar">
                 <Link to="/concept">Concept</Link>
