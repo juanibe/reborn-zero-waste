@@ -6,8 +6,9 @@ import Popup from "reactjs-popup";
 class Signup extends Component {
     constructor(props) {
         super(props);
-        this.state = { name: "", username: "", password: "", error: false };
+        this.state = { full_name: "", email: "", password: "", confirmation_password: "", role: "", error: false };
         this.service = new AuthService();
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
     componentWillMount() {
         document.addEventListener("mousedown", this.documentClick, false);
@@ -26,21 +27,26 @@ class Signup extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        const username = this.state.username;
-        const password = this.state.password;
-        const company = this.state.company;
+        const formData = {
+            full_name: this.state.full_name,
+            email: this.state.email,
+            password: this.state.password,
+            confirmation_password: this.state.confirmation_password,
+            role: this.state.role
+        }
 
         this.service
-            .signup(username, password)
+            .userRegistration(formData)
             .then(response => {
                 this.setState({
-                    username: "",
+                    full_name: "",
+                    email: "",
                     password: "",
-                    company: "",
+                    confirmation_password: "",
+                    role: "",
                     modalOpen: false
                 });
                 this.props.getUser(response);
-
             })
             .catch(error => console.log(error));
     };
@@ -65,18 +71,18 @@ class Signup extends Component {
                             <div className="col-2" />
                             <div className="col-8">
                                 <h4 className="signup-manufacturer-title">
-                                    Register as a manufacturer
+                                    User Register Form
                     </h4>
 
                                 <Form onSubmit={this.handleFormSubmit}>
-                                    <Form.Group controlId="nameCompany">
-                                        <Form.Label>Name of your company</Form.Label>
+                                    <Form.Group controlId="fullName">
+                                        <Form.Label>Full Name</Form.Label>
                                         <Form.Control
                                             size="sm"
                                             type="name"
-                                            placeholder="Name of your company"
-                                            name="name"
-                                            value={this.state.company}
+                                            placeholder="Full Name"
+                                            name="full_name"
+                                            value={this.state.full_name}
                                             onChange={e => this.handleChange(e)}
                                         />
                                     </Form.Group>
@@ -85,15 +91,15 @@ class Signup extends Component {
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control
                                             size="sm"
-                                            type="name"
+                                            type="email"
                                             placeholder="Enter email"
-                                            name="username"
-                                            value={this.state.username}
+                                            name="email"
+                                            value={this.state.email}
                                             onChange={e => this.handleChange(e)}
                                         />
                                         <Form.Text className="text-muted">
                                             We'll never share your email with anyone else.
-                        </Form.Text>
+                                        </Form.Text>
                                     </Form.Group>
 
                                     <Form.Group controlId="formBasicPassword">
@@ -109,12 +115,41 @@ class Signup extends Component {
                                         {this.state.password.length < 8 ? (
                                             <Form.Text style={{ color: "red", fontSize: "0.5em" }}>
                                                 Your password has to be 8 character long at least
-                          </Form.Text>
+                                            </Form.Text>
                                         ) : (
                                                 <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
                                                     Password is valid
-                          </Form.Text>
+                                                </Form.Text>
                                             )}
+                                    </Form.Group>
+
+                                    <Form.Group controlId="formBasicConfirmationPassword">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control
+                                            size="sm"
+                                            type="password"
+                                            placeholder="Confirmation Password"
+                                            name="confirmation_password"
+                                            value={this.state.confirmation_password}
+                                            onChange={e => this.handleChange(e)}
+                                        />
+                                        {this.state.confirmation_password.length < 8 ? (
+                                            <Form.Text style={{ color: "red", fontSize: "0.5em" }}>
+                                                Your password has to be 8 character long at least
+                                            </Form.Text>
+                                        ) : (
+                                                <Form.Text style={{ color: "green", fontSize: "0.5em" }}>
+                                                    Password is valid
+                                                </Form.Text>
+                                            )}
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicrole">
+                                        <Form.Label>Role:</Form.Label>
+                                        <Form.Control required as="select" name="role" value={this.state.role} onChange={e => this.handleChange(e)}>
+                                            <option>Choose role</option>
+                                            <option>Manufacturer</option>
+                                            <option>Designer</option>
+                                        </Form.Control>                                            
                                     </Form.Group>
                                     <input
                                         className="btn btn-primary"

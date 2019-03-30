@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const User = require('./User');
 
 const fabricSchema = new Schema({
-	owner: { type: Schema.Types.ObjectId, ref: 'User' },
-	type: String,
+	user_id: { type: Schema.Types.ObjectId, ref: 'User' },
+	fabricType: String,
 	quantity: String,
 	unit_cost: String,
 	description: String

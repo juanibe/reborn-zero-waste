@@ -70,7 +70,7 @@ class Login extends Component {
 
                 </div>
                 <p className="login-message">
-                    Don't have account? <Link to={"/signup"}> Signup</Link><br />
+                    Dont have account? <Link to={"/signup"}> Signup</Link><br />
                     Forgot your password? ... Sorry about that man
                 </p>
             </div>
