@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
 import MyProfile from "./pages/MyProfile";
+
 import ModalLogin from "./components/ModalLogin";
 import ManufactureForm from "./forms/ManufactureForm";
 import DesignerForm from "./forms/DesignerForm";
@@ -62,6 +63,7 @@ class App extends Component {
     }
     return (
       <div className="App">
+        <DesignerForm />
         <NavbarHeader
           getUser={this.getTheUser}
           userInSession={this.state.loggedInUser}
@@ -99,7 +101,6 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
-          <Route exact path="/designers-private" component={DesignerPrivate} />
 
           <Route exact path="/concept" component={Concept} />
           <Route exact path="/profile" component={MyProfile} />

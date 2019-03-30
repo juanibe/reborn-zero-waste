@@ -12,37 +12,29 @@ authRoutes.get("/signup", (req, res, next) => {
   res.status(200).json({ message: "Everything is ok...so far" });
 });
 
-authRoutes.post("/signup/manufacturer", (req, res, next) => {
+authRoutes.post("/register-user", (req, res, next) => {
   // User.create({
-  //     username: req.body.username,
+  //     full_name: req.body.username,
   //     password: req.body.password
   // }).then(response => {res.json(response)}).catch(err => {err.json(err)});
-  const username = req.body.username;
-  const password = req.body.password;
+  const full_name = req.body.full_name;
   const email = req.body.email;
-  const type = req.body.type;
+  const password = req.body.password;
+  const role = req.body.role;
 
-  if (!username || !password) {
-    res.status(400).json({ message: "Provide username and password" });
+  if (!full_name || !password) {
+    res.status(400).json({ message: "Provide full_name and password" });
     return;
   }
 
-  if (password.length < 7) {
-    res.status(400).json({
-      message:
-        "Please make your password at least 8 characters long for security purposes."
-    });
-    return;
-  }
-
-  User.findOne({ username }, (err, foundUser) => {
+  User.findOne({ full_name }, (err, foundUser) => {
     if (err) {
-      res.status(500).json({ message: "Username check went bad." });
+      res.status(500).json({ message: "full_name check went bad." });
       return;
     }
 
     if (foundUser) {
-      res.status(400).json({ message: "Username taken. Choose another one." });
+      res.status(400).json({ message: "full_name taken. Choose another one." });
       return;
     }
 
@@ -50,10 +42,10 @@ authRoutes.post("/signup/manufacturer", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const aNewUser = new User({
-      username: username,
-      password: hashPass,
+      full_name: full_name,
       email: email,
-      type: type
+      password: hashPass,
+      role: role
     });
 
     aNewUser.save(err => {

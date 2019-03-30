@@ -7,7 +7,7 @@ import Axios from "axios";
 class ModalManufacturer extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", username: "", password: "", error: false, company: "" };
+    this.state = { full_name: "", email: "", password: "", error: false };
     this.service = new AuthService();
   }
   componentWillMount() {
@@ -27,25 +27,23 @@ class ModalManufacturer extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const username = this.state.username;
+    const full_name = this.state.full_name;
     const password = this.state.password;
-    const company = this.state.company;
+    const email = this.state.email;
 
-    this.service
-      .signup({ username, password, type: "manufacturer" })
-      .then(response => {
-        this.setState({
-          username: "",
-          password: ""
-        });
-        this.props.getUser(response);
-        Axios.post("http://localhost:3001/api/create-manufacturer",
-          { name_of_business: this.state.company }, {
-            withCredentials: true
-          }).then(() => {
-            this.setState({ modalOpen: false })
-          })
+    Axios.post('http://localhost:3001/api/register-user', {
+      full_name,
+      email,
+      password,
+      role: 'manufacturer'
+    }, { withCredentials: true }).then((response) => {
+      this.setState({
+        full_name: "",
+        email: "",
+        password: ""
       })
+      this.props.getUser(response);
+    })
       .catch(error => console.log(error));
   };
 
@@ -64,43 +62,31 @@ class ModalManufacturer extends Component {
         <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
           <div
             ref={node => (this.node = node)}
-            className="container signup-container"
-          >
+            className="container signup-container">
             <div className="row">
               <div className="col-2" />
               <div className="col-8">
                 <h4 className="signup-manufacturer-title">
                   Register as a manufacturer
                 </h4>
-
                 <Form onSubmit={this.handleFormSubmit}>
-                  <Form.Group controlId="nameCompany">
-                    <Form.Label>Name of your company</Form.Label>
-                    <Form.Control
-                      size="sm"
-                      type="name"
-                      placeholder="Name of your company"
-                      name="company"
-                      value={this.state.company}
-                      onChange={e => this.handleChange(e)}
-                    />
+                  <Form.Group controlId="fullname ">
+                    <Form.Label>Full name</Form.Label>
+                    <Form.Control size="sm" type="name" placeholder="Fullname" name="full_name" value={this.state.full_name} onChange={e => this.handleChange(e)} />
                   </Form.Group>
-
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                       size="sm"
                       type="name"
                       placeholder="Enter email"
-                      name="username"
-                      value={this.state.username}
-                      onChange={e => this.handleChange(e)}
-                    />
+                      name="email"
+                      value={this.state.email}
+                      onChange={e => this.handleChange(e)} />
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
                   </Form.Group>
-
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
@@ -109,8 +95,7 @@ class ModalManufacturer extends Component {
                       placeholder="Password"
                       name="password"
                       value={this.state.password}
-                      onChange={e => this.handleChange(e)}
-                    />
+                      onChange={e => this.handleChange(e)} />
                     {this.state.password.length < 8 ? (
                       <Form.Text style={{ color: "red", fontSize: "0.5em" }}>
                         Your password has to be 8 character long at least
