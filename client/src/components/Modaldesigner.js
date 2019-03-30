@@ -32,7 +32,7 @@ class ModalDesigner extends Component {
         });
         this.props.getUser(response);
         Axios.post("http://localhost:3001/api/create-designer",
-          { brand_name: this.state.city, city: this.state.brand }, {
+          { city: this.state.city, brand_name: this.state.brand }, {
             withCredentials: true
           }).then(() => {
             this.setState({ modalOpen: false })
@@ -65,7 +65,7 @@ class ModalDesigner extends Component {
                   <Form.Label>City</Form.Label>
                   <Form.Control
                     size="sm"
-                    type="brand"
+                    type="city"
                     placeholder="Where do you live ?"
                     name="city"
                     value={this.state.city}

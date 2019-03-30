@@ -4,7 +4,7 @@ const router = express.Router();
 const Designer = require('../models/Designer');
 
 router.get('/list-designers', (req, res, next) => {
-    Designer.find().populate('designers')
+    Designer.find().populate('user')
         .then(allDesigners => {
             res.json(allDesigners);
         })

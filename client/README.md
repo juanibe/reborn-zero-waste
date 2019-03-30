@@ -66,3 +66,27 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+/*
+
+   <Row>
+              <Col>
+                {this.state.manufacturers.map(m => {
+                  return (<Card style={{ width: "18rem" }}>
+                    <div className="card">
+                      <img className="card-img-top" alt="designer" />
+                      {/* <div className="card-body"> */}
+                      {/* <h5 className="card-name">{props.name}</h5> */}
+                      {/* <p className="card-text">{props.text}</p> */}
+                      {/* </div> */}
+                      {/* <div className="card-body">{props.signUpLink}</div> */}
+                      </div>
+                      </Card>)
+                    })}
+    
+                  </Col>
+    
+                </Row>
+*/

@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
 import MyProfile from "./pages/MyProfile";
+
 import ModalLogin from "./components/ModalLogin";
 
 class App extends Component {
@@ -21,14 +22,14 @@ class App extends Component {
     this.service = new AuthService();
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const script = document.createElement("script");
 
     script.src = "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
     script.async = true;
 
     document.body.appendChild(script);
-}
+  }
 
   fetchUser() {
     if (this.state.loggedInUser === null) {
@@ -59,6 +60,7 @@ class App extends Component {
     }
     return (
       <div className="App">
+        <DesignerPublic />
         <NavbarHeader
           getUser={this.getTheUser}
           userInSession={this.state.loggedInUser}
@@ -91,7 +93,6 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
-          <Route exact path="/designers-private" component={DesignerPrivate} />
 
           <Route exact path="/concept" component={Concept} />
           <Route exact path="/profile" component={MyProfile} />
