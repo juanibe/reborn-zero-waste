@@ -8,7 +8,6 @@ const User = require("../models/User");
 
 // ---------- SIGNUP --------- //
 
-<<<<<<< HEAD
 authRoutes.get("/signup", (req, res, next) => {
   res.status(200).json({ message: "Everything is ok...so far" });
 });
@@ -40,25 +39,6 @@ authRoutes.post("/signup/manufacturer", (req, res, next) => {
     if (err) {
       res.status(500).json({ message: "Username check went bad." });
       return;
-=======
-authRoutes.get('/signup', (req, res, next) => {
-    res.status(200).json({ message: 'Everything is ok...so far' });
-})
-
-authRoutes.post('/register-user', (req, res, next) => {
-    // User.create({
-    //     full_name: req.body.username,
-    //     password: req.body.password
-    // }).then(response => {res.json(response)}).catch(err => {err.json(err)});
-    const full_name = req.body.full_name;
-    const email = req.body.email;
-    const password = req.body.password;
-    const role = req.body.role;
-
-    if (!full_name || !password) {
-        res.status(400).json({ message: 'Provide full_name and password' });
-        return;
->>>>>>> 417e71feb6e91eec53eccdb9619eedb9aec4f75d
     }
 
     if (foundUser) {
@@ -66,7 +46,6 @@ authRoutes.post('/register-user', (req, res, next) => {
       return;
     }
 
-<<<<<<< HEAD
     const salt = bcrypt.genSaltSync(10);
     const hashPass = bcrypt.hashSync(password, salt);
 
@@ -97,50 +76,6 @@ authRoutes.post('/register-user', (req, res, next) => {
         // We can use also: res.status(200).json(req.user);
         res.status(200).json(aNewUser);
       });
-=======
-    User.findOne({ full_name }, (err, foundUser) => {
-
-        if (err) {
-            res.status(500).json({ message: "full_name check went bad." });
-            return;
-        }
-
-        if (foundUser) {
-            res.status(400).json({ message: 'full_name taken. Choose another one.' });
-            return;
-        }
-
-        const salt = bcrypt.genSaltSync(10);
-        const hashPass = bcrypt.hashSync(password, salt);
-
-        const aNewUser = new User({
-            full_name: full_name,
-            email: email,
-            password: hashPass,
-            role: role
-        });
-
-        aNewUser.save(err => {
-            if (err) {
-                res.status(400).json({ message: 'Saving user to database went wrong.' });
-                return;
-            }
-
-            // Automatically log in user after sign up
-            // .login() here is actually predefined passport method
-            req.login(aNewUser, (err) => {
-
-                if (err) {
-                    res.status(500).json({ message: 'Login after signup went bad.' });
-                    return;
-                }
-
-                // Send the user's information to the frontend
-                // We can use also: res.status(200).json(req.user);
-                res.status(200).json(aNewUser);
-            });
-        });
->>>>>>> 417e71feb6e91eec53eccdb9619eedb9aec4f75d
     });
   });
 });
