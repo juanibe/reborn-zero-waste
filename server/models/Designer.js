@@ -6,7 +6,7 @@ const validate = require('mongoose-validator');
 
 const designerSchema = new Schema({
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
-	brand_name: String,
+	brand: String,
 	address: String,
 	city: String,
 	state: String,
@@ -16,7 +16,7 @@ const designerSchema = new Schema({
 	product_types: String,
 	//image?
 	product_gallery: { type: Schema.Types.ObjectId, ref: 'ProductGallery' },
-	category_type: String,
+	category_types: [],
 	source: ''
 }, { timestamps: true });
 
