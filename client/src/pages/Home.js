@@ -1,9 +1,3 @@
-// This will have 4 components
-// 1. Navbar
-// 2. Header text component
-// 3. Signup List component
-// 4. Footer component
-
 import React, { Component } from "react";
 import Cards from "../components/Cards";
 import Header from "../components/Header";
@@ -35,10 +29,11 @@ class Home extends Component {
               />
             </div>
           </div>
-        </div><br></br><br></br>
+        </div>
+        <br />
+        <br />
         <section>
-          <div className='container'>
-          </div>
+          <div className="container" />
         </section>
       </div>
     );

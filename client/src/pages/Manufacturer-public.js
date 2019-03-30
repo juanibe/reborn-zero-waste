@@ -15,21 +15,19 @@ class ManufacturerPublic extends Component {
 
   componentDidMount() {
     return this.service
-        .listFabric()
-        .then(data => this.setState({ fabricLists: data}))
+      .listFabric()
+      .then(data => this.setState({ fabricLists: data }));
   }
 
-  // ---------- Here goes react-bootstrap --------- //
-
   render() {
-    const fabricListsItems = this.state.fabricLists.map((item) =>
-        <div className="fabric-listed-manufacturer-public">
-          <h5>{item.fabricType}</h5>
-          <div className="price">{item.unit_cost}€ /meter</div>
-          <div className="amount">{item.quantity} meter</div>
-          <div>{item.description}</div>
-        </div>
-      );
+    const fabricListsItems = this.state.fabricLists.map(item => (
+      <div className="fabric-listed-manufacturer-public">
+        <h5>{item.fabricType}</h5>
+        <div className="price">{item.unit_cost}€ /meter</div>
+        <div className="amount">{item.quantity} meter</div>
+        <div>{item.description}</div>
+      </div>
+    ));
     return (
       <div>
         <div className="manufacturer-public">

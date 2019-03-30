@@ -282,9 +282,21 @@ class DesignerForm extends Component {
                 />
                 <Form.Check
                   type="checkbox"
-                  label="Leftover fabric"
+                  label="Dresses"
                   name="categories"
                   id="formcategorycheckbox5"
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Coats"
+                  name="categories"
+                  id="formcategorycheckbox6"
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Leftover fabric"
+                  name="categories"
+                  id="formcategorycheckbox7"
                 />
               </Form.Group>
             </Form.Row>

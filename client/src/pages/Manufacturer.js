@@ -2,20 +2,16 @@
 
 // auth/Signup.js
 
-import React, { Component } from 'react';
-import '../App.css';
-import Signup from '../components/auth/Signup';
-
-
-//import AuthService from './auth-service';
+import React, { Component } from "react";
+import "../App.css";
+import Signup from "../components/auth/Signup";
 
 const Manufacturer = () => {
-    return (
-        <div>
-            <Signup />
-        </div>
-    )
+  return (
+    <div>
+      <Signup />
+    </div>
+  );
+};
 
-}
-
-export default Manufacturer;  
+export default Manufacturer;
