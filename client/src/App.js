@@ -27,7 +27,8 @@ class App extends Component {
   componentDidMount() {
     const script = document.createElement("script");
 
-    script.src = "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
+    script.src =
+      "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
     script.async = true;
 
     document.body.appendChild(script);
@@ -87,7 +88,11 @@ class App extends Component {
           />
 
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
-          <Route exact path="/manufacture-registration" component={ManufactureForm} />
+          <Route
+            exact
+            path="/manufacturer-registration"
+            component={ManufactureForm}
+          />
           <Route exact path="/designer-registration" component={DesignerForm} />
           <Route
             exact
