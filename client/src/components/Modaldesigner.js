@@ -31,7 +31,7 @@ class ModalManufacturer extends Component {
     const password = this.state.password;
     const email = this.state.email;
 
-    Axios.post('http://localhost:3001/api/register-user', {
+    Axios.post((process.env.REACT_APP_API_URL || "http://localhost:3001/api") + "/register-user", {
       full_name,
       email,
       password,
