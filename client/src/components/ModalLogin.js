@@ -107,8 +107,8 @@ class ModalLogin extends Component {
               <div className="col-3" />
             </div>
             <p className="login-message">
-              Don't have account? Please{" "}
-              <Link to={"/"}> signup on the homepage</Link>
+              Dont have account? Please{" "}
+              <Link to={"/signup"}> signup on the homepage</Link>
               <br />
               Forgot your password? ... Sorry about that !
             </p>
