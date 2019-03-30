@@ -7,7 +7,6 @@ import AuthService from "../components/auth/auth-service";
 class DesignerForm extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			brand: "",
 			address: "",
@@ -28,12 +27,10 @@ class DesignerForm extends Component {
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.service = new AuthService();
 	}
-
 	handleChange(event) {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	}
-
 	handleFormSubmit(event) {
 		event.preventDefault();
 		const category_types = []
