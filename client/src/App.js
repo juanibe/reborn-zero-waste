@@ -62,7 +62,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <DesignerPublic />
+        <DesignerForm />
         <NavbarHeader
           getUser={this.getTheUser}
           userInSession={this.state.loggedInUser}
