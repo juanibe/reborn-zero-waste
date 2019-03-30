@@ -63,7 +63,6 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <DesignerForm />
         <NavbarHeader
           getUser={this.getTheUser}
           userInSession={this.state.loggedInUser}
@@ -101,6 +100,7 @@ class App extends Component {
           />
 
           <Route exact path="/designers" component={DesignerPublic} />
+          <Route exact path="/designers-private" component={DesignerPrivate} />
 
           <Route exact path="/concept" component={Concept} />
           <Route exact path="/profile" component={MyProfile} />
