@@ -37,7 +37,6 @@ export default class NavbarHeader extends React.Component {
     });
   }
   render() {
-    console.log(this.state.loggedInUser);
     return (
       <div>
         {/* color="secondary" */}
@@ -59,15 +58,15 @@ export default class NavbarHeader extends React.Component {
                   </NavItem>
                 </React.Fragment>
               ) : (
-                <React.Fragment>
-                  <NavItem className="active link-navbar">
-                    <Link to="/designers">Designers</Link>
-                  </NavItem>
-                  <NavItem className="active link-navbar">
-                    <Link to="/manufacturers">Manufacturers</Link>
-                  </NavItem>
-                </React.Fragment>
-              )}
+                  <React.Fragment>
+                    <NavItem className="active link-navbar">
+                      <Link to="/designers">Designers</Link>
+                    </NavItem>
+                    <NavItem className="active link-navbar">
+                      <Link to="/manufacturers">Manufacturers</Link>
+                    </NavItem>
+                  </React.Fragment>
+                )}
 
               <NavItem className="active link-navbar">
                 <Link to="/concept">Concept</Link>
@@ -83,8 +82,8 @@ export default class NavbarHeader extends React.Component {
                     Logout{" "}
                   </Link>
                 ) : (
-                  <ModalLogin getUser={this.props.getUser} />
-                )}
+                    <ModalLogin getUser={this.props.getUser} />
+                  )}
               </NavItem>
             </Nav>
           </Collapse>

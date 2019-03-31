@@ -3,6 +3,8 @@ import { MDBFileInput } from "mdbreact";
 import Form from "react-bootstrap/Form";
 import { Button, Col } from "react-bootstrap";
 import AuthService from "../components/auth/auth-service";
+import { withRouter } from 'react-router-dom';
+
 
 class DesignerForm extends Component {
 	constructor(props) {
@@ -22,7 +24,14 @@ class DesignerForm extends Component {
 			shirts: false,
 			jackets: false,
 			leftOverFabric: false,
-			source: ""
+			source: "",
+			cotton: false,
+			wool: false,
+			denim: false,
+			leather: false,
+			synthetics: false,
+			velvet: false,
+			muslin: false
 		};
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.service = new AuthService();
@@ -37,6 +46,10 @@ class DesignerForm extends Component {
 		const categoriesArray = ["accessories", "pants", "shirts", "jackets", "leftOverFabric"].forEach((catName) => {
 			if (this.state[catName]) category_types.push(catName)
 		})
+		const fabric_types_array = []
+		const fabricArray = ["cotton", "wool", "denim", "leather", "synthetics", "velvet", "muslin"].forEach((fabName) => {
+			if (this.state[fabName]) fabric_types_array.push(fabName)
+		})
 		const formData = {
 			brand: this.state.brand,
 			address: this.state.address,
@@ -48,13 +61,14 @@ class DesignerForm extends Component {
 			product_types: this.state.product_types,
 			image_gallery: this.state.image_gallery,
 			category_types: category_types,
+			fabric_types: fabric_types_array,
 			source: this.state.source
 		};
 		this.service
-
 			.createDesigner(formData)
 			.then(res => {
 				console.log(formData);
+				this.props.history.push('/test')
 			})
 			.catch(error => {
 				console.log("No" + error);
@@ -77,8 +91,7 @@ class DesignerForm extends Component {
 									name="brand"
 									placeholder="Enter your brand name"
 									value={this.state.brand}
-									onChange={e => this.handleChange(e)}
-								/>
+									onChange={e => this.handleChange(e)} />
 							</Form.Group>
 						</Form.Row>
 						<Form.Row>
@@ -164,7 +177,7 @@ class DesignerForm extends Component {
 							<Form.Group as={Col} md="12">
 								<Form.Label>
 									What type of products are you designing?
-        </Form.Label>
+        						</Form.Label>
 								<Form.Control
 									required
 									type="textarea"
@@ -241,43 +254,59 @@ class DesignerForm extends Component {
 								<Form.Check
 									type="checkbox"
 									label="Cotton"
-									name="source"
+									name="cotton"
 									id="formsourcecheckbox1"
+									onChange={e => this.handleChange(e)}
+									value={this.state.cotton}
 								/>
 								<Form.Check
 									type="checkbox"
 									label="Wool"
-									name="source"
-									id="formsourcecheckbox2" />
+									name="wool"
+									id="formsourcecheckbox2"
+									onChange={e => this.handleChange(e)}
+									value={this.state.wool}
+								/>
+
 								<Form.Check
 									type="checkbox"
 									label="Denim"
-									name="source"
+									name="denim"
 									id="formsourcecheckbox3"
+									onChange={e => this.handleChange(e)}
+									value={this.state.denim}
 								/>
 								<Form.Check
 									type="checkbox"
 									label="Leather"
-									name="source"
+									name="leather"
 									id="formsourcecheckbox4"
+									onChange={e => this.handleChange(e)}
+									value={this.state.leather}
 								/>
 								<Form.Check
 									type="checkbox"
 									label="Synthetics"
-									name="source"
+									name="synthetics"
 									id="formsourcecheckbox5"
+									onChange={e => this.handleChange(e)}
+									value={this.state.synthetics}
 								/>
 								<Form.Check
 									type="checkbox"
 									label="Velvet"
-									name="source"
+									name="velvet"
 									id="formsourcecheckbox6"
+									onChange={e => this.handleChange(e)}
+									value={this.state.velvet}
 								/>
 								<Form.Check
 									type="checkbox"
 									label="Muslin"
-									name="source"
+									name="muslin"
 									id="formsourcecheckbox6"
+									onChange={e => this.handleChange(e)}
+									value={this.state.muslin}
 								/>
 							</Form.Group>
 						</Form.Row>
@@ -291,4 +320,4 @@ class DesignerForm extends Component {
 	}
 }
 
-export default DesignerForm;
+export default withRouter(DesignerForm);

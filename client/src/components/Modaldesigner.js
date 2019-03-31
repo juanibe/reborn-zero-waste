@@ -3,6 +3,7 @@ import Popup from "reactjs-popup";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
 import Axios from "axios";
+import { withRouter } from 'react-router-dom';
 
 class ModalManufacturer extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class ModalManufacturer extends Component {
         password: ""
       })
       this.props.getUser(response);
+      this.props.history.push('/designer-registration')
     })
       .catch(error => console.log(error));
   };
@@ -57,6 +59,7 @@ class ModalManufacturer extends Component {
   };
 
   render() {
+    console.log('HISTORY', this.props.history)
     return (
       <span>
         <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
@@ -126,4 +129,4 @@ class ModalManufacturer extends Component {
   }
 }
 
-export default ModalManufacturer;
+export default withRouter(ModalManufacturer);

@@ -25,7 +25,7 @@ router.post('/create-designer', (req, res, next) => {
         country: req.body.country,
         email: req.body.email,
         designer_inspiration: req.body.designerInspiration,
-        product_types: req.body.product_types,
+        fabric_types: req.body.fabric_types,
         category_types: req.body.category_types
     }).then(response => { res.json(response) }).catch(err => { err.json(err) });
 });
