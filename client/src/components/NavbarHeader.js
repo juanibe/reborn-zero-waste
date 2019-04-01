@@ -37,7 +37,9 @@ export default class NavbarHeader extends React.Component {
     });
   }
   render() {
-    console.log(this.state.loggedInUser);
+    // const user = this.state.loggedInUser;
+    // const userObj = JSON.parse(JSON.stringify(user))
+    // console.log("user" + userObj);
     return (
       <div>
         {/* color="secondary" */}

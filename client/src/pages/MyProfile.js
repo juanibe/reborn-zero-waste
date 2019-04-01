@@ -33,8 +33,8 @@ class MyProfile extends Component {
     componentDidMount = () => {
 
         this.service.manufacturerInformation().then(res => {
-            console.log('res', res.username)
-            this.setState({ name: res.username })
+            console.log('res', res)
+            // this.setState({ name: res.username })
         })
     }
 

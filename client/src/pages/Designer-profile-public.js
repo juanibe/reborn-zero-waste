@@ -18,7 +18,7 @@ class DesignerPublic extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Get in touch with designers right now ! </h3>
+        {/*<h3>Get in touch with designers right now ! </h3>
         <div className="row">
           <Container>
             <Row>
@@ -27,20 +27,14 @@ class DesignerPublic extends Component {
                   return (<Card style={{ width: "18rem" }}>
                     <div className="card">
                       <img className="card-img-top" alt="designer" />
-                      {/* <div className="card-body"> */}
-                      {/* <h5 className="card-name">{props.name}</h5> */}
-                      {/* <p className="card-text">{props.text}</p> */}
-                      {/* </div> */}
-                      {/* <div className="card-body">{props.signUpLink}</div> */}
+                     
                     </div>
                   </Card>)
                 })}
-
               </Col>
-
             </Row>
           </Container>
-        </div>
+        </div>*/}
       </div>
     );
   }
