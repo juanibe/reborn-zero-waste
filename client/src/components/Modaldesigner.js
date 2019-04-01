@@ -59,7 +59,7 @@ class ModalManufacturer extends Component {
   };
 
   render() {
-    console.log('HISTORY', this.props.history)
+
     return (
       <span>
         <Popup modal open={this.state.modalOpen} closeOnDocumentClick={false}>
@@ -70,7 +70,7 @@ class ModalManufacturer extends Component {
               <div className="col-2" />
               <div className="col-8">
                 <h4 className="signup-manufacturer-title">
-                  Register as a manufacturer
+                  Register as a Designer
                 </h4>
                 <Form onSubmit={this.handleFormSubmit}>
                   <Form.Group controlId="fullname ">

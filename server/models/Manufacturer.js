@@ -9,9 +9,9 @@ const manufacturerSchema = new Schema({
 	city: String,
 	state: String,
 	country: String,
-	zipcode: Number,
-	business_logo: String,
-	services_offered: String
+	zip_code: Number,
+	logo: String,
+	service: String
 });
 
 const Manufacturer = mongoose.model('Manufacturer', manufacturerSchema);

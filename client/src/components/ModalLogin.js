@@ -9,7 +9,7 @@ import content from '../text.json'
 class ModalLogin extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", error: false, modalOpen: false };
+    this.state = { email: "", password: "", error: false, modalOpen: false };
     this.service = new AuthService();
   }
 
@@ -31,13 +31,14 @@ class ModalLogin extends Component {
   handleFormSubmit = event => {
 
     event.preventDefault();
-    const username = this.state.username;
+    const email = this.state.email;
     const password = this.state.password;
 
     this.service
-      .login(username, password)
+      .login(email, password)
       .then(response => {
-        this.setState({ username: "", password: "", modalOpen: false });
+        console.log(response)
+        this.setState({ email: "", password: "", modalOpen: false });
         this.props.getUser(response);
         this.props.history.push("/");
         console.log("YES")
@@ -76,8 +77,8 @@ class ModalLogin extends Component {
                       size="sm"
                       type="email"
                       placeholder="Enter email"
-                      name="username"
-                      value={this.state.username}
+                      name="email"
+                      value={this.state.email}
                       onChange={e => this.handleChange(e)} />
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
@@ -108,7 +109,7 @@ class ModalLogin extends Component {
             </div>
             <p className="login-message">
               Dont have account? Please{" "}
-              <Link to={"/signup"}> signup on the homepage</Link>
+              <Link to={"/sšgnup"}> signup on the homepage</Link>
               <br />
               Forgot your password? ... Sorry about that !
             </p>

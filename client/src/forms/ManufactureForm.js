@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import { Button, Col } from "react-bootstrap";
 import AuthService from "../components/auth/auth-service";
+import content from '../text.json'
 
 class ManufactureForm extends Component {
   constructor(props) {
@@ -9,14 +10,11 @@ class ManufactureForm extends Component {
 
     this.state = {
       business_name: "",
-      full_name: "",
       address: "",
       city: "",
       zip_code: "",
       state: "",
       country: "",
-      email: "",
-      repeat_email: "",
       logo: "",
       service: ""
     };
@@ -33,21 +31,19 @@ class ManufactureForm extends Component {
     event.preventDefault();
     const formData = {
       business_name: this.state.business_name,
-      // full_name: this.state.full_name,
       address: this.state.address,
       city: this.state.city,
       zip_code: this.state.zip_code,
       state: this.state.state,
       country: this.state.country,
-      // email: this.state.email,
-      // repeat_email: this.state.repeat_email,
       logo: this.state.logo,
       service: this.state.service
     };
     this.service
       .createManufacturer(formData)
       .then(response => {
-        console.log("yes");
+        console.log("yes", response);
+        this.props.history.push('/profile')
       })
       .catch(error => {
         console.log("error: " + error);
@@ -55,6 +51,7 @@ class ManufactureForm extends Component {
   }
 
   render() {
+
     return (
       <div className="row">
         <div className="manufacturer-registration">
@@ -74,11 +71,6 @@ class ManufactureForm extends Component {
                   onChange={e => this.handleChange(e)}
                 />
               </Form.Group>
-
-              {/* <Form.Group as={Col} md="6">
-							<Form.Label>Full Name</Form.Label>
-							<Form.Control required type="text" name="full_name" value={this.state.full_name} onChange={e => this.handleChange(e)}/>
-						</Form.Group> */}
             </Form.Row>
 
             <Form.Row>
@@ -113,6 +105,7 @@ class ManufactureForm extends Component {
                   value={this.state.zip_code}
                   onChange={e => this.handleChange(e)}
                 />
+                {isNaN(this.state.zip_code) ? <p className='error-message' > {content.errorMessage.errorMessageZipCode}</p> : ''}
               </Form.Group>
             </Form.Row>
 
@@ -154,31 +147,6 @@ class ManufactureForm extends Component {
                 </Form.Control>
               </Form.Group>
             </Form.Row>
-
-            <Form.Row>
-              {/* <Form.Group as={Col} md="6">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  required
-                  type="email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={e => this.handleChange(e)}
-                />
-              </Form.Group> */}
-
-              {/* <Form.Group as={Col} md="6">
-                <Form.Label>Repeat Email</Form.Label>
-                <Form.Control
-                  required
-                  type="email"
-                  name="repeat_email"
-                  value={this.state.repeat_email}
-                  onChange={e => this.handleChange(e)}
-                />
-              </Form.Group> */}
-            </Form.Row>
-
             <Form.Row>
               <Form.Group as={Col} md="6">
                 <Form.Label>Upload the logo of your business</Form.Label>
@@ -196,8 +164,8 @@ class ManufactureForm extends Component {
                 <Form.Control
                   required
                   as="textarea"
-                  name="services"
-                  value={this.state.services}
+                  name="service"
+                  value={this.state.service}
                   onChange={e => this.handleChange(e)}
                 />
               </Form.Group>

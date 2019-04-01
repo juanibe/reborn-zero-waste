@@ -27,6 +27,7 @@
     "source": "Velvet"
   },
   "errorMessage": {
-    "errorMessage": "Wrong user name or password. Verify your credentials"
+    "errorMessage": "Wrong user name or password. Verify your credentials",
+    "errorMessageZipCode": "Only numbers are valid in this field"
   }
 }

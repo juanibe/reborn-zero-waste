@@ -14,7 +14,7 @@ authRoutes.get("/signup", (req, res, next) => {
 
 authRoutes.post("/register-user", (req, res, next) => {
   // User.create({
-  //     full_name: req.body.username,
+  //     full_name: req.body.f,
   //     password: req.body.password
   // }).then(response => {res.json(response)}).catch(err => {err.json(err)});
   const full_name = req.body.full_name;
