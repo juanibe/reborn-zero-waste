@@ -4,7 +4,7 @@ const router = express.Router();
 const Designer = require('../models/Designer');
 
 router.get('/list-designers', (req, res, next) => {
-    Designer.find().populate('designers')
+    Designer.find().populate('user')
         .then(allDesigners => {
             res.json(allDesigners);
         })
@@ -16,7 +16,7 @@ router.get('/list-designers', (req, res, next) => {
 router.post('/create-designer', (req, res, next) => {
     Designer.create({
         user: req.user._id,
-        brand_name: req.body.brand_name,
+        brand: req.body.brand,
         full_name: req.body.full_name,
         address: req.body.address,
         city: req.body.city,
@@ -25,8 +25,8 @@ router.post('/create-designer', (req, res, next) => {
         country: req.body.country,
         email: req.body.email,
         designer_inspiration: req.body.designerInspiration,
-        product_types: req.body.product_types,
-        category_type: req.body.category_type
+        fabric_types: req.body.fabric_types,
+        category_types: req.body.category_types
     }).then(response => { res.json(response) }).catch(err => { err.json(err) });
 });
 

@@ -9,7 +9,6 @@ import AuthService from "./components/auth/auth-service";
 import Home from "./pages/Home";
 import NavbarHeader from "./components/NavbarHeader";
 import Footer from "./components/Footer";
-import Signup from "./components/auth/Signup";
 import Concept from "./pages/Concept";
 import MyProfile from "./pages/MyProfile";
 import ModalLogin from "./components/ModalLogin";
@@ -23,14 +22,15 @@ class App extends Component {
     this.service = new AuthService();
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const script = document.createElement("script");
 
-    script.src = "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
+    script.src =
+      "https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js";
     script.async = true;
 
     document.body.appendChild(script);
-}
+  }
 
   fetchUser() {
     if (this.state.loggedInUser === null) {
@@ -61,41 +61,17 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <NavbarHeader
-          getUser={this.getTheUser}
-          userInSession={this.state.loggedInUser}
-        />
+        <NavbarHeader getUser={this.getTheUser} userInSession={this.state.loggedInUser} />
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <Home getUser={this.getTheUser} />}
-          />
-          <Route
-            exact
-            path="/login"
-            render={() => <ModalLogin getUser={this.getTheUser} />}
-          />
-
+          <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
+          <Route exact path="/login" render={() => <ModalLogin getUser={this.getTheUser} />} />
           {/* Two signup : one for designers, one for manufacturers */}
-          <Route
-            exact
-            path="/signup"
-            render={() => <Signup getUser={this.getTheUser} />}
-          />
-
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
-          <Route exact path="/manufacture-registration" component={ManufactureForm} />
+          <Route exact path="/manufacturer-registration" component={ManufactureForm} />
           <Route exact path="/designer-registration" component={DesignerForm} />
-          <Route
-            exact
-            path="/manufacturers-private"
-            component={ManufacturerPrivate}
-          />
-
+          <Route exact path="/manufacturers-private" component={ManufacturerPrivate} />
           <Route exact path="/designers" component={DesignerPublic} />
           <Route exact path="/designers-private" component={DesignerPrivate} />
-
           <Route exact path="/concept" component={Concept} />
           <Route exact path="/profile" component={MyProfile} />
         </Switch>

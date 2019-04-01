@@ -6,24 +6,18 @@ const validate = require('mongoose-validator');
 
 const designerSchema = new Schema({
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
-	brand_name: String,
-	full_name: String,
-	address: String,
-	city: String,
-	zipcode: Number,
-	state: String,
-	country: String,
-	email: {
-		type: String, lowercase: true, trim: true, index: true, unique: true, sparse: true,
-		validate: [validate({
-			validator: 'isEmail',
-			message: 'Not a valid email'
-		})]
-	},
+	brand: String, //yes
+	address: String, //yes
+	city: String, //yes
+	state: String, //yes
+	zipcode: Number, //yes
+	country: String, //yes
 	designInspiration: String,
-	product_types: String,
+	fabric_types: [], //yes
+	//image?
 	product_gallery: { type: Schema.Types.ObjectId, ref: 'ProductGallery' },
-	category_type: String
+	category_types: [],
+	source: ''
 }, { timestamps: true });
 
 const Designer = mongoose.model('Designer', designerSchema);

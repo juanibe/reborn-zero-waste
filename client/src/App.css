@@ -202,3 +202,21 @@
 .h3 {
   margin-top: 25px;
 }
+
+.designer-registration {
+  position: relative;
+  left: 450px;
+}
+
+.manufacturer-registration {
+  position: relative;
+  left: 450px;
+}
+
+.register-title {
+  margin-top: 20px;
+}
+
+.profile-block {
+  margin-top: 15px;
+}

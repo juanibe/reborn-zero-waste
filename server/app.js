@@ -22,7 +22,7 @@ const cors = require('cors');
 const MongoStore = require('connect-mongo')(session);
 
 mongoose
-  .connect('mongodb://localhost/IronHack', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/IronHack', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -85,4 +85,9 @@ app.use('/api', designerRoutes);
 app.use('/api', fabricRoutes);
 app.use('/api', manufacturerRoutes);
 app.use('/api', productGalleryRoutes);
+module.exports = app;
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
 module.exports = app;
