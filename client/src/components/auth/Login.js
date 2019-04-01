@@ -8,18 +8,18 @@ import content from '../../text.json'
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: "", password: "", error: false };
+        this.state = { email: "", password: "", error: false };
         this.service = new AuthService();
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        const username = this.state.username;
+        const email = this.state.email
         const password = this.state.password;
         this.service
-            .login(username, password)
+            .login(email, password)
             .then(response => {
-                this.setState({ username: "", password: "" });
+                this.setState({ email: "", password: "" });
                 this.props.getUser(response);
                 this.props.history.push("/");
             })
@@ -46,8 +46,8 @@ class Login extends Component {
                                     size="sm"
                                     type="email"
                                     placeholder="Enter email"
-                                    name="username"
-                                    value={this.state.username}
+                                    name="email"
+                                    value={this.state.email}
                                     onChange={e => this.handleChange(e)}
                                 />
                             </Form.Group>

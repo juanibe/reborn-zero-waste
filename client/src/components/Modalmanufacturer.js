@@ -3,6 +3,8 @@ import Popup from "reactjs-popup";
 import Form from "react-bootstrap/Form";
 import AuthService from "./auth/auth-service";
 import Axios from "axios";
+import { withRouter } from 'react-router-dom';
+
 
 class ModalManufacturer extends Component {
   constructor(props) {
@@ -31,7 +33,7 @@ class ModalManufacturer extends Component {
     const password = this.state.password;
     const email = this.state.email;
 
-    Axios.post('http://localhost:3001/api/register-user', {
+    Axios.post((process.env.REACT_APP_API_URL || "http://localhost:3001/api") + "/register-user", {
       full_name,
       email,
       password,
@@ -43,9 +45,11 @@ class ModalManufacturer extends Component {
         password: ""
       })
       this.props.getUser(response);
+      this.props.history.push('/manufacturer-registration')
     })
       .catch(error => console.log(error));
   };
+
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -126,4 +130,4 @@ class ModalManufacturer extends Component {
   }
 }
 
-export default ModalManufacturer;
+export default withRouter(ModalManufacturer);

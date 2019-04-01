@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import { Button, Col } from "react-bootstrap";
 import AuthService from "../components/auth/auth-service";
 import { withRouter } from 'react-router-dom';
+import content from '../text.json'
+
 
 
 class DesignerForm extends Component {
@@ -68,7 +70,7 @@ class DesignerForm extends Component {
 			.createDesigner(formData)
 			.then(res => {
 				console.log(formData);
-				this.props.history.push('/test')
+				this.props.history.push('/profile')
 			})
 			.catch(error => {
 				console.log("No" + error);
@@ -121,7 +123,10 @@ class DesignerForm extends Component {
 									name="zipcode"
 									value={this.state.zipcode}
 									onChange={e => this.handleChange(e)} />
+								{isNaN(this.state.zipcode) ? <p className='error-message' > {content.errorMessage.errorMessageZipCode}</p> : ''}
+
 							</Form.Group>
+
 						</Form.Row>
 						<Form.Row>
 							<Form.Group as={Col} md="6">

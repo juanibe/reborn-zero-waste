@@ -24,9 +24,9 @@ router.post('/create-manufacturer', (req, res, next) => {
 		city: req.body.city,
 		state: req.body.state,
 		country: req.body.country,
-		zipcode: req.body.zipcode,
-		business_logo: req.body.business_logo,
-		services_offered: req.body.services_offered
+		zip_code: req.body.zip_code,
+		logo: req.body.logo,
+		service: req.body.service
 	})
 		.then(response => { res.json(response) })
 		.catch(err => { err.json(err) });

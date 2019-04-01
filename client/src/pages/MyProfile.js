@@ -34,7 +34,6 @@ class MyProfile extends Component {
 
         this.service.manufacturerInformation().then(res => {
             console.log('res', res)
-            // this.setState({ name: res.username })
         })
     }
 
@@ -42,7 +41,7 @@ class MyProfile extends Component {
         return (
             <span>
                 <h1>
-                    {this.state.name}
+                    testet
                 </h1>
             </span>
         )
