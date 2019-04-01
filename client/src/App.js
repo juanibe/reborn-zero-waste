@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import ManufacturerPublic from "./pages/Manufacturer-public";
 import ManufacturerPrivate from "./pages/Manufacturer-private";
-import DesignerPublic from "./pages/Designer-profile-public";
+import DesignerProfile from "./pages/DesignerProfile";
 import DesignerPrivate from "./pages/Designer-profile-private";
 import { Switch, Route } from "react-router-dom";
 import AuthService from "./components/auth/auth-service";
@@ -63,6 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavbarHeader getUser={this.getTheUser} userInSession={this.state.loggedInUser} />
+        <br></br><br></br><br></br>
         <Switch>
           <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
           <Route exact path="/login" render={() => <ModalLogin getUser={this.getTheUser} />} />
@@ -71,7 +72,7 @@ class App extends Component {
           <Route exact path="/manufacturer-registration" component={ManufactureForm} />
           <Route exact path="/designer-registration" component={DesignerForm} />
           <Route exact path="/manufacturers-private" component={ManufacturerPrivate} />
-          <Route exact path="/designers" component={DesignerPublic} />
+          <Route exact path="/designers" component={DesignerProfile} />
           <Route exact path="/designers-private" component={DesignerPrivate} />
           <Route exact path="/concept" component={Concept} />
           <ProtectedRoute user={this.state.loggedInUser} exact path="/profile" component={MyProfile} />
