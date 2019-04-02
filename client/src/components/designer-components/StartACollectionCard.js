@@ -6,13 +6,7 @@ import RequiredFabrics from './RequiredFabrics';
 
 class StartACollectionCard extends Component {
     state={
-        pendingFabric:[{
-            type:"",
-            quantity:"",
-            collectiondeadline:"",
-            plans:""       
-        }
-        ],
+        pendingFabric:[],
         collectionName:"",
         aboutCollection:'',
         launchDate:''
@@ -34,8 +28,8 @@ class StartACollectionCard extends Component {
 		this.setState({ [name]: value });
     }
     
-    addFabricHandler = () => 
-        <RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>
+    addFabricHandler = (e) => 
+        e.push(<RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>)
 
 
     render() {
@@ -45,7 +39,7 @@ class StartACollectionCard extends Component {
                     <h2>Start A Fabric Collection Drive</h2>
                     <Form>
                         {/* ------>  AddFabricCard*/}
-                        <AddFabricCard fabricType={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity} deadline={this.state.pendingFabric.collectiondeadline} plans={this.state.pendingFabric.plans} fabricDetailsHandler={this.enterFabricHandler} addFabricHandler={this.addFabricHandler}/>
+                        <AddFabricCard />
                         {/* <------- */}
                         <Row>
                             <Col>    
