@@ -8,8 +8,8 @@ class AddFabricCard extends Component {
     state = {
         fabricType:"",
         quantity:"",
-        deadline:"",
-        plans:""   
+        deadline: new Date(),
+        plans:""
     };
 
     handleChange = (event) => {
@@ -58,7 +58,7 @@ class AddFabricCard extends Component {
                     </Row><br/>
                     <Row>
                         <Col>
-                            <Button>Add Fabric</Button>
+                            <Button onClick={console.log(this.state)}>Add Fabric</Button>
                                 {/* fabricList.push(<RequiredFabrics type={this.state.fabricType} quantity={this.state.quantity}/>)} variant="outline-success">*/}
                         </Col>
                     </Row>
