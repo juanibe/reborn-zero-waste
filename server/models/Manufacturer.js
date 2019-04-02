@@ -11,7 +11,7 @@ const manufacturerSchema = new Schema({
 	country: String,
 	zip_code: Number,
 	logo: String,
-	service: String
+	service: String,
 });
 
 const Manufacturer = mongoose.model('Manufacturer', manufacturerSchema);

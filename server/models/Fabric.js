@@ -7,6 +7,7 @@ const fabricSchema = new Schema({
 	fabricType: String,
 	quantity: String,
 	unit_cost: String,
+	deadlinedate: String,
 	description: String
 });
 
