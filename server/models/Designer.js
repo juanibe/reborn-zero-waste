@@ -17,7 +17,8 @@ const designerSchema = new Schema({
 	//image?
 	product_gallery: { type: Schema.Types.ObjectId, ref: 'ProductGallery' },
 	category_types: [],
-	source: ''
+	source: '',
+	collections:{ type: Schema.Types.ObjectId, ref: 'Collections' }
 }, { timestamps: true });
 
 const Designer = mongoose.model('Designer', designerSchema);
