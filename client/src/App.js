@@ -15,6 +15,7 @@ import ModalLogin from "./components/ModalLogin";
 import ManufactureForm from "./forms/ManufactureForm";
 import DesignerForm from "./forms/DesignerForm";
 import ProtectedRoute from "./components/auth/protected-route";
+import ManufacturerProfile from "./pages/ManufacturerProfile";
 
 class App extends Component {
   constructor(props) {
@@ -93,8 +94,13 @@ class App extends Component {
             path="/manufacturers-private"
             component={ManufacturerPrivate}
           />
+          <Route
+            exact
+            path="/manufacturers-profile"
+            component={ManufacturerProfile}
+          />
           <Route exact path="/designers-profile" component={DesignerProfile} />
-          <Route exact path="/designers-private" component={DesignerPrivate} />
+          <Route exact path="/designers" component={DesignerPrivate} />
           <Route exact path="/concept" component={Concept} />
           <ProtectedRoute
             user={this.state.loggedInUser}

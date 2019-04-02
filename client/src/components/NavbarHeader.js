@@ -60,7 +60,7 @@ export default class NavbarHeader extends React.Component {
               ) : (
                 <React.Fragment>
                   <NavItem className="active link-navbar">
-                    <Link to="/designers-private">Designers</Link>
+                    <Link to="/designers">Designers</Link>
                   </NavItem>
                   <NavItem className="active link-navbar">
                     <Link to="/manufacturers">Manufacturers</Link>
