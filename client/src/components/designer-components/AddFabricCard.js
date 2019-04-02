@@ -17,6 +17,8 @@ class AddFabricCard extends Component {
 		this.setState({ [name]: value });
     }
 
+    dateHandler = date => this.setState({ deadline: date })
+
     render() {
         return(
                 <div>
@@ -24,7 +26,7 @@ class AddFabricCard extends Component {
                         <Col>
                             <Form.Group controlId="fabricType">
                                 <Form.Label>Which fabric would you like to buy?</Form.Label>
-                                <Form.Control required name="type" value={this.state.fabricType} onChange={e => this.handleChange(e)} as="select">
+                                <Form.Control required name="fabricType" value={this.state.fabricType} onChange={e => this.handleChange(e)} as="select">
                                     <option>Cotton</option>
                                     <option>Denim</option>
                                     <option>Wool</option>
@@ -44,7 +46,7 @@ class AddFabricCard extends Component {
                         <Col>
                             <Form.Group controlId="fabricType">
                                 <Form.Label>By when would you need the fabric?</Form.Label>
-                            <Calendar required name="collectiondeadline" value={this.state.deadline} onChange={e => this.handleChange(e)} />
+                            <Calendar required onChange={this.dateHandler} value={this.state.deadline}/>
                                     </Form.Group>
                                 </Col>
                                 <Col>
