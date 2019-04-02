@@ -2,13 +2,14 @@ import React from 'react';
 import {Button, Form, Col, Row } from 'react-bootstrap';
 import Calendar from './DatePicker'
 
-const AddFabricCard = () => 
+let fabricList = [];
+const AddFabricCard = (props) => 
     <div>
         <Row>
             <Col>
                 <Form.Group controlId="fabricType">
                     <Form.Label>Which fabric would you like to buy?</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control required name="type" value={props.fabricType} onChange={e => props.fabricDetailsHandler(e.target)} as="select">
                         <option>Cotton</option>
                         <option>Denim</option>
                         <option>Wool</option>
@@ -20,7 +21,7 @@ const AddFabricCard = () =>
             <Col>
                 <Form.Group controlId="fabricQty">
                     <Form.Label>How much fabric would you like?</Form.Label>
-                    <Form.Control type='input'></Form.Control>meters
+                    <Form.Control required name="quantity" value={props.quantity} onChange={e => props.fabricDetailsHandler(e.target)} type='input'></Form.Control>meters
                 </Form.Group>
             </Col>
         </Row>
@@ -28,26 +29,28 @@ const AddFabricCard = () =>
             <Col>
                 <Form.Group controlId="fabricType">
                     <Form.Label>By when would you need the fabric?</Form.Label>
-                   <Calendar />
+                   <Calendar required name="collectiondeadline" value={props.deadline} onChange={e => props.fabricDetailsHandler(e.target)} />
                         </Form.Group>
                     </Col>
                     <Col>
                         <Form.Group controlId="fabricQty">
-                            <Form.Label>What do you plan to make?</Form.Label>
-                            <Form.Control type='input' placeholder='Optional'></Form.Control>
+                            <Form.Label>How do you plan to use it?</Form.Label>
+                            <Form.Control name="plans" value={props.plans} onChange={e => props.fabricDetailsHandler(e.target)} type='input' placeholder='Optional'></Form.Control>
                         </Form.Group>
                     </Col>
         </Row><br/>
         <Row>
             <Col>
-                <Button variant="outline-success">Add Fabric</Button>
+                <Button onClick={fabricList.push(props.addFabricHandler)} variant="outline-success">Add Fabric</Button>
             </Col>
         </Row>
         <Row>
             <Col>
                 <Form.Group controlId="finalOrder" />
                 <p><strong>Total Fabric Needed</strong></p>
-                <p>123 meters of Cotton, 300 meters of Denim, 110 meters of Linen </p>
+                <p>{fabricList.map((item) => 
+                        item
+                    )}</p>
             </Col>
         </Row>
     </div>
