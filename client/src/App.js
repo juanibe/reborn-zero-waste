@@ -68,8 +68,8 @@ class App extends Component {
           <Route exact path="/login" render={() => <ModalLogin getUser={this.getTheUser} />} />
           {/* Two signup : one for designers, one for manufacturers */}
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
-          <Route exact path="/manufacturer-registration" component={ManufactureForm} />
-          <Route exact path="/designer-registration" component={DesignerForm} />
+          <ProtectedRoute user={this.state.loggedInUser} exact path="/manufacturer-registration" component={ManufactureForm} />
+          <ProtectedRoute user={this.state.loggedInUser} exact path="/designer-registration" component={DesignerForm} />
           <Route exact path="/manufacturers-private" component={ManufacturerPrivate} />
           <Route exact path="/designers" component={DesignerPublic} />
           <Route exact path="/designers-private" component={DesignerPrivate} />
