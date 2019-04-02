@@ -1,10 +1,12 @@
 import React from 'react';
 import {Button, Form, Col, Row } from 'react-bootstrap';
-import Calendar from './DatePicker'
+import Calendar from './DatePicker';
+import RequiredFabrics from './RequiredFabrics';
 
 let fabricList = [];
 const AddFabricCard = (props) => 
     <div>
+        <Form>
         <Row>
             <Col>
                 <Form.Group controlId="fabricType">
@@ -41,18 +43,18 @@ const AddFabricCard = (props) =>
         </Row><br/>
         <Row>
             <Col>
-                <Button onClick={props.addFabricHandler} variant="outline-success">Add Fabric</Button>
+                <Button onClick={fabricList.push(<RequiredFabrics type={props.fabricType} quantity={props.quantity}/>)} variant="outline-success">Add Fabric</Button>
             </Col>
         </Row>
         <Row>
             <Col>
                 <Form.Group controlId="finalOrder" />
                 <p><strong>Total Fabric Needed</strong></p>
-                <p>{fabricList.map((item) => 
-                        item
-                    )}</p>
+                <RequiredFabrics type={props.fabricType} quantity={props.quantity}/>>
             </Col>
         </Row>
+        </Form>
     </div>
+    
 
     export default AddFabricCard;

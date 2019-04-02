@@ -35,8 +35,7 @@ class StartACollectionCard extends Component {
     }
     
     addFabricHandler = () => 
-        console.log('Reaching');
-        // <RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>
+        <RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>
 
 
     render() {
@@ -46,7 +45,7 @@ class StartACollectionCard extends Component {
                     <h2>Start A Fabric Collection Drive</h2>
                     <Form>
                         {/* ------>  AddFabricCard*/}
-                        <AddFabricCard fabricType={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity} deadline={this.state.pendingFabric.collectiondeadline} plans={this.state.pendingFabric.plans} fabricDetailsHandler={this.enterFabricHandler}/>
+                        <AddFabricCard fabricType={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity} deadline={this.state.pendingFabric.collectiondeadline} plans={this.state.pendingFabric.plans} fabricDetailsHandler={this.enterFabricHandler} addFabricHandler={this.addFabricHandler}/>
                         {/* <------- */}
                         <Row>
                             <Col>    
