@@ -9,7 +9,7 @@ const DesignerProfileCards = (props) =>
         <Card.Img variant="top" src="../images/avatar.png" />
         <Card.Body>
             <Card.Title>{props.name}</Card.Title>
-            <Card.Title>Label: {props.brandname}</Card.Title>
+            <Card.Title>Label: {props.label}</Card.Title>
             <Card.Title>Email: {props.email}</Card.Title>
             <Card.Text>{props.design_inspiration}</Card.Text>
             <Card.Text>I make => {props.product_types}</Card.Text>
@@ -114,9 +114,37 @@ const OldCollectionRuns = (props) =>
                 <Card bg="light">
                     <Card.Header>Last Day - {props.deadline}.</Card.Header>
                     <Card.Body>
-                        <Card.Title>Light Card Title</Card.Title>
+                        <Card.Title>{props.name}</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                            {props.about}
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        <Button variant="outline-success">25 Potential Suppliers</Button>
+                    </Card.Footer>
+                </Card>                        
+            </Col>
+            <Col>
+                <Card bg="light">
+                    <Card.Header>Last Day - {props.deadline}.</Card.Header>
+                    <Card.Body>
+                        <Card.Title>{props.name}</Card.Title>
+                        <Card.Text>
+                            {props.about}
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        <Button variant="outline-success">25 Potential Suppliers</Button>
+                    </Card.Footer>
+                </Card>                        
+            </Col>
+                        <Col>
+                <Card bg="light">
+                    <Card.Header>Last Day - {props.deadline}.</Card.Header>
+                    <Card.Body>
+                        <Card.Title>{props.name}</Card.Title>
+                        <Card.Text>
+                            {props.about}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
@@ -158,8 +186,6 @@ class DesignerDetails extends Component {
         }  
     };
 
-
-
     render() {
         return (
             <Container>
@@ -177,7 +203,7 @@ class DesignerDetails extends Component {
                     {/* <------- */}
                     <br></br><br></br>
                     {/* OldCollectionRuns --------> */}
-                    <OldCollectionRuns brandname={this.state.designer.brandname} deadline={this.state.designer.collections[0].fabrics[0].deadline} />
+                    <OldCollectionRuns brandname={this.state.designer.brandname} deadline={this.state.designer.collections[0].fabrics[0].deadline} name={this.state.designer.collections[0].name} about={this.state.designer.collections[0].about}/>
             </Container>
         )
     }
