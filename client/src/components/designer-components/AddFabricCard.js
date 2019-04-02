@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, Form, Col, Row } from 'react-bootstrap';
+import Calendar from './DatePicker'
 
 const AddFabricCard = () => 
     <div>
@@ -22,8 +23,23 @@ const AddFabricCard = () =>
                     <Form.Control type='input'></Form.Control>meters
                 </Form.Group>
             </Col>
+        </Row>
+        <Row>
             <Col>
-                <br/><br/> 
+                <Form.Group controlId="fabricType">
+                    <Form.Label>By when would you need the fabric?</Form.Label>
+                   <Calendar />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group controlId="fabricQty">
+                            <Form.Label>What do you plan to make?</Form.Label>
+                            <Form.Control type='input' placeholder='Optional'></Form.Control>
+                        </Form.Group>
+                    </Col>
+        </Row><br/>
+        <Row>
+            <Col>
                 <Button variant="outline-success">Add Fabric</Button>
             </Col>
         </Row>

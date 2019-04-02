@@ -36,10 +36,32 @@ class DesignerDetails extends Component {
                         {
                         type:"Cotton",
                         amount:"45 meters",
-                        date_created:"",
-                        deadline:"24/05/2019",
-                        note:"I need some cotton for my upcoming collection"
-                    }]        
+                        date_created:"11/02/2019",
+                        collectiondeadline:"24/05/2019",
+                        plans:"Using it for some light summer clothes"
+                    },
+                    {
+                        type:"Wool",
+                        amount:"145 meters",
+                        date_created:"11/02/2019",
+                        collectiondeadline:"24/05/2019",
+                        plans:"Use it for some winter clothes"
+                    },
+                    {
+                        type:"Linen",
+                        amount:"45 meters",
+                        date_created:"11/02/2019",
+                        collectiondeadline:"24/05/2019",
+                        plans:"Use it for some warm khakhees"
+                    },
+                    {
+                        type:"Synthetics",
+                        amount:"45 meters",
+                        date_created:"11/02/2019",
+                        collectiondeadline:"24/05/2019",
+                        plans:"Not sure yet"
+                    }
+                ]        
                 }
             ]
         }  
@@ -62,7 +84,7 @@ class DesignerDetails extends Component {
                     {/* <------- */}
                     <br></br><br></br>
                     {/* OldCollectionRuns --------> */}
-                    <OldCollectionRuns brandname={this.state.designer.brandname} deadline={this.state.designer.collections[0].fabrics[0].deadline} name={this.state.designer.collections[0].name} about={this.state.designer.collections[0].about}/>
+                    <OldCollectionRuns brandname={this.state.designer.brandname} collectiondeadline={this.state.designer.collections[0].fabrics[0].collectiondeadline} name={this.state.designer.collections[0].name} about={this.state.designer.collections[0].about}/>
             </Container>
         )
     }
