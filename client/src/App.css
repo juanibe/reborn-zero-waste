@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Mukta");
 
+.html {
+  height: 100%;
+}
+
 .body {
   font-family: "Mukta", sans-serif;
+  height:100%;
 }
 
 .App {
@@ -187,6 +192,11 @@
 
 .dropdownfabrics {
   margin-bottom: 20px;
+}
+
+.profilePic {
+  width:50px;
+  height:50px
 }
 
 .amount {

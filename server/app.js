@@ -16,6 +16,7 @@ const userRoutes = require('./routes/user-routes');
 const designerRoutes = require('./routes/designer-routes');
 const fabricRoutes = require('./routes/fabric-routes');
 const manufacturerRoutes = require('./routes/manufacturer-routes');
+const productGalleryRoutes = require('./routes/product-gallery-routes');
 const session = require('express-session');
 const cors = require('cors');
 const MongoStore = require('connect-mongo')(session);
@@ -83,6 +84,8 @@ app.use('/api', userRoutes);
 app.use('/api', designerRoutes);
 app.use('/api', fabricRoutes);
 app.use('/api', manufacturerRoutes);
+app.use('/api', productGalleryRoutes);
+module.exports = app;
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
   res.sendFile(__dirname + "/public/index.html");

@@ -40,9 +40,9 @@ class ModalLogin extends Component {
         console.log(response)
         this.setState({ email: "", password: "", modalOpen: false });
         this.props.getUser(response);
-        this.props.history.push("/");
-        console.log("YES")
-        console.log(this.props.history);
+        // this.props.history.push("/");
+        // console.log("YES")
+        // console.log(this.props.history);
       })
       .catch(error => {
         this.setState({ error: true });
@@ -116,7 +116,7 @@ class ModalLogin extends Component {
           </div>
         </Popup>
         {/* <NavItem className=""> */}
-        <Link to="/" onClick={this.handleButtonClick}>Login</Link>
+        <Link to="#" onClick={this.handleButtonClick}>Login</Link>
         {/* </NavItem> */}
       </span>
     );
