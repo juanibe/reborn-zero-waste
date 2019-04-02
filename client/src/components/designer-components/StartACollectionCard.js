@@ -35,7 +35,8 @@ class StartACollectionCard extends Component {
     }
     
     addFabricHandler = () => 
-        <RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>
+        console.log('Reaching');
+        // <RequiredFabrics type={this.state.pendingFabric.type} quantity={this.state.pendingFabric.quantity}/>
 
 
     render() {

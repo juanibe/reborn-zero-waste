@@ -9,7 +9,7 @@ const AddFabricCard = (props) =>
             <Col>
                 <Form.Group controlId="fabricType">
                     <Form.Label>Which fabric would you like to buy?</Form.Label>
-                    <Form.Control required name="type" value={props.fabricType} onChange={e => props.fabricDetailsHandler(e.target)} as="select">
+                    <Form.Control required name="type" value={props.fabricType} onChange={e => props.fabricDetailsHandler(e)} as="select">
                         <option>Cotton</option>
                         <option>Denim</option>
                         <option>Wool</option>
@@ -21,7 +21,7 @@ const AddFabricCard = (props) =>
             <Col>
                 <Form.Group controlId="fabricQty">
                     <Form.Label>How much fabric would you like?</Form.Label>
-                    <Form.Control required name="quantity" value={props.quantity} onChange={e => props.fabricDetailsHandler(e.target)} type='input'></Form.Control>meters
+                    <Form.Control required name="quantity" value={props.quantity} onChange={e => props.fabricDetailsHandler(e)} type='input'></Form.Control>meters
                 </Form.Group>
             </Col>
         </Row>
@@ -29,19 +29,19 @@ const AddFabricCard = (props) =>
             <Col>
                 <Form.Group controlId="fabricType">
                     <Form.Label>By when would you need the fabric?</Form.Label>
-                   <Calendar required name="collectiondeadline" value={props.deadline} onChange={e => props.fabricDetailsHandler(e.target)} />
+                   <Calendar required name="collectiondeadline" value={props.deadline} onChange={e => props.fabricDetailsHandler(e)} />
                         </Form.Group>
                     </Col>
                     <Col>
                         <Form.Group controlId="fabricQty">
                             <Form.Label>How do you plan to use it?</Form.Label>
-                            <Form.Control name="plans" value={props.plans} onChange={e => props.fabricDetailsHandler(e.target)} type='input' placeholder='Optional'></Form.Control>
+                            <Form.Control name="plans" value={props.plans} onChange={e => props.fabricDetailsHandler(e)} type='input' placeholder='Optional'></Form.Control>
                         </Form.Group>
                     </Col>
         </Row><br/>
         <Row>
             <Col>
-                <Button onClick={fabricList.push(props.addFabricHandler)} variant="outline-success">Add Fabric</Button>
+                <Button onClick={props.addFabricHandler} variant="outline-success">Add Fabric</Button>
             </Col>
         </Row>
         <Row>
