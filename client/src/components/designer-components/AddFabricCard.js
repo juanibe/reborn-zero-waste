@@ -37,9 +37,12 @@ class AddFabricCard extends Component {
         };
         this.service
             .createFabric(formData)
-            .then(res => {
-                console.log(formData);
-                this.props.history.push('/profile')
+            .then(() => {
+                //this.props.history.push('/profile')
+                this.setState = {
+                    quantity: "",
+                    plans: "",
+                }
             })
             .catch(error => {
                 console.log("No" + error);

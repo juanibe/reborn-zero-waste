@@ -71,11 +71,7 @@ class App extends Component {
         <br />
         <br />
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <Home getUser={this.getTheUser} />}
-          />
+          <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
           <Route
             exact
             path="/login"
