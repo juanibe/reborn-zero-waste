@@ -37,18 +37,16 @@ class AddFabricCard extends Component {
 
     handleFormSubmit(event) {
         event.preventDefault();
-
         const formData = {
-            deadlinedate = this.state.collectiondeadline,
             quantity: this.state.amount,
-            fabricType: this.state.type,
+            type: this.state.fabricType,
             description: this.state.plans,
         };
         this.service
             .createFabric(formData)
             .then(() => {
                 this.setState({
-                    type: "Cotton",
+                    type: "",
                     amount: "",
                     plans: "",
                 })
