@@ -72,18 +72,10 @@ class App extends Component {
         <br />
         <Switch>
           <Route exact path="/" render={() => <Home getUser={this.getTheUser} />} />
-          <Route
-            exact
-            path="/login"
-            render={() => <ModalLogin getUser={this.getTheUser} />}
-          />
+          <Route exact path="/login" render={() => <ModalLogin getUser={this.getTheUser} />} />
           {/* Two signup : one for designers, one for manufacturers */}
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
-          <Route
-            exact
-            path="/manufacturer-registration"
-            component={ManufactureForm}
-          />
+          <Route exact path="/manufacturer-registration" component={ManufactureForm} />
           <Route exact path="/designer-registration" component={DesignerForm} />
           <Route
             exact
