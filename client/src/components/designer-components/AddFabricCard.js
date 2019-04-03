@@ -28,12 +28,6 @@ class AddFabricCard extends Component {
         this.setState({ [name]: value });
     }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.props.addPlayer(this.state.value);
-    //     this.setState({ value: '' });
-    //   }
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addFabric(this.state.fabric)
@@ -41,21 +35,20 @@ class AddFabricCard extends Component {
 
     dateHandler = date => this.setState({ collectiondeadline: date })
 
-
     handleFormSubmit(event) {
         event.preventDefault();
 
         const formData = {
-            amount: this.state.amount,
-            type: this.state.type,
-            plans: this.state.plans,
-
+            deadlinedate = this.state.collectiondeadline,
+            quantity: this.state.amount,
+            fabricType: this.state.type,
+            description: this.state.plans,
         };
         this.service
             .createFabric(formData)
             .then(() => {
                 this.setState({
-                    type: "",
+                    type: "Cotton",
                     amount: "",
                     plans: "",
                 })
