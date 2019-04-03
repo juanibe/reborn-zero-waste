@@ -16,6 +16,7 @@ import ManufactureForm from "./forms/ManufactureForm";
 import DesignerForm from "./forms/DesignerForm";
 import ProtectedRoute from "./components/auth/protected-route";
 import ManufacturerProfile from "./pages/ManufacturerProfile";
+import ManufacturerDetails from './components/ManufacturerComponents/ManufacturerDetails'
 
 class App extends Component {
   constructor(props) {
@@ -92,15 +93,15 @@ class App extends Component {
           <Route
             exact
             path="/manufacturers-private"
-            component={ManufacturerPrivate}
+            component={ManufacturerDetails}
           />
           <Route
             exact
             path="/manufacturers-profile"
-            component={ManufacturerProfile}
+            component={ManufacturerDetails}
           />
           <Route exact path="/designers-profile" component={DesignerProfile} />
-          <Route exact path="/designers" component={DesignerPrivate} />
+          <Route exact path="/designers" component={DesignerProfile} />
           <Route exact path="/concept" component={Concept} />
           <ProtectedRoute
             user={this.state.loggedInUser}

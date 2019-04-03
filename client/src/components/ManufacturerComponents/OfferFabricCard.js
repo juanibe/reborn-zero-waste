@@ -5,7 +5,7 @@ let fabricList = [];
 const OfferFabricCard = props => (
   <div>
     <Row>
-      {/* <Col sm={6}> */}
+      <Col sm={6}>
         <h2>Sell your fabrics leftovers</h2>
         <Row>
           <Form.Group controlId="fabricType">
@@ -86,7 +86,7 @@ const OfferFabricCard = props => (
         <p>{fabricList.map(item => item)}</p>
       </Col>
     </Row>
-  </div>
+    </div>
 );
 
 export default OfferFabricCard;

@@ -81,7 +81,7 @@ class StartACollectionCard extends Component {
                         {/* fabricType={this.state.fabric.type} quantity={this.state.fabric.amount} collectiondeadline={this.state.fabric.collectiondeadline} plans={this.state.fabric.plans}*/}
                         <Row>
                             <Col>    
-                                <h4><Form.Control name="collectionName" value={this.statecollectionName} onChange={e => this.handleChange(e)} type='input' placeholder='Name of your upcoming Collection'></Form.Control></h4>
+                                <h4><Form.Control name="collectionName" value={this.state.collectionName} onChange={e => this.handleChange(e)} type='input' placeholder='Name of your upcoming Collection'></Form.Control></h4>
                                 <Form.Control name="aboutCollection" type='input' placeholder='What was your inpiration behind this collection?'></Form.Control>                                    
                             </Col>
                         </Row>
