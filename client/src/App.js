@@ -77,25 +77,12 @@ class App extends Component {
           <Route exact path="/manufacturers" component={ManufacturerPublic} />
           <Route exact path="/manufacturer-registration" component={ManufactureForm} />
           <Route exact path="/designer-registration" component={DesignerForm} />
-          <Route
-            exact
-            path="/manufacturers-private"
-            component={ManufacturerPrivate}
-          />
-          <Route
-            exact
-            path="/manufacturers-profile"
-            component={ManufacturerProfile}
-          />
+          <Route exact path="/manufacturers-private" component={ManufacturerPrivate} />
+          <Route exact path="/manufacturers-profile" component={ManufacturerProfile} />
           <Route exact path="/designers-profile" component={DesignerProfile} />
           <Route exact path="/designers" component={DesignerPrivate} />
           <Route exact path="/concept" component={Concept} />
-          <ProtectedRoute
-            user={this.state.loggedInUser}
-            exact
-            path="/profile"
-            component={MyProfile}
-          />
+          <ProtectedRoute user={this.state.loggedInUser} exact path="/profile" component={MyProfile} />
         </Switch>
         <Footer />
       </div>

@@ -1,5 +1,5 @@
-// import React from "react";
-// import { Button, Form, Col, Row } from "react-bootstrap";
+import React from "react";
+import { Button, Form, Col, Row } from "react-bootstrap";
 
 let fabricList = [];
 const OfferFabricCard = props => (
@@ -89,4 +89,4 @@ const OfferFabricCard = props => (
   </div>
 );
 
-// export default OfferFabricCard;
+export default OfferFabricCard;
