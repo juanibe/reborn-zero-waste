@@ -1,32 +1,46 @@
 import React, {Component} from 'react';
 import {Button, Form, Col, Row } from 'react-bootstrap';
 import Calendar from './DatePicker';
-import RequiredFabrics from './RequiredFabrics';
+import RequiredFabric from './RequiredFabrics';
 
 
 class AddFabricCard extends Component {
     state = {
-        fabricType:"",
-        quantity:"",
-        deadline: new Date(),
-        plans:""
-    };
+        fabric: {
+            type:"",
+            amount:"",
+            collectiondeadline: new Date(),
+            plans:""
+    }};
 
     handleChange = (event) => {
+        event.preventDefault();
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
     }
 
-    dateHandler = date => this.setState({ deadline: date })
+    // handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     this.props.addPlayer(this.state.value);
+    //     this.setState({ value: '' });
+    //   }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addFabric(this.state.fabric)
+    }
+
+    dateHandler = date => this.setState({ collectiondeadline: date })
+   
 
     render() {
         return(
                 <div>
                     <Row>
                         <Col>
-                            <Form.Group controlId="fabricType">
+                            <Form.Group controlId="type">
                                 <Form.Label>Which fabric would you like to buy?</Form.Label>
-                                <Form.Control required name="fabricType" value={this.state.fabricType} onChange={e => this.handleChange(e)} as="select">
+                                <Form.Control required name="type" value={this.state.fabric.type} onChange={this.handleChange} as="select">
                                     <option>Cotton</option>
                                     <option>Denim</option>
                                     <option>Wool</option>
@@ -38,44 +52,39 @@ class AddFabricCard extends Component {
                         <Col>
                             <Form.Group controlId="fabricQty">
                                 <Form.Label>How much fabric would you like?</Form.Label>
-                                <Form.Control required name="quantity" value={this.state.quantity} onChange={e => this.handleChange(e)} type='input'></Form.Control>meters
+                                <Form.Control required name="amount" value={this.state.fabric.amount} onChange={this.handleChange} type='input'></Form.Control>meters
                             </Form.Group>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <Form.Group controlId="fabricType">
+                            <Form.Group controlId="type">
                                 <Form.Label>By when would you need the fabric?</Form.Label>
-                            <Calendar required onChange={this.dateHandler} value={this.state.deadline}/>
+                            <Calendar required onChange={this.dateHandler} /*value={this.state.fabric.collectiondeadline}*//>
                                     </Form.Group>
                                 </Col>
                                 <Col>
-                                    <Form.Group controlId="fabricQty">
+                                    <Form.Group controlId="fabricPlan">
                                         <Form.Label>How do you plan to use it?</Form.Label>
-                                        <Form.Control name="plans" value={this.state.plans} onChange={e => this.handleChange(e)} type='input' placeholder='Optional'></Form.Control>
+                                        <Form.Control name="plans" /*value={this.state.fabric.plans}*/ onChange={e => this.handleChange(e)} type='input' placeholder='Optional'></Form.Control>
                                     </Form.Group>
                                 </Col>
                     </Row><br/>
                     <Row>
                         <Col>
-                            <Button onClick={console.log(this.state)}>Add Fabric</Button>
-                                {/* fabricList.push(<RequiredFabrics type={this.state.fabricType} quantity={this.state.quantity}/>)} variant="outline-success">*/}
+                            <Button variant="outline-success" onClick={(e) => this.handleSubmit(e)}>Add Fabric</Button>
+                                {/* fabricList.push(<RequiredFabric type={this.state.type} amount={this.state.amount}/>)} variant="outline-success">*/}
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <Form.Group controlId="finalOrder" />
                             <p><strong>Total Fabric Needed</strong></p>
-                            <RequiredFabrics type={this.state.fabricType} quantity={this.state.quantity}/>>
+                            <RequiredFabric type={this.state.type} amount={this.state.amount}/>
                         </Col>
                     </Row>
                 </div>
         )
     }
 }
-
-
-
-    
-
-    export default AddFabricCard;
+export default AddFabricCard;
